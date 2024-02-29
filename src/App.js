@@ -11,6 +11,9 @@ import Contact_Us from "./Component/Contact-us";
 import Construction from "./Component/Construction";
 import InteriorCalculator from "./Component/InteriorCalculator";
 import DrawerExample from "./Component/drawerExample";
+import ImageUploader from "./Component/imageuploader";
+import Projects from "./Component/Projects";
+import ProjectsDetail from "./Component/ProjectDetail";
 
 const App = () => {
  
@@ -29,6 +32,9 @@ const App = () => {
               <Route path="/construction" element={<Construction/>} />
               <Route path="/home-interior-price-calculator" element={<InteriorCalculator/>} />
               <Route path="/drawer" element={<DrawerExample/>} />
+              <Route path="/image" element={<ImageUploader/>} />
+              <Route path="/projects" element={<Projects/>} />
+              <Route path="/projectsdetails" element={<ProjectsDetail/>} />
               
              
              

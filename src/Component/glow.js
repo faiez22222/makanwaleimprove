@@ -84,9 +84,9 @@ const Glow = () => {
 
   return (
     <Flex   direction='column' justifyContent='center' alignContent='center'  width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}   >
-          <div class="wrapper"  style={{display:'flex' ,alignItems : 'center' ,  flexDirection: 'column', backgroundColor:'yellow'   }}  >
+          <div class="wrapper"  style={{display:'block' ,alignItems : 'center' ,  flexDirection: 'column', backgroundColor:'yellow',  marginTop :'50px', marginBottom  : '50px'   }}  >
             <h1>Home Construction Packages</h1>
-            <h1>End-to-End Construction</h1>
+            <Text fontSize='25px' > End-to-End Construction </Text>
           </div>
       <Tabs isLazy   orientation={isBelow720px ? 'vertical' : 'horizontal'  }   variant='unstyled'  width={['100%' , '100%'  , '100%' ,'100%'  ,'85%' , '75%' ]}   ml={['0px' , '0px' , '0px' , '0px' , '30px' , '180px']}  >    
           <TabList  marginLeft={isBelow720px ? '0px' : '100px'}  >
@@ -205,7 +205,498 @@ const Glow = () => {
           </TabList>
            <TabPanels>
               <TabPanel>
-                 <Tabpanel11/>
+              <TabPanel>
+                  <Tabpanel11/>
+            </TabPanel>
+            <TabPanel>
+              <Tabpanel12/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel13/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel14/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel15/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel16/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel17/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel18/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel19/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel110/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel111/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel112/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel113/>
+            </TabPanel>
+              </TabPanel>
+           </TabPanels>
+          </Tabs>
+         </TabPanel>
+         <TabPanel   style={{position : 'absolute'  }} top = {['220px' ,'220px' , '220px' , '220px' , '50px' ,'50px' ,]} left={['0px' ,'0px' ,'0px' ,'0px' ,'20px' ,'20px'  ]} width={['100%' ,'100%' ,'100%' ,'100%' ,'100%' ,'100%'  ]}       >
+         <Tabs isLazy orientation="vertical" variant='unstyled'  height='800px'        overflowY='auto'  >
+          <TabList  bgColor='grey'  top='0'        position='sticky' zIndex='sticky'   >
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px',}}   width={['50px' , '50px'  , '50px' ,'70px'  ,'70px' , '70px' ]}      >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon1}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}    >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon2}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon3}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon4}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon5}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon6}
+              alt='Dan Abramov'
+            />
+              </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon7}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon8}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon9}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon10}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }} >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon11}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon12}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  ><Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon13}
+              alt='Dan Abramov'
+            /></Tab>
+          </TabList>
+           <TabPanels>
+              <TabPanel>
+              <TabPanel>
+                  <Tabpanel11/>
+            </TabPanel>
+            <TabPanel>
+              <Tabpanel12/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel13/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel14/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel15/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel16/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel17/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel18/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel19/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel110/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel111/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel112/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel113/>
+            </TabPanel>
+              </TabPanel>
+           </TabPanels>
+          </Tabs>
+         </TabPanel>
+         <TabPanel   style={{position : 'absolute'  }} top = {['220px' ,'220px' , '220px' , '220px' , '50px' ,'50px' ,]} left={['0px' ,'0px' ,'0px' ,'0px' ,'20px' ,'20px'  ]} width={['100%' ,'100%' ,'100%' ,'100%' ,'100%' ,'100%'  ]}       >
+         <Tabs isLazy orientation="vertical" variant='unstyled'  height='800px'        overflowY='auto'  >
+          <TabList  bgColor='grey'  top='0'        position='sticky' zIndex='sticky'   >
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px',}}   width={['50px' , '50px'  , '50px' ,'70px'  ,'70px' , '70px' ]}      >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon1}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}    >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon2}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon3}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon4}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon5}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon6}
+              alt='Dan Abramov'
+            />
+              </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon7}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon8}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon9}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon10}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }} >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon11}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon12}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  ><Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon13}
+              alt='Dan Abramov'
+            /></Tab>
+          </TabList>
+           <TabPanels>
+              <TabPanel>
+              <TabPanel>
+                  <Tabpanel11/>
+            </TabPanel>
+            <TabPanel>
+              <Tabpanel12/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel13/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel14/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel15/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel16/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel17/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel18/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel19/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel110/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel111/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel112/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel113/>
+            </TabPanel>
+              </TabPanel>
+           </TabPanels>
+          </Tabs>
+         </TabPanel>
+         <TabPanel   style={{position : 'absolute'  }} top = {['220px' ,'220px' , '220px' , '220px' , '50px' ,'50px' ,]} left={['0px' ,'0px' ,'0px' ,'0px' ,'20px' ,'20px'  ]} width={['100%' ,'100%' ,'100%' ,'100%' ,'100%' ,'100%'  ]}       >
+         <Tabs isLazy orientation="vertical" variant='unstyled'  height='800px'        overflowY='auto'  >
+          <TabList  bgColor='grey'  top='0'        position='sticky' zIndex='sticky'   >
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px',}}   width={['50px' , '50px'  , '50px' ,'70px'  ,'70px' , '70px' ]}      >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon1}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}    >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon2}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon3}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon4}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon5}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon6}
+              alt='Dan Abramov'
+            />
+              </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon7}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon8}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon9}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon10}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }} >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon11}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon12}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  ><Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon13}
+              alt='Dan Abramov'
+            /></Tab>
+          </TabList>
+           <TabPanels>
+              <TabPanel>
+              <TabPanel>
+                  <Tabpanel11/>
+            </TabPanel>
+            <TabPanel>
+              <Tabpanel12/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel13/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel14/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel15/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel16/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel17/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel18/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel19/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel110/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel111/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel112/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel113/>
+            </TabPanel>
               </TabPanel>
            </TabPanels>
           </Tabs>
