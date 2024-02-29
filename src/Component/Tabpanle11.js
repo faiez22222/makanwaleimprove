@@ -1,5 +1,5 @@
 import React, { useState , useEffect  , useRef} from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem } from '@chakra-ui/react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem   , useMediaQuery, } from '@chakra-ui/react';
 
 import icon1 from './Images/Buildhood_Floor_plans.jpeg'
 import icon2 from './Images/silver1.jpg' 
@@ -40,11 +40,15 @@ const Tabpanel11 = () => {
          clearTimeout(timeoutRef.current);
        }
      }
+     const [isBelow720px] = useMediaQuery("(max-width: 720px)"); 
+     const gridProps = isBelow720px
+  ?{  templateRows : '2'  }
+  :  { templateColumns : 'repeat(2, 1fr)'  }
 
   return (
       
-           <Flex  width='100%'    bgColor='red'     >
-            <Grid templateColumns='repeat(2, 1fr)' width='100%'      >
+           <Flex  width='100%'       >
+            <Grid  {...gridProps}  width='100%'      >
                 <GridItem   >
                 <Box   >
                      <Text  fontWeight='600' fontSize='20px' >Design & Drawings</Text>

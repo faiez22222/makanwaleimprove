@@ -8,94 +8,114 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, Unordere
   Checkbox, 
   Stack, 
   useMediaQuery ,
+  Textarea ,
 } from '@chakra-ui/react';
 import architectural_service from './Images/architectural_service.jpg';
-import '@fortawesome/fontawesome-free/css/all.css';
+// import '@fortawesome/fontawesome-free/css/all.css';
 
 
 const Contact_us = () => {
   // State to track active tabs
   const [isBelow720px] = useMediaQuery("(max-width: 720px)"); 
+  const commonProps = {
+     mt: '70px',
+     // Add any other common props here
+   };
+   const gridProps = isBelow720px ?{flexDirection: 'column' } : {flexDirection : 'row'}
  
   return (
      <Flex
-     align="center"
-     justify="center"
-     minheight="100vh"
+     alignItems="center"
+     justifyContent="center"
+     minHeight="100vh"
+     width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}
      flexDirection="column"
    >
-       <Text fontSize={['70px' ,'100%' ,'100%' ,'75%' ,'75%' ,'1200px' ]} >Contact Form</Text>
-       <Box  borderRadius='42px'    bgColor =  '#fff1eb91'     width =  {['80%' ,'100%' ,'100%' ,'75%' ,'75%' ,'1200px' ]}    marginTop='80px'    >
-       <FormControl >
-        <VStack spacing='100px' marginTop='80px'  marginBottom='50px'  >
-        <Stack    direction= {isBelow720px ? 'column' : 'row'}   spacing='100px'    width= {['80%' ,'100%' ,'100%' ,'75%' , '850px' ,'850px' ]}  >
-        <Input    height='170px'      bgColor='white'      isRequired='true' placeholder='Name *'  />
-        <Input    height='170px'  bgColor='white'    isRequired='true' placeholder='Mobile *' />
-        </Stack  >
-        <Stack   direction= {isBelow720px ? 'column' : 'row'}   spacing='100px'    width= {['80%' ,'100%' ,'100%' ,'75%' , '850px' ,'850px' ]}   >
-        <Input   height='170px'  bgColor='white'    isRequired='true' placeholder='Email *' />
-        <Input    height='170px' bgColor='white'    isRequired='true' placeholder='Location *' />
-        </Stack>
-        <Stack  direction= {isBelow720px ? 'column' : 'row'}   spacing='100px'    width= {['80%' ,'100%' ,'100%' ,'75%' , '850px' ,'850px' ]}    >
-        <Input  height='170px'   bgColor='white'    isRequired='true' placeholder='City *' />
-        <Input   height='170px'  bgColor='white'    isRequired='true' placeholder='State *' />
-        </Stack>
-        <Select  height='170px'   bgColor='white' placeholder='Services'  width= {['80%' ,'100%' ,'100%' ,'75%' , '850px' ,'850px' ]}>
+          <Box>
+     <Text  fontSize='50px'  fontWeight='500'  mb="8" >
+        Contact Form
+     </Text>
+     </Box>
+     <Box  bgColor =  '#fff1eb91'  w= {['90%' , '90%' , '90%' , '75%px' , '75%' , '75%px' , '75%']}      align="center"justify="center"  borderRadius='20px'   >
+     <FormControl marginTop='30px' >
+     <VStack spacing='20px' >
+          <Stack  width='90%'  direction= {isBelow720px ? 'column' : 'row'} spacing='20px'  >
+          <Input type='Name' placeholder='Name *'   />
+          <Input  placeholder='Mobile *'   />
+          </Stack>
+          <Stack width='90%'  direction= {isBelow720px ? 'column' : 'row' } spacing='20px' >
+          <Input type='email' placeholder='email *'   />
+          <Input  placeholder='Mobile *'   />
+          </Stack>
+          <Stack  width='90%' direction= {isBelow720px ? 'column' : 'row'} spacing='20px' >
+          <Input   placeholder='City *'   />
+          <Input   placeholder='State *'   />
+          </Stack>
+          <Select width='90%' >
         <option>Construction</option>
         <option>Interior Design</option>
         <option>Renovation</option>
         <option>Architecture</option>
         </Select>
-        <Input    width= {['80%' ,'100%' ,'100%' ,'75%' , '850px' ,'850px' ]}  bgColor='white'   height={['500px' ,'100%' ,'100%' ,'75%' , '850px' ,'150px' ]}  borderRadius='30px'   isRequired='true' placeholder='Enter message' />
-        <HStack     spacing='100px'   width='850px'  mt='10px'  >
-        <Checkbox size='100px'  defaultChecked></Checkbox>
-        <Box  >
-        <Text  fontSize='60px' >
+        <Textarea
+               placeholder="Enter text"
+               height="150px" // Set the desired height here
+               width='90%'
+               />
+         <HStack       >
+        <Checkbox   defaultChecked></Checkbox>
+        <Box  textAlign='left'   >
+        <Text  >
               I accept the T&C of Buildhood. I am aware and understand that I will be contacted by representative of Buildhood company listed on the website via Calls, SMS OR Email with respected to marketing of its products & Services.
         </Text>
         </Box>
         </HStack>
-        <Button type="submit" bgColor="orange" color="white">Submit</Button>
-        </VStack>
-      </FormControl>
-       </Box>
-
-       <Box mt='100px'  mb='100px'    w='1200px'  >  
-          <Heading  as= 'h1' fontSize = 'x-large'   >Hire Our Trusted Service</Heading>
-          <HStack mt='20px'   height='130px'  >
-               <div style={{ display: 'block', alignItems: 'center'   , height:'115px'  }}>
-                    <i className="fas fa-phone" style={{ fontSize: "25px", color: 'orange' }}></i>
-                    <span style={{ marginLeft: '35px', fontWeight: 'Italic' , fontSize : '25px',  marginBottom :'10px' }}>Call Us</span>
-                    <Text  ml='55px'  >45789754433</Text>
-                          
-               </div>
-               <div style={{ display: 'block', alignItems: 'center' ,  marginLeft : '180px'  , height:'115px'  }}>
-                    <i className="fas fa-envelope" style={{ fontSize: "25px", color: 'orange' }}></i>
-                    <span style={{marginLeft: '35px'   ,  marginBottom :'10px' ,fontWeight: 'Italic' , fontSize:'25px'   }}>Email</span>
-                    
-                  
-                    <Text ml='55px' >enquiry@buildhood.com</Text>
-                    <Text ml='55px' >sales@buildhood.com</Text>
-                    <Text ml='55px' >careers@buildhood.com</Text>
-                      
-                    
-                    {/* Your other components or content */}
-               </div>
-               <div style={{ display: 'block', alignItems: 'center'  , height:'115px' , marginLeft : '120px'  }}>
-                    <i className="fas fa-map-marker" style={{ fontSize: "25px", color: 'orange' , marginLeft : '80px'  }}></i>
-                    <span style={{ marginLeft: '35px'   ,  marginBottom :'10px'  ,fontWeight: 'Italic' , fontSize : '25px' }}>Location</span>
-                    <Text  ml='130px' >#107, First Floor, Brigade Arcade</Text>
-                    <Text  ml='130px' >building, Brigade Metropolis,</Text>
-                    <Text  ml='130px'>Garudacharpalya, Whitefield Road,</Text>
-                    <Text  ml='130px' >Bengaluru, Pincode- 560048</Text>
-                    {/* Your other components or content */}
-               </div>
-          </HStack>     
-          <Button color='orange'>Build</Button>
+        <Button type="submit" bgColor="orange" color="white">Submit</Button>      
+           </VStack>     
+     </FormControl>
      </Box>
+     <Box justify = 'center' align = 'center'    w= {['90%' , '90%' , '90%' , '75%px' , '75%' , '75%px' , '75%']}  >
+          <Stack    direction=  {isBelow720px ? 'column' : 'row'}    mt='20px'   align = {isBelow720px ? 'center' : 'left'}    justify =  {isBelow720px ? 'center' : 'left'}   >
+               <Box  display={isBelow720px ? 'flex' : 'flex'}      w= {['90%' , '90%' , '90%' , '75%px' , '75%' , '75%px' , '75%']}   >
+                    <Box     >
+                  <i className="fas fa-phone" style={{ fontSize: "35px", color: 'orange' }}></i>
+                    </Box>
+                  <Box   textAlign='left'    ml='20px'  >
+                    <Text fontSize='25px' >Call Us</Text>
+                    <Text fontSize='20px'  >+45 78 9754433</Text>
+                    {/* Your other components or content */}
+               </Box>     
+               </Box>
+               <Box display={isBelow720px ? 'flex' : 'flex'}        w= {['90%' , '90%' , '90%' , '75%px' , '75%' , '75%px' , '75%']}  >
+               <Box   >     
+               <i className="fas fa-envelope" style={{ fontSize: "35px", color: 'orange' }}></i>
+               </Box>
+                   <Box   textAlign='left' ml='20px'   >
+                    <Text fontSize='25px'>Email</Text>
+                    <Text fontSize='19px' >enquiry@buildhood.com</Text>
+                    <Text fontSize='19px' >sales@buildhood.com</Text>
+                    <Text fontSize='19px' >careers@buildhood.com</Text>
+                    </Box> 
+                    {/* Your other components or content */}
+               </Box>
+               <Box display={isBelow720px ? 'flex' : 'flex'}      w= {['90%' , '90%' , '90%' , '75%px' , '75%' , '75%px' , '75%']}  >
+               <Box    >     
+               <i className="fas fa-map-marker" style={{ fontSize: "35px", color: 'orange' }}></i>
+               </Box>
+                   <Box   textAlign='left'  ml='20px'  >
+                    <Text   fontSize='25px'>Location</Text>
+                    <Text fontSize='19px'  >#107, First Floor, Brigade Arcade</Text>
+                    <Text fontSize='19px' >building, Brigade Metropolis,</Text>
+                    <Text fontSize='19px' >Garudacharpalya, Whitefield Road,</Text>
+                    <Text  fontSize='19px' >Bengaluru, Pincode- 560048</Text>
+                    </Box> 
+                    {/* Your other components or content */}
+               </Box>
+          </Stack>     
+          </Box>
+          <Button width='200px'     mt='30px'  bgColor='orange'>Build</Button>
 
-
-   </Flex>
+     </Flex>
   );
 };
 
