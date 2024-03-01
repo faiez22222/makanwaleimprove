@@ -23,7 +23,7 @@ const theme = extendTheme({
     },
   },
   config: {
-    initialColorMode: "dark",
+    initialColorMode: "light",
     useSystemColorMode: false,
   },
   breakpoints: {
