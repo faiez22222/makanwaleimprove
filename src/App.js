@@ -14,6 +14,7 @@ import DrawerExample from "./Component/drawerExample";
 import ImageUploader from "./Component/imageuploader";
 import Projects from "./Component/Projects";
 import ProjectsDetail from "./Component/ProjectDetail";
+import ArchitectureDesign from "./Component/ArchitectureDesign";
 
 const App = () => {
  
@@ -35,6 +36,7 @@ const App = () => {
               <Route path="/image" element={<ImageUploader/>} />
               <Route path="/projects" element={<Projects/>} />
               <Route path="/projectsdetails" element={<ProjectsDetail/>} />
+              <Route path="/architecture-portfolio" element={<ArchitectureDesign/>} />
               
              
              

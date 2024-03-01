@@ -17,6 +17,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text , Flex, C
   UnorderedList,
   useMediaQuery, 
   Spacer,
+  TabIndicator
 
 } from '@chakra-ui/react';
 import diamond from './Images/diamond.jpg'
@@ -42,56 +43,95 @@ const ArchitectureDesign = () => {
    const projectdetail = [firstprojectdetail , secondprojectdetail , thirdprojectdetail , fourthprojectdetail , fifthprojectdetail , sixthprojectdetail ]
   const gridProps = isBelow720px
   ?{  spacingY : '30px'  }
-  :  {   spacingY : '30px' , spacingX : '30px'  , columns : '2' }
+  :  {   spacingY : '15px' , spacingX : '15px'  , columns : '3' }
 
   return (
  
-            <Flex    width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}  align='center' justify='center'  minH='100vh'  >
-                   <Box    width={['95%', '90%' , '90%' , '90%' , '75%' , '75%'  ]}  mt='30px' >
-                       <Box   align='center' justify = 'center' >
-                           <Text fontSize='30px' >Home Construction Projects </Text> 
-                       </Box>
-                       <Box    align = 'center' justify = 'center'   marginTop='50px'  >
-                          <SimpleGrid  {...gridProps}  >
-                                {
-                                    projectdetail.map((item , index) =>(
-                                        <Box    height='500px'   borderRadius='2%'  borderWidth='1px'     transition="transform 0.3s ease-in-out"  _hover={{ transform: 'scale(1.1)' }}  >
-                                      
-                                       
-                                         <HStack  spacing='0px'  align = 'center' justify = 'center'  > 
-                                        <Image
-                                                width={['49.5%']}
-                                                height='430px'
-                                                objectFit='cover'
-                                                src= {item}
-                                                alt='Dan Abramov'
-                                                borderRadius='2%'
-                                        />
-                                          <Image
-                                                width={['49.5%']}
-                                                height='430px'
-                                                objectFit='cover'
-                                                src= {item}
-                                                alt='Dan Abramov'
-                                                borderRadius='2%'
-                                        />
-                                        </HStack>  
-                                        <Container display='flex'  mt='8px'  >
-                                            <Text  >BH202303SVR</Text>
-                                              <Spacer/>
-                                            <Text   >Bangalore</Text>
-                                        </Container>
-                                        <Box borderWidth='1px' ></Box>
-                                        <Container  display='flex'  mt='8px'  >
-                                            <Text  >Structure:</Text>
-                                              <Spacer/>
-                                            <Text   >Status:</Text>
-                                        </Container>
-                                        </Box>
-                                    ))
-                                }
-                          </SimpleGrid>
-                       </Box>
+            <Flex    width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}  align='center' justify='center'  minH='100vh'   >
+                   <Box  mt='100px'  flexDirection='column'  width={['90%' , '90%' , '80%' , '50%' , '75%' , '75%']}  align='center' justify='center'   >
+                          <Box align='center' justify='center' >
+                          <Text mt='10px'    fontSize='45px' fontWeight='400' fontFamily='Georgia, serif'    >Architecture Portfolio</Text>
+                          </Box>
+                          <Box   align ='center' justify='center'  w='100%'  mt='100px'  >
+                           
+                             <Tabs     width= {['100%' ,'100%' , '100%' , '55%' , '85%' , '75%' ]}   isLazy orientation={isBelow720px ? 'vertical' : 'horizontal'}  variant='unstyled' 
+                               overflowY= {isBelow720px ? 'auto' : 'hidden'}
+                               minH='100vh'
+                               >
+                                <TabList    >
+                                    <Tab 
+                                        _selected={{ color:'white', backgroundColor : 'orange' }}  
+                                        bgColor='#DCDCDC'   style={{  height : '50px'}} 
+                                        width={['310px' , '350px'  , '350px' ,'250px'  ,'350px' , '500px' ]}  
+                                     >
+                                        ALL
+                                    </Tab>
+                                    <Tab
+                                       _selected={{ color:'white', backgroundColor : 'orange' }}  
+                                       bgColor='#DCDCDC'   style={{  height : '50px'}} 
+                                       width={['310px' , '350px'  , '350px' ,'250px'  ,'350px' , '500px' ]}    
+                                    >
+                                        RESIDENTIAL
+                                    </Tab>
+                                    <Tab
+                                       _selected={{ color:'white', backgroundColor : 'orange' }}  
+                                       bgColor='#DCDCDC'   style={{  height : '50px'}} 
+                                       width={['310px' , '350px'  , '350px' ,'250px'  ,'350px' , '500px' ]}  
+                                    >
+                                        VILLAS
+                                    </Tab>
+                                    <Tab
+                                       _selected={{ color:'white', backgroundColor : 'orange' }}  
+                                       bgColor='#DCDCDC'   style={{  height : '50px'}} 
+                                       width={['310px' , '350px'  , '350px' ,'250px'  ,'350px' , '500px' ]}  
+                                    >
+                                        APARTMENTS
+                                    </Tab>
+                                    <Tab
+                                      _selected={{ color:'white', backgroundColor : 'orange' }}  
+                                      bgColor='#DCDCDC'   style={{  height : '50px'}} 
+                                      width={['310px' , '350px'  , '350px' ,'250px'  ,'350px' , '500px' ]}  
+                                    >
+                                        FARMHOUSES
+                                    </Tab>
+                                    <Tab
+                                       _selected={{ color:'white', backgroundColor : 'orange' }}  
+                                       bgColor='#DCDCDC'   style={{  height : '50px'}} 
+                                       width={['310px' , '350px'  , '350px' ,'250px'  ,'350px' , '500px' ]}  
+                                    >
+                                        INTERIOR
+                                    </Tab>
+                                </TabList   >
+                                 <TabPanels>
+                                    <TabPanel
+                                     position= {isBelow720px ? 'absolute' : 'static'}
+                                     width='100%'       
+                                     mt='10px'                                               
+                                     top = {['240px' ,'240px' , '240px' , '95px' , 'null' ,'null' ,]}
+                                     left={['0px' ,'0px' ,'0px' ,'0px' ,'null' ,'null'  ]} 
+                                   
+                                    >
+                                    <Box    align = 'center' justify = 'center'   marginTop='50px'  >
+                                            <SimpleGrid  {...gridProps}  >
+                                           {
+                                                projectdetail.map((item , index) =>(
+                                                   <Box>
+                                                       <Image
+                                                           boxSize= '100%'
+                                                           objectFit='cover'
+                                                           src= {item}
+                                                           alt='Dan Abramov'
+                                                           borderRadius='2%'
+                                                         />
+                                                   </Box>
+                                   ))
+                               }
+                         </SimpleGrid>
+                      </Box>
+                                    </TabPanel>
+                                 </TabPanels>
+                             </Tabs>
+                          </Box>
                    </Box>
             </Flex>
            

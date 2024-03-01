@@ -33,7 +33,7 @@ const MainLayoutBelow720px = () => {
   const [isBelow720px] = useMediaQuery("(max-width: 720px)");
   const [isVisible, setIsVisible] = useState(true);
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const firstField = React.useRef()
+  const btnRef = React.useRef()
   return (
      <Flex
      alignItems="center"
@@ -53,17 +53,29 @@ const MainLayoutBelow720px = () => {
     </Flex> 
     <Spacer/>
     <Flex>
-    <Button colorScheme='teal'>
-       <i className="fas fa-bars" style={{ fontSize: "45", color: 'orange' }}></i>
+    <Button colorScheme='teal'   ref={btnRef}  onClick={onOpen} >
+       <i className="fas fa-bars" style={{ fontSize: "45", color: 'orange' }} ></i>
     </Button>
-    </Flex>
-    {/* <Spacer/>
-    <Flex flexDirection='row'  marginRight='300px'   >
+     
+        <Drawer
+          isOpen={isOpen}
+          placement='left'
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+           
+  
+            <DrawerBody>
+            <Flex flexDirection='column'    >
     <div class="dropdown">
       <button class="dropbtn"><Text fontSize='15px' fontWeight='650' >HOME</Text></button>
         <div class="dropdown-content">
         </div>
     </div>
+    <Box borderWidth='1px'  ></Box>
 <div class="dropdown">
   <button class="dropbtn">
   <Text fontSize='15px' fontWeight='650' >PACKAGES <i class="fas fa-angle-down"></i></Text>
@@ -74,6 +86,7 @@ const MainLayoutBelow720px = () => {
        <a href="/construction-packages"><Text fontSize='15px' fontWeight='550' >Construction Packages</Text></a>
   </div>
 </div>
+<Box borderWidth='1px'  ></Box>
 <div class="dropdown">
 <button class="dropbtn">
 <Text fontSize='15px' fontWeight='650' >PROJECT <i class="fas fa-angle-down"></i></Text>
@@ -85,6 +98,7 @@ const MainLayoutBelow720px = () => {
        <div  style={{borderWidth : '1px' , borderColor : 'dark'}} ></div>
   </div>
 </div>
+<Box borderWidth='1px'  ></Box>
 <div class="dropdown">
   <button class="dropbtn">
   <Text fontSize='15px' fontWeight='650' >MORE  <i class="fas fa-angle-down"></i></Text>
@@ -99,7 +113,14 @@ const MainLayoutBelow720px = () => {
        <a href="/contact-us"><Text fontSize='15px' fontWeight='550' >Contact-us</Text></a>
   </div>
 </div>
-    </Flex> */}
+    </Flex>
+            </DrawerBody>
+  
+          </DrawerContent>
+        </Drawer>
+    </Flex>
+
+   
    
    </Flex>
   );

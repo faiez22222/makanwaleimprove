@@ -34,15 +34,14 @@ const InteriorCalculator = () => {
                 <Radio value='Sasuke'>Sasuke</Radio>
             </RadioGroup>
             <input></input>
-            <Select
-       
-          mr="2"
-        >
-          <option value="">Select Option</option>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </Select>
+            <Select>
+              <option>
+                 <Box display= 'flexk' >
+                    <Text>hey1</Text>
+                    <Text>hey2</Text>
+                 </Box>
+              </option>
+           </Select>
         <RadioGroup  >
           <Stack direction="row">
             <Radio value="radioOption1">Radio 1</Radio>

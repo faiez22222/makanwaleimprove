@@ -58,6 +58,10 @@ import homebanner from './Images/home-banner.png'
 import MainLayout from "./MainLayout";
 import MainLayoutBelow720px from "./MainKayoutBelow720px";
 import home_wallpaperbelow720 from './Images/home-construction-service.png'
+import fullhomeinterior from './Images/full-hi-1682068037-mSqKH.png'
+import kitchen from './Images/kitchen-copy-1682069840-cnYX7.jpg'
+import wardrobe from './Images/wardrobe-1-1682068117-6oLvL.png'
+import calculator from './Images/calculator-1682069838-tZQ4E.jpg'
 
 import buiildhood from './Images/buildhood-logo.png'
 
@@ -465,6 +469,146 @@ const Layout = () => {
                 />
              </Link>    
              <Construction/>    
+               {/* <Flex
+        justify='center'
+        align='center'
+        bgColor='white'
+        mt='50px'
+      >
+        <VStack spacing={4}>
+          <Text fontSize='2xl' fontWeight='bold' color='black'>
+            Get an estimate for your home interiors
+          </Text>
+          <Text color='black' fontSize='md' noOfLines={2}>
+            Calculate the approximate cost of doing up your home with our easy-to-use tool.
+          </Text>
+        </VStack>
+      </Flex> */}
+
+           
+           
+
+
+      <Box bgColor='white' p={8}  justify = 'center' align = 'center' >
+      <Text fontSize='40px'fontWeight='500' fontFamily=  'sans-serif'  >  Get an estimate for your home interiors</Text>
+      <Text fontSize='20px'fontWeight='450' fontFamily=  'sans-serif'  > Calculate the approximate cost of doing up your home with our easy-to-use tool.</Text>
+        <Flex justify='space-between' wrap='wrap' rowGap={2}  columnGap={5}   width='87%'  marginTop='40px'  >
+          <Card
+          width='400px'
+        onMouseEnter={() => handleMouseEnterCard(1)}
+        onMouseLeave={handleMouseLeaveCard}
+        style={getHoverStyle(1)}
+      >
+        <CardHeader >
+            <Box  display='flex'    justifyContent='space-between'  >
+            <Image
+                  boxSize='70px'
+                  bgColor='red'
+                  objectFit='cover'
+                  src={fullhomeinterior}
+                  alt='Dan Abramov'
+                
+                />
+                 
+                 <Image
+                  boxSize='70px'
+                  objectFit='cover'
+                  src={calculator}
+                  alt='Dan Abramov'
+                />
+            </Box>
+        </CardHeader>
+        <CardBody>
+            <Box  display='block' textAlign='left' >
+                <Text fontSize='18px'fontWeight='550' fontFamily=  'sans-serif'  >Full Home Interior</Text>
+                <Text>Know the estimate price for your full home interiors</Text>
+            </Box>
+        </CardBody>
+        <CardFooter>
+           <Box width='100%'>
+              <Button   width='100%' bgColor='#eb595f' color='white'    >Calculate</Button>
+           </Box>
+        </CardFooter>
+      </Card>
+
+      <Card 
+          onMouseEnter={() => handleMouseEnterCard(2)}
+          onMouseLeave={handleMouseLeaveCard}
+          style={getHoverStyle(2)}
+          width='400px'
+       >  
+        <CardHeader>
+        <Box  display='flex'    justifyContent='space-between'  >
+            <Image
+                  boxSize='70px'
+                  bgColor='red'
+                  objectFit='cover'
+                  src={kitchen}
+                  alt='Dan Abramov'
+                
+                />
+                 
+                 <Image
+                  boxSize='70px'
+                  objectFit='cover'
+                  src={calculator}
+                  alt='Dan Abramov'
+                />
+            </Box>
+        </CardHeader>
+        <CardBody>
+          <Box  display='block' textAlign='left' >
+                <Text fontSize='18px'fontWeight='570' fontFamily=  'sans-serif'  >Kitchen</Text>
+                <Text>get an approximate costing for you kitchen interior</Text>
+            </Box>
+        </CardBody>
+        <CardFooter>
+        <Box width='100%'>
+              <Button   width='100%' bgColor='#eb595f' color='white'    >Calculate</Button>
+        </Box>
+        </CardFooter>
+      </Card>
+
+      <Card  
+         onMouseEnter={() => handleMouseEnterCard(3)}
+         onMouseLeave={handleMouseLeaveCard}
+         style={getHoverStyle(3)}
+         width='400px'
+       >
+        <CardHeader>
+        <Box  display='flex'    justifyContent='space-between'  >
+            <Image
+                  boxSize='70px'
+                  bgColor='red'
+                  objectFit='cover'
+                  src={wardrobe}
+                  alt='Dan Abramov'
+                
+                />
+                 
+                 <Image
+                  boxSize='70px'
+                  objectFit='cover'
+                  src={calculator}
+                  alt='Dan Abramov'
+                />
+            </Box>
+        </CardHeader>
+        <CardBody>
+         
+          <Box  display='block' textAlign='left' >
+                <Text fontSize='18px'fontWeight='550' fontFamily=  'sans-serif'  >Wardrobe</Text>
+                <Text>Our rough math for your wardrobe</Text>
+            </Box>
+        </CardBody>
+        <CardFooter>
+        <Box width='100%'>
+              <Button   width='100%' bgColor='#eb595f' color='white'    >Calculate</Button>
+           </Box>
+        </CardFooter>
+      </Card>
+        </Flex>
+      </Box>
              {/* <Box bgColor= '#ffefea'  h='1000px'  width='100%'   align = 'center' justify = 'center'  >
           <Box  >
           <Heading   paddingTop='100px'  color='black' >How It Works?</Heading>
