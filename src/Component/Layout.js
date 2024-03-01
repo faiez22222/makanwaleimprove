@@ -222,7 +222,9 @@ const Layout = () => {
   ?{  spacingX : '100px'  }
   :  {  spacingY : '50px'  , columns : '4' }
 
-
+  const gridPropCards = isBelow720px
+  ?{  spacingY : '30px'  }
+  :  {   spacingY : '15px' , spacingX : '15px'  , columns : '3' }
   return (
     < >
       
@@ -492,7 +494,7 @@ const Layout = () => {
       <Box bgColor='white' p={8}  justify = 'center' align = 'center' >
       <Text fontSize='40px'fontWeight='500' fontFamily=  'sans-serif'  >  Get an estimate for your home interiors</Text>
       <Text fontSize='20px'fontWeight='450' fontFamily=  'sans-serif'  > Calculate the approximate cost of doing up your home with our easy-to-use tool.</Text>
-        <Flex justify='space-between' wrap='wrap' rowGap={2}  columnGap={5}   width='87%'  marginTop='40px'  >
+        <SimpleGrid {...gridPropCards}  justifyContent='center' alignItems='center'    width='85%'  marginTop='40px'  >
           <Card
           width='400px'
         onMouseEnter={() => handleMouseEnterCard(1)}
@@ -607,7 +609,7 @@ const Layout = () => {
            </Box>
         </CardFooter>
       </Card>
-        </Flex>
+        </SimpleGrid>
       </Box>
              {/* <Box bgColor= '#ffefea'  h='1000px'  width='100%'   align = 'center' justify = 'center'  >
           <Box  >
