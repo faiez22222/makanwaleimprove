@@ -21,7 +21,88 @@ const Contact_us = () => {
      mt: '70px',
      // Add any other common props here
    };
+   const [isNameError, setIsNameError] = useState(false);
+   const [isEmailError, setIsEmailError] = useState(false);
+   const [isMobileError, setIsMobileError] = useState(false);
+   const [isLocationError, setIsLocationError] = useState(false);
+   const [isCityError, setIsCityError] = useState(false);
+   const [isStateError, setIsStateError] = useState(false);
+   const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+    email: '',
+    location : '' ,
+    city: '',
+    state: '',
+    category: 'Construction',
+    message: '',
+    acceptTerms: false,
+  });
    const gridProps = isBelow720px ?{flexDirection: 'column' } : {flexDirection : 'row'}
+   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if(name ==='name'   )
+    {
+      setIsNameError(value.trim() === '');
+    }
+    if( name === 'mobile' ){
+        setIsMobileError(value.trim() === '')
+    }
+   if( name === 'city' ){
+      setIsCityError(value.trim() === '')
+  }
+   if( name === 'state' ){
+    setIsStateError(value.trim() === '')
+   }
+  if( name === 'location' ){
+      setIsLocationError(value.trim() === '')
+    }
+     if( name === 'email' ){
+      setIsEmailError(value.trim() === '')
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.name.trim() === ''   || formData.mobile.trim() === '' || formData.email.trim() === '' || formData.location.trim() === '' || formData.city.trim() === '' || formData.state.trim() === '' ) {
+      // Set error states for required fields
+      setIsNameError(formData.name.trim() === ''  );
+      setIsMobileError(formData.mobile.trim() === ''  );
+      setIsEmailError(formData.email.trim() === ''  );
+      setIsLocationError(formData.location.trim() === ''  );
+      setIsCityError(formData.city.trim() === ''  );
+      setIsStateError(formData.state.trim() === ''  );
+      // Set error states for other required fields if needed
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:3001/api/contact/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        console.log('Form data successfully submitted to the backend');
+        // You can handle successful form submission, e.g., redirect the user or show a success message
+      } else {
+        console.error('Failed to submit form data to the backend');
+        // You can handle failed form submission, e.g., show an error message to the user
+      }
+    } catch (error) {
+      console.error('Error submitting form data:', error);
+      // You can handle other errors, e.g., show a generic error message to the user
+    }
+  };
+
+
  
   return (
      <Flex
@@ -37,21 +118,73 @@ const Contact_us = () => {
      </Text>
      </Box>
      <Box  bgColor =  '#fff1eb91'  w= {['90%' , '90%' , '90%' , '75%px' , '75%' , '75%px' , '75%']}      align="center"justify="center"  borderRadius='20px'   >
-     <FormControl marginTop='30px' >
+     <FormControl marginTop='30px'  >
      <VStack spacing='20px' >
           <Stack  width='90%'  direction= {isBelow720px ? 'column' : 'row'} spacing='20px'  >
-          <Input type='Name' placeholder='Name *'   />
-          <Input  placeholder='Mobile *'   />
+          <Input
+           type='Name' 
+           placeholder='Name *' 
+           name='name'
+           value={formData.name}
+           onChange={handleChange}
+           isRequired={true}
+           isInvalid={isNameError}
+          />
+          
+            
+          <Input 
+           placeholder='Mobile *'  
+           name='mobile'
+           value={formData.mobile}
+           onChange={handleChange}
+           isRequired= {true}
+           isInvalid = {isMobileError}
+            />
           </Stack>
           <Stack width='90%'  direction= {isBelow720px ? 'column' : 'row' } spacing='20px' >
-          <Input type='email' placeholder='email *'   />
-          <Input  placeholder='Mobile *'   />
+          <Input
+           type='email'
+           name = 'email'
+           placeholder='email *' 
+           value = {formData.email} 
+           onChange={handleChange}
+           isRequired= {true}
+           isInvalid = {isEmailError}
+             />
+          <Input  
+           placeholder='Location *'  
+           name = 'location'
+           value = {formData.location}
+           onChange={handleChange}
+           isRequired= {true}
+           isInvalid = {isLocationError}
+           />
           </Stack>
           <Stack  width='90%' direction= {isBelow720px ? 'column' : 'row'} spacing='20px' >
-          <Input   placeholder='City *'   />
-          <Input   placeholder='State *'   />
+          <Input 
+          placeholder='City *'  
+          name = "city"
+          value={formData.city}
+          onChange={handleChange}
+          isRequired= {true}
+          isInvalid = {isCityError}
+           />
+          <Input 
+          placeholder='State *' 
+          name = 'state'
+          value={formData.state}
+          onChange={handleChange}
+          isRequired= {true}
+          isInvalid = {isStateError}
+            />
           </Stack>
-          <Select width='90%' >
+          <Select
+           width='90%'
+           name = 'category'
+           value = {formData.category}
+           onChange={handleChange}
+           isRequired= {true}
+            >
         <option>Construction</option>
         <option>Interior Design</option>
         <option>Renovation</option>
@@ -61,16 +194,25 @@ const Contact_us = () => {
                placeholder="Enter text"
                height="150px" // Set the desired height here
                width='90%'
+               name='message'
+                value={formData.message}
+                onChange={handleChange}
                />
          <HStack       >
-        <Checkbox   defaultChecked></Checkbox>
+        <Checkbox  
+          //  defaultChecked
+           name='acceptTerms'
+           checked={formData.acceptTerms}
+           onChange={handleChange}
+           isRequired= {true}
+         ></Checkbox>
         <Box  textAlign='left'   >
         <Text  >
               I accept the T&C of Buildhood. I am aware and understand that I will be contacted by representative of Buildhood company listed on the website via Calls, SMS OR Email with respected to marketing of its products & Services.
         </Text>
         </Box>
         </HStack>
-        <Button type="submit" bgColor="orange" color="white">Submit</Button>      
+        <Button type="submit" bgColor="orange" color="white"  onClick={handleSubmit} >Submit</Button>      
            </VStack>     
      </FormControl>
      </Box>

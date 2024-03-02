@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState  , useEffect} from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text , Flex, Container , SimpleGrid , Image, HStack , VStack ,
   Table,
   Thead,
@@ -30,19 +30,51 @@ import thirdprojectdetail from './Images/3projectdetail.jpg'
 import fourthprojectdetail from './Images/4projectdetail.jpg'
 import fifthprojectdetail from './Images/5projectdetail.jpg'
 import sixthprojectdetail from './Images/6projectdetail.jpeg'
+import axios from 'axios';
 
 const Projects = () => {
   // State to track active tabs
+    
+
+  const [formData, setFormData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/api/formData');
+        setFormData(response.data);
+      } catch (error) {
+        console.error('Error fetching form data:', error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures useEffect runs once when the component mounts
+  
+
+  const imageDataArray = formData.map((data) => {
+    // Extract the first value of imagePath1 and imagePath2
+    const image1 = data.imagePath1.length > 0 ? data.imagePath1[0] : null;
+    const image2 = data.imagePath2.length > 0 ? data.imagePath2[0] : null;
+  
+    // Create an object with the extracted values
+    return {
+      projectcode: data.projectcode,
+      image1,
+      image2,
+    };
+  });
 
   const [isBelow720px] = useMediaQuery("(max-width: 720px)");
   const commonProps = {
     mt: '70px',
     // Add any other common props here
   };
-   const projectdetail = [firstprojectdetail , secondprojectdetail , thirdprojectdetail , fourthprojectdetail , fifthprojectdetail , sixthprojectdetail ]
   const gridProps = isBelow720px
   ?{  spacingY : '30px'  }
   :  {   spacingY : '30px' , spacingX : '30px'  , columns : '2' }
+
+  const projectdetail = [firstprojectdetail , secondprojectdetail , thirdprojectdetail , fourthprojectdetail , fifthprojectdetail , sixthprojectdetail ]
 
   return (
  

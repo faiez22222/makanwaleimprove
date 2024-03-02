@@ -35,10 +35,11 @@ const app = express();
 const server = http.createServer(app);
 const feed = require('./routes/feedRoutes');
 const validateToken = require('./utils/validateToken');
-const imageRoutes = require('../server/routes/ImageUpload')
+
 const mongoose = require('mongoose');
 const multer = require('multer');
-const Image = require('./models/ImageUpload')
+const FormDataModel= require('./models/ImageUploaderDemo')
+const contactRoutes = require('../server/routes/ContactFormRoutes')
 // const io = initializeSocket(server);
 
 const corsOptions = {
@@ -50,6 +51,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
+app.use(express.static('upload'))
 
 
 
@@ -119,27 +121,83 @@ app.use(express.urlencoded({ extended: true, limit: '100mb' })); // <- Parses UR
   app.use('/api/landing-page',emailSubRoutes)
   app.use('/api/contest-plan-execution', executionRoutes)
   app.use('/api/discuss-item',discussRoutes)
-  
-  const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-      cb(null, file.originalname);
-    },
-  });
-  
-  const upload = multer({ storage: storage });
-  
-  // Routes
-  app.post('/upload', upload.single('image'), async (req, res) => {
-    const { filename, path } = req.file;
-    const newImage = new Image({ filename, path });
-    await newImage.save();
+  app.use('/api/contact' , contactRoutes)
 
-    res.json({ message: 'Image uploaded successfully!' });
-  });
 
+// Multer configuration for file uploads
+
+
+// Multer configuration for file uploads
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    const fileName = `${Date.now()}-${file.originalname}`;
+    cb(null, fileName);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+// Routes
+app.post('/api/upload', upload.single('image1') , async (req, res) => {
+  try {  
+    const { projectcode , client , location , area , floors , packages , status ,category } = req.body;
+    const existingFormData = await FormDataModel.findOne({ projectcode });
+
+    
+    if (existingFormData) {
+      // Update existing record with image path based on category
+      if (category === 'Design') {
+        existingFormData.imagePath1.push(req.file.path);
+      } else if (category === 'Construction') {
+        existingFormData.imagePath2.push(req.file.path);
+      }
+
+      // Save the updated record
+      await existingFormData.save();
+
+      res.json({ message: 'Image path added to existing form data successfully!' });
+    } else {
+      // Create a new database instance
+      const formData = {
+        projectcode,
+        client,
+        location,
+        area,
+        floors,
+        packages,
+        status,
+        category,
+      };
+
+      if (category === 'Design') {
+        formData.imagePath1 = [req.file.path];
+      } else if (category === 'Construction') {
+        formData.imagePath2 = [req.file.path];
+      }
+
+      const formDataInstance = new FormDataModel(formData);
+      await formDataInstance.save();
+
+      res.json({ message: 'Form data and image uploaded successfully!' });
+    }
+  } catch (error) {
+    console.error('Error uploading form data and image:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/api/formData', async (req, res) => {
+  try {
+    const formData = await FormDataModel.find();
+    res.json(formData);
+  } catch (error) {
+    console.error('Error retrieving form data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 app.use(errorController); // <- Error Handling Middleware
 

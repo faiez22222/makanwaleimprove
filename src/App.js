@@ -15,13 +15,14 @@ import ImageUploader from "./Component/imageuploader";
 import Projects from "./Component/Projects";
 import ProjectsDetail from "./Component/ProjectDetail";
 import ArchitectureDesign from "./Component/ArchitectureDesign";
-
+import MainLayout from "./Component/MainLayout";
+import Footer from "./Component/Footer";
 const App = () => {
  
 
   return (
     <>
-
+         <MainLayout/>
         <Routes>
         
             
@@ -43,7 +44,7 @@ const App = () => {
         
         </Routes>
    
-
+        <Footer/>
 
     </>
   );
