@@ -15,7 +15,7 @@ const Cost = () => {
 
   return (
     
-   <Flex  height="100vh"     width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}  flexDirection='column'  justifyContent='center' display='block'  >
+   <Flex  height="100vh"      width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']}  flexDirection='column'  justifyContent='center' display='block'  >
     <Box  width='75%'       ml=  {['40px' , '45px' , '50px' , '65px' , '135px' , '175px' , '300px']}   mt='90px'  justify='center' align='center'  >
     <Heading  >Cost Plus Model</Heading>
     </Box  >

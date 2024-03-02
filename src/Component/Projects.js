@@ -78,7 +78,7 @@ const Projects = () => {
 
   return (
  
-            <Flex    width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}  align='center' justify='center'  minH='100vh'  >
+            <Flex    width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']}   align='center' justify='center'  minH='100vh'  >
                    <Box    width={['95%', '90%' , '90%' , '90%' , '75%' , '75%'  ]}  mt='30px' >
                        <Box   align='center' justify = 'center' >
                            <Text fontSize='30px' >Home Construction Projects </Text> 

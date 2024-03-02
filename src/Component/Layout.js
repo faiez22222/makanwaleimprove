@@ -81,6 +81,8 @@ import Quality from './Images/Quality.png'
 import services from './Images/services.png' 
 import buiildhood from './Images/buildhood-logo.png'
 import "./ImageSlider.css";
+import costplusshort from './Images/costplusshort.png'
+
 
 const Layout = () => {
     const [showPackageList, setShowPackageList] = useState(false);
@@ -281,13 +283,6 @@ const colors = [
   return (
     < >
       
-        <Flex    w='100%' h='35px' >
-       </Flex>
-       {isBelow720px ? (
-        <MainLayoutBelow720px />
-      ) : (
-        <MainLayout />
-      )}
        <Image 
             boxSize='620px'
             objectFit='cover'
@@ -524,6 +519,18 @@ const colors = [
                 />
              </Link>    
              <Construction/>    
+       
+             <Link href = '/cost-plus-contract-house-construction' >
+             <Image 
+            boxSize='420px'
+            objectFit='cover'
+            src={isBelow720px ? costplusshort : costplus  }
+            alt='Dan Abramov'
+            width='100%'
+          />
+             </Link>
+            
+
                {/* <Flex
         justify='center'
         align='center'
@@ -550,6 +557,7 @@ const colors = [
         <SimpleGrid {...gridPropCards}  justifyContent='center' alignItems='center'    width='85%'  marginTop='40px'  >
           <Card
           width='400px'
+          height='300px'
         onMouseEnter={() => handleMouseEnterCard(1)}
         onMouseLeave={handleMouseLeaveCard}
         style={getHoverStyle(1)}
@@ -591,6 +599,7 @@ const colors = [
           onMouseLeave={handleMouseLeaveCard}
           style={getHoverStyle(2)}
           width='400px'
+          height='300px'
        >  
         <CardHeader>
         <Box  display='flex'    justifyContent='space-between'  >
@@ -629,6 +638,7 @@ const colors = [
          onMouseLeave={handleMouseLeaveCard}
          style={getHoverStyle(3)}
          width='400px'
+         height='300px'
        >
         <CardHeader>
         <Box  display='flex'    justifyContent='space-between'  >

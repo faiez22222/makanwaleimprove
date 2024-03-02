@@ -109,7 +109,7 @@ const Contact_us = () => {
      alignItems="center"
      justifyContent="center"
      minHeight="100vh"
-     width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}
+     width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1530px' , '2660px']}
      flexDirection="column"
    >
           <Box>

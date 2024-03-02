@@ -17,12 +17,18 @@ import ProjectsDetail from "./Component/ProjectDetail";
 import ArchitectureDesign from "./Component/ArchitectureDesign";
 import MainLayout from "./Component/MainLayout";
 import Footer from "./Component/Footer";
+import MainLayoutBelow720px from "./Component/MainKayoutBelow720px";
+import { useMediaQuery } from "@chakra-ui/react";
 const App = () => {
  
-
+  const [isBelow720px] = useMediaQuery("(max-width: 720px)");
   return (
     <>
-         <MainLayout/>
+           {isBelow720px ? (
+        <MainLayoutBelow720px />
+      ) : (
+        <MainLayout />
+      )}
         <Routes>
         
             

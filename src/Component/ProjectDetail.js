@@ -51,7 +51,7 @@ const ProjectsDetail = () => {
   return (
  
             <Flex
-                width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}  
+                width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']} 
                 align='center' justify='center'    minH='100vh' 
                  >
                   <Box justify = 'center' align = 'center'  flexDirection='column' marginTop='180px'  >
