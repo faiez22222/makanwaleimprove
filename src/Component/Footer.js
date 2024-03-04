@@ -20,7 +20,7 @@ const Footer = () => {
      justifyContent="center"
      bgColor='#262626' 
      flexDirection="column"
-     width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']} 
+     width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']} 
    >
       <Box 
         width= {['100%' , '100%' , '100%' , '75%' , '75%' , '75%' , '75%']}  

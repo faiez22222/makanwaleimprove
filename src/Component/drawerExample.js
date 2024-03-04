@@ -1,52 +1,30 @@
-import {
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    useDisclosure , 
-    Button ,  
-    Input , 
+import './Accordion.css'
 
-  } from '@chakra-ui/react'
-  import React from 'react'
+import React, { useState , useRef } from 'react';
 
-  function DrawerExample() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
-  
-    return (
-      <>
-        <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-          Open
-        </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement='right'
-          onClose={onClose}
-          finalFocusRef={btnRef}
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
-  
-            <DrawerBody>
-              <Input placeholder='Type here...' />
-            </DrawerBody>
-  
-            <DrawerFooter>
-              <Button variant='outline' mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme='blue'>Save</Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
-      </>
-    )
-  }
+const DrawerExample = () => {
+  const [isActive, setIsActive] = useState(false);
+  const [panelHeight, setPanelHeight] = useState('0px');
+  const panelRef = useRef(null);
+  const title = 'hey'
+  const content = "{<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>}"
 
-  export default DrawerExample
+  const toggleAccordion = () => {
+    setIsActive(!isActive);
+    setPanelHeight(isActive ? '0px' : `${panelRef.current.scrollHeight}px`);
+  };
+  
+
+  return (
+    <div>
+      <button className={`accordion ${isActive ? 'active' : ''}`} onClick={toggleAccordion}>
+        {title}
+      </button>
+      <div className="panel" style={{ maxHeight: panelHeight }} ref={panelRef}>
+        {content}
+      </div>
+    </div>
+  );
+};
+
+export default DrawerExample;

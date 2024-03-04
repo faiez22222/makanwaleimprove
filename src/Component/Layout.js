@@ -97,53 +97,54 @@ const Layout = () => {
     const [isequal320px] = useMediaQuery("(width: 320px)");
     const [isAbove0px] = useMediaQuery("(min-width: 0px)");
 
+
+    const [distance, setDistance] = useState(0); // Initialize distance with a default value
+  const circle1Ref = useRef(null);
+  const circle2Ref = useRef(null);
+
+  useEffect(() => {
+    const calculateDistance = () => {
+      if (circle1Ref.current && circle2Ref.current) {
+        const rect1 = circle1Ref.current.getBoundingClientRect();
+        const rect2 = circle2Ref.current.getBoundingClientRect();
+
+        const centerX1 = rect1.left + rect1.width / 2;
+        const centerY1 = rect1.top + rect1.height / 2;
+       
+
+        const centerX2 = rect2.left + rect2.width / 2;
+        const centerY2 = rect2.top + rect2.height / 2;
+
+        const dx = centerX2 - centerX1;
+        const dy = centerY2 - centerY1;
+
+        const distance = Math.sqrt(dx ** 2 + dy ** 2);
+        setDistance(distance);
+        alert(distance)
+      }
+    };
+
+   
+    calculateDistance();
+
+    // Add event listeners or any other logic that may change the positions of the circles
+
+    // Cleanup function
+    const cleanup = () => {
+      // Remove event listeners or perform any cleanup
+    };
+
+    // Attach cleanup function
+    return cleanup;
+  }, [circle1Ref.current, circle2Ref.current]);
+   
+
+
     
     const firstField = React.useRef()
     const btnRef = React.useRef()
 
-    let x=0
-    let y = 0
-    let width = 0
-    let ballHeight=0
-    let ballWidth = 0
-    let ballLeft = {
-      x:23  ,
-      y:10 ,
-    }
-    let ballTop = 0
-   if(isequal1440px &&  isAbove1024px )
-   {
-    x=27.2
-    y=10
-    width = '80px'
-    ballHeight='60px'
-    ballWidth =  '60px'
-    ballLeft.x = 0
-    ballLeft.y =0
-    ballTop = 20
-   }
-   if(isequal1024px && isAbove720px )
-   {
-    x=29
-    y=10
-    width= '40px'
-    ballHeight="60px"
-    ballWidth = "60px"
-    ballLeft.x = 23
-    ballLeft.y =10
-    ballTop = 20
-   }
-   if(isequal320px &&  isAbove0px )
-   {
-    x=19
-    y=13
-    width= '10px'
-    ballHeight="40px"
-    ballWidth = "40px"
-    ballLeft.x = 8
-    ballLeft.y =14
-    ballTop = 20
-   }
+   
 
   
     const handleMouseEnter = () => {
@@ -192,46 +193,38 @@ const Layout = () => {
     // Set up a timer to switch the active circular box
     const intervalId = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 6);
-    }, 2000); // Change the duration as needed
+    }, 3000); // Change the duration as needed
 
     // Clear the timer on component unmount to avoid memory leaks
     return () => clearInterval(intervalId);
   }, []);
 
-  const radius = 50; // Adjust the radius as needed
-
-  const calculatePosition = (index) => {
-    const x = ballLeft.x+ (index * ballLeft.y); // Adjust the spacing as needed
-    const y = 20; // Center vertically
-    return { x, y };
+  
+  const variants = {
+    initial: { opacity: 0, x: "-100%" },
+    animate: { opacity: 1, x: "0%" },
+    exit: { opacity: 0, x: "100%" },
   };
+ 
 
-  const renderText = () => {
-    const images = [
-      consultation ,
-      reviewourwork,
-      constructionPlaceTheOrder,
-      designphane,
-      construction,
-      movein
-    ];
-    switch (activeIndex) {
-      case 0:
-        return { text1 : '1. Consultation' , text2 : 'Raise an enquiry or call us on +91 7802-80-80-80, our Technical expert will get in touch with you and take all your detailed requirements and provide you the estimation for your requiremen' ,  image: images[0]};
-      case 1:
-        return { text1 : '2. Review our work' , text2 :  'Review our work Visit our Projects and get to know about our work and quality, come to office, discuss, and close the deal' ,image: images[1] };
-      case 2:
-        return { text1 : '3. Place the order' , text2 : ' Place the order Find your good day and sign the transparent construction contract. It helps us to proceed further with Design.' ,image: images[2] };
-      case 3:
-        return { text1 : '4. Design' , text2 : ' Our experienced Architect will provide you the quality Designs and Architecture as per your requirements and inputs. Discuss and finalize the Design.', image: images[3]  };
-      case 4:
-        return { text1 : '5. Execution & Tracking' , text2 : 'construction work flow image 5. Execution & Tracking Project execution will be started. Our project management team will be updating you the daily work progress in the form of Photos and Videos.' ,image: images[4] };
-      case 5:
-        return { text1 : '6. Move in ' , text2 :  'Move in We make sure the project completes on time without any hassles. You can Happily move into your Dream Home. ' ,image: images[5] };
-      default:
-        return {  text1 : " " , text2: '', image: '' };
-    }
-  };
+  const images = [
+    consultation,
+    reviewourwork,
+    constructionPlaceTheOrder,
+    designphane,
+    construction,
+    movein,
+  ];
+
+  const data = [
+    { text1 : '1. Consultation' , text2 : 'Raise an enquiry or call us on +91 7802-80-80-80, our Technical expert will get in touch with you and take all your detailed requirements and provide you the estimation for your requiremen', image: images[0] },
+    { text1 : '2. Review our work' , text2 :  'Review our work Visit our Projects and get to know about our work and quality, come to office, discuss, and close the deal', image: images[1] },
+    { text1 : '3. Place the order' , text2 : ' Place the order Find your good day and sign the transparent construction contract. It helps us to proceed further with Design.', image: images[2] },
+    { text1 : '4. Design' , text2 : ' Our experienced Architect will provide you the quality Designs and Architecture as per your requirements and inputs. Discuss and finalize the Design.', image: images[3] },
+    { text1 : '5. Execution & Tracking' , text2 : 'construction work flow image 5. Execution & Tracking Project execution will be started. Our project management team will be updating you the daily work progress in the form of Photos and Videos.', image: images[4] },
+    { text1 : '6. Move in ' , text2 :  'Move in We make sure the project completes on time without any hassles. You can Happily move into your Dream Home. ', image: images[5] },
+    
+  ];
 
   const commonProps = {
     mt: '70px',
@@ -278,6 +271,7 @@ const colors = [
     }
   }
 
+ 
 
 
   return (
@@ -674,79 +668,142 @@ const colors = [
       </Card>
         </SimpleGrid>
       </Box>
-             {/* <Box bgColor= '#ffefea'  h='1000px'  width='100%'   align = 'center' justify = 'center'  >
+          <Box   bgColor= '#ffefea'  width='100%'     justify = 'center' align='center' >
           <Box  >
-          <Heading   paddingTop='100px'  color='black' >How It Works?</Heading>
+          {/* <Heading     color='black' >How It Works?</Heading> */}
           </Box>
-   <motion.div
-   style={{
-            
-            position: 'relative',
-            marginTop: '50px',
-            backgroundColor : 'blue' , 
-            height: '300px',
-            margin: 'auto',
-            justifyContent : 'center' ,
-          }}
-        >
-   {[...Array(6).keys()].map((index) => (
-     <motion.div
-       key={index}
-       style={{
-         position: 'absolute',
-         left: `${calculatePosition(index).x}%`,
-         top: `${calculatePosition(index).y}%`,
-         borderRadius: '50%',
-         width: `${ballWidth}`,
-         height:  `${ballHeight}`,
-         backgroundColor: index === activeIndex ? '#ff8c00' : '#a9a9a9',
-         justifyContent : 'center' ,
-        alignContent : 'center'
+              <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }    >
+  
+              <Flex
+                    ref={circle1Ref}
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 0 ? "#ff8c00" : "#a9a9a9"}
+                 
+                    >
+                         
+                      
+                    </Flex>
+                  
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 1 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                    
+                    </Flex>
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 2 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                    </Flex>
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 3 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                    
+                     
+                         
+                  
+                    </Flex>
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 4 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                     
+                         
+                  
+                    </Flex>
+                    <Flex
+                     ref={circle2Ref}
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 5 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                        <Box  borderWidth='10px' position='absolute'     style={{ marginLeft:`-${ distance}px`,  width: `${ distance}px` }}     borderColor='grey' zIndex='-1'   >  
+                                  {distance}             
+                         </Box>
+                      
+                  
+                    </Flex>     
+              </Box>
+        
+              <Box     h='800px'  width='100%'   align = 'center' justify = 'center' >
+              <div style={{borderWidth : '1px'  , marginTop : '10px' , marginLeft:'10px',  backgroundColor :'yellow' , h : '1500px',  width:'100%' }} ></div>
+                    <div className="slideshow" style={{marginTop: '20px'}} >
+                      <div
+                         className="slideshowSlider"
+                         style={{ transform: `translate3d(${-activeIndex * 100}%, 0, 0)` }}
+                       >
+                     {data.map((backgroundColor, index) => (
+                     <div className="slide" key={index} >
+                                                    <Image
+                        boxSize='200px'
+                        objectFit='cover'
+                        src={backgroundColor.image}
+                        alt='Dan Abramov'
+                        w='100%'
+                        height='450px'
+                      />
+                                
+                      <Card   display='block' textAlign= 'left'   width='700px' height='130px'  overflow='hidden'   >
+                        <Text   overflow='hidden'  fontSize='20px'   ml='20px'  marginTop='25px' color='orange'>{backgroundColor.text1}</Text>
+                        <Text      ml='20px' color='black'>{backgroundColor.text2}</Text>
+                      </Card>       
+                                   
+                                  
+                     </div>
+                      ))}
+                      </div>
+                    
+                   </div>
+              </Box>
+          </Box>
+         
 
-       }}
-     >
-       <Text marginTop='15px'  fontSize='18px' >{index + 1}</Text>
-     </motion.div>
-   ))}
-   {[...Array(5).keys()].map((index) => (
-     <motion.div
-       key={index}
-       style={{
-         position: 'absolute',
-         left: `${x + (index) * y}%`,
-         top: `${28}%`,
-         width: `${width}`,
-         height: '1px',
-         backgroundColor: 'black',
-
-       }}
-     />
-   ))}
-   <motion.div
-     style={{
-       position: 'absolute',
-       left: '65%',
-       top: '150%',
-       transform: 'translate(-50%, -50%)',
-     
-     }}
-   >
-           <Image
-       boxSize='200px'
-       objectFit='cover'
-       src={renderText().image}
-       alt='Dan Abramov'
-       w='100%'
-       height='500px'
-     />
-     <Card bgColor='white' w='900px'  height='150px'  borderRadius='20px'  >
-    <Text fontSize='20px'   ml='20px'  marginTop='25px' color='orange'>{renderText().text1}</Text>
-    <Text   ml='20px' color='black'>{renderText().text2}</Text>
-     </Card>
-   </motion.div>
- </motion.div>
-
- </Box> */}
  <Box   bgColor='#f2f2f2'   align='center' justify='center'   >
           <Heading color='black'  paddingTop='70px' >Advantages of Cost-Plus Model</Heading>
           <Box overflowX='auto'   width='100%'  >

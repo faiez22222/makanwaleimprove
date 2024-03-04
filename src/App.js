@@ -24,11 +24,11 @@ const App = () => {
   const [isBelow720px] = useMediaQuery("(max-width: 720px)");
   return (
     <>
-           {isBelow720px ? (
+           {/* {isBelow720px ? (
         <MainLayoutBelow720px />
       ) : (
         <MainLayout />
-      )}
+      )} */}
         <Routes>
         
             

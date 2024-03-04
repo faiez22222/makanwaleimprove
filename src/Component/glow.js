@@ -83,12 +83,12 @@ const Glow = () => {
   ];
 
   return (
-    <Flex   direction='column' justifyContent='center' alignContent='center'  width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']}   >
-          <div class="wrapper"  style={{display:'block' ,alignItems : 'center' ,  flexDirection: 'column', backgroundColor:'yellow',  marginTop :'50px', marginBottom  : '50px'   }}  >
+    <Flex   direction='column' justifyContent='center' alignContent='center'  width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']} bgColor='red'  >
+          <div class="wrapper"  style={{display:'block' ,alignItems : 'center' ,  flexDirection: 'column',  marginTop :'50px', marginBottom  : '50px'   }}  >
             <h1>Home Construction Packages</h1>
             <Text fontSize='25px' > End-to-End Construction </Text>
           </div>
-      <Tabs isLazy   orientation={isBelow720px ? 'vertical' : 'horizontal'  }   variant='unstyled'  width={['100%' , '100%'  , '100%' ,'100%'  ,'85%' , '75%' ]}   ml={['0px' , '0px' , '0px' , '0px' , '30px' , '180px']}  >    
+      <Tabs isLazy   orientation={isBelow720px ? 'vertical' : 'horizontal'  }   variant='unstyled'  width={['100%' , '100%'  , '100%' ,'100%'  ,'85%' , '75%' ]}   ml={['0px' , '0px' , '0px' , '0px' , '30px' , '180px']} height='1100px'    >    
           <TabList  marginLeft={isBelow720px ? '0px' : '100px'}  >
      
       <Tab   _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='#DCDCDC'   style={{  height : '50px'}} width={['250px' , '280px'  , '330px' ,'250px'  ,'200px' , '330px' ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  >Silver</Tab>

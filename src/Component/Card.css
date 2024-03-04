@@ -1,8 +1,8 @@
 /* Card.css */
 
 .card {
-    width: 200px;
-    height: 150px;
+    width: 240px;
+    height: 180px;
     perspective: 1000px;
     cursor: pointer;
   }
