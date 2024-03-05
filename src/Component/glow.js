@@ -83,7 +83,7 @@ const Glow = () => {
   ];
 
   return (
-    <Flex   direction='column' justifyContent='center' alignContent='center'  width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']} bgColor='red'  >
+    <Flex   direction='column' justifyContent='center' alignContent='center'  width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}   >
           <div class="wrapper"  style={{display:'block' ,alignItems : 'center' ,  flexDirection: 'column',  marginTop :'50px', marginBottom  : '50px'   }}  >
             <h1>Home Construction Packages</h1>
             <Text fontSize='25px' > End-to-End Construction </Text>

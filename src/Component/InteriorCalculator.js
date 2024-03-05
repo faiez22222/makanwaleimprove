@@ -18,8 +18,15 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, Unordere
     Container,
     Link,
     Image ,
+    Input  ,
+    FormErrorMessage,
+    FormHelperText,
+    Checkbox ,
    } from '@chakra-ui/react';
    import { MinusIcon , AddIcon , CheckIcon }    from '@chakra-ui/icons'
+   import essentials from './Images/essentials-desktop-1677569928-WCHBw.jpg'
+   import premium from './Images/premium-desktop-1677569932-Tc87O.jpg'
+   import luxury from './Images/luxe-desktop-1677569931-ZV4Be.jpg'
 
 const InteriorCalculator = () => {
   // State to track active tabs
@@ -64,24 +71,75 @@ useEffect(() => {
 
  
 
-
-
-   const form = {
-      bhk : "",
-      rooma : "" , 
+  const [formData, setFormData] = useState({
+    bhk : "1 BHK",
+      room : "" , 
       package : "" ,
       Name  : "" ,
       Emailid : "" , 
       Checked : "" , 
       PropertyName : ""
 
-   }
+  });
+
+   const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
 
    const [index, setIndex] = useState(0);
+   const [first, setFirst] = useState(0);
+   const [second, setSecond] = useState(0);
+   const [third, setThird] = useState(0);
+   const [fourth, setFourth] = useState(0);
+   const [five, setFive] = useState(0);
 
   const handleButtonClick = () => {
     setIndex(index + 1);
   };
+
+  const handleFirstPlusClick = () => {
+    setFirst(first + 1);
+  };
+  const handleFirstMinusClick = () => {
+    if(first > 0 ) setFirst(first - 1);
+  };
+
+  const handleSecondPlusClick = () => {
+    setSecond(second + 1);
+  };
+  const handleSecondMinusClick = () => {
+    if(second > 0 ) setSecond(second - 1);
+  };
+
+
+  const handleThirdPlusClick = () => {
+    setThird(third + 1);
+  };
+  const handleThirdMinusClick = () => {
+    if(third > 0 ) setThird(third - 1);
+  };
+
+
+  const handleFourthPlusClick = () => {
+    setFourth(fourth + 1);
+  };
+  const handleFourthMinusClick = () => {
+    if(fourth > 0 ) setFive(fourth - 1);
+  };
+
+  const handleFivePlusClick = () => {
+    setFive(five + 1);
+  };
+  const handleFiveMinusClick = () => {
+    if(five > 0 ) setFive(five - 1);
+  };
+
+
+
+ 
+
+
 
   return (
    
@@ -159,23 +217,17 @@ useEffect(() => {
        
         </Box   >
              { index=== 0 &&  ( 
-              <Box width='60%'    marginTop='50px'  borderWidth='1px'    >
-                  <Box   width='50%'      display='block'  justifyContent='space-between'  mt='50px'  zIndex='1000'   >
-                      <RadioGroup >
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'60%'  ]}      marginTop='50px'    >
+                  <Box   width= {["100%" ,  "100%", "100%" , "50%" , "50%" , "50%" ]}      display='block'  justifyContent='space-between'  mt='50px'  zIndex='1000'    borderWidth='1px'  >
+                      <RadioGroup  defaultValue='0'    onChange={handleInputChange} value={formData.bhk} name="bhk"  >
                         <Stack direction='column'  spacing='15px'      >
                         <Accordion allowMultiple  width='100%'    borderWidth='1px'   >
                                     <AccordionItem  borderColor="whitesmoke"  >
                                       <h2>
                                         <AccordionButton>
-                                        <Box justifyContent = "space-between" display='flex'  >
-                                          
-
-                                        <RadioGroup defaultValue='1'>
-                                              <Radio colorScheme='white' value='1'>
-                                                Radio
-                                              </Radio>
-                                        </RadioGroup>     
-                                          </Box>
+                                           <Radio value = '0'  color='#eb595f'  >
+                                             1 BHK
+                                           </Radio>
                                         </AccordionButton>
                                       </h2>
                                     </AccordionItem>
@@ -184,35 +236,25 @@ useEffect(() => {
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
                                         <AccordionButton>
-                                        <Box justifyContent = "space-between" display='flex'  >
-                                          
-
-                                        <RadioGroup defaultValue='1'>
-                                              <Radio colorScheme='white' value='1'>
-                                                Radio
-                                              </Radio>
-                                        </RadioGroup>     
                                           <AccordionIcon />
-                                          </Box>
                                         </AccordionButton>
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
-                                      <RadioGroup defaultValue='2'>
+                                     
                                               <Stack spacing={5} direction='row'>
-                                                <Radio colorScheme='white' value='1'>
-                                                      <Box width='100%'  >
+                                              <Radio color='#eb595f' value='1'>
+                                                <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio colorScheme='green' value='2'>
+                                                <Radio color='#eb595f' value='2'>
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
                                               </Stack>
-                                              </RadioGroup>
                                       </AccordionPanel>
                                     </AccordionItem>
                                   </Accordion>
@@ -220,35 +262,26 @@ useEffect(() => {
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
                                         <AccordionButton>
-                                        <Box justifyContent = "space-between" display='flex'  >
-                                          
-
-                                        <RadioGroup defaultValue='1'>
-                                              <Radio colorScheme='white' value='1'>
-                                                Radio
-                                              </Radio>
-                                        </RadioGroup>     
                                           <AccordionIcon />
-                                          </Box>
                                         </AccordionButton>
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
-                                      <RadioGroup defaultValue='2'>
+                                     
                                               <Stack spacing={5} direction='row'>
-                                                <Radio colorScheme='white' value='1'>
+                                                <Radio color='#eb595f'  value='3'>
                                                       <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio colorScheme='green' value='2'>
+                                                <Radio color='#eb595f' value='4'>
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
                                               </Stack>
-                                              </RadioGroup>
+
                                       </AccordionPanel>
                                     </AccordionItem>
                                   </Accordion>
@@ -256,35 +289,26 @@ useEffect(() => {
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
                                         <AccordionButton>
-                                        <Box justifyContent = "space-between" display='flex'  >
-                                          
-
-                                        <RadioGroup defaultValue='1'>
-                                              <Radio colorScheme='white' value='1'>
-                                                Radio
-                                              </Radio>
-                                        </RadioGroup>     
+                                               
                                           <AccordionIcon />
-                                          </Box>
+                                      
                                         </AccordionButton>
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
-                                      <RadioGroup defaultValue='2'>
                                               <Stack spacing={5} direction='row'>
-                                                <Radio colorScheme='white' value='1'>
+                                                <Radio color='#eb595f'  value='5'>
                                                       <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio colorScheme='green' value='2'>
+                                                <Radio color='#eb595f' value='6'>
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
                                               </Stack>
-                                              </RadioGroup>
                                       </AccordionPanel>
                                     </AccordionItem>
                                   </Accordion>
@@ -292,38 +316,27 @@ useEffect(() => {
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
                                         <AccordionButton>
-                                        <Box justifyContent = "space-between" display='flex'  >
-                                          
-
-                                        <RadioGroup defaultValue='1'>
-                                              <Radio colorScheme='white' value='1'>
-                                                Radio
-                                              </Radio>
-                                        </RadioGroup>     
-                                          <AccordionIcon />
-                                          </Box>
+                                          <AccordionIcon />                                 
                                         </AccordionButton>
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
-                                      <RadioGroup defaultValue='2'>
                                               <Stack spacing={5} direction='row'>
-                                                <Radio  value='1'>
+                                                <Radio  value='7'>
                                                       <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio colorScheme='green' value='2'>
+                                                <Radio color='#eb595f' value='8'>
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
                                               </Stack>
-                                              </RadioGroup>
                                       </AccordionPanel>
                                     </AccordionItem>
-                                  </Accordion>
+                                  </Accordion>s
                         </Stack>
                       </RadioGroup>
                   </Box>
@@ -351,6 +364,7 @@ useEffect(() => {
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'   width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}  >
+                                    <button  onClick={handleFirstPlusClick} >
                                   <Flex
         
                                     align="center"
@@ -366,7 +380,9 @@ useEffect(() => {
                                     >
                                           <AddIcon color='white'  />
                                       </Flex>
-                                      <Text fontSize='20px' >1</Text>
+                                      </button>
+                                      <Text fontSize='20px' >{first}</Text>
+                                      <button onClick={handleFirstMinusClick} >
                                       <Flex
         
                                     align="center"
@@ -382,17 +398,18 @@ useEffect(() => {
                                     >
                                           <MinusIcon color='white'  />
                                       </Flex>
+                                      </button>
                                   </Box>
                              </Container>
                              <Container  display='flex' justifyContent='space-between'  borderWidth='1px' borderRadius='10px'  paddingTop='10px' paddingBottom='10px'  width={['100%' ,'100%' ,'100%' ,'40%','40%','40%','40%']}    >
                                   <Box>
                                      <Text>
-                                       Living Room
+                                        Kitchen
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'    width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}   >
+                                    <button onClick={handleSecondPlusClick} >
                                   <Flex
-        
                                     align="center"
                                     justify="center"
                                     width= '30px'
@@ -406,7 +423,9 @@ useEffect(() => {
                                     >
                                           <AddIcon color='white'  />
                                       </Flex>
-                                      <Text fontSize='20px' >1</Text>
+                                      </button  >  
+                                      <Text fontSize='20px' >{second}</Text>
+                                      <button   onClick={handleSecondMinusClick}  >
                                       <Flex
         
                                     align="center"
@@ -422,15 +441,17 @@ useEffect(() => {
                                     >
                                           <MinusIcon color='white'  />
                                       </Flex>
+                                      </button>
                                   </Box>
                              </Container>
                              <Container  display='flex' justifyContent='space-between'  borderWidth='1px' borderRadius='10px'  paddingTop='10px' paddingBottom='10px'  width={['100%' ,'100%' ,'100%' ,'40%','40%','40%','40%']}    >
                                   <Box>
                                      <Text>
-                                       Living Room
+                                        Bedroom
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'    width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}   >
+                                    <button  onClick={handleThirdPlusClick}  >
                                   <Flex
         
                                     align="center"
@@ -446,7 +467,9 @@ useEffect(() => {
                                     >
                                           <AddIcon color='white'  />
                                       </Flex>
-                                      <Text fontSize='20px' >1</Text>
+                                      </button>
+                                      <Text fontSize='20px' >{third}</Text>
+                                      <button  onClick={handleThirdMinusClick}  >
                                       <Flex
         
                                     align="center"
@@ -462,15 +485,17 @@ useEffect(() => {
                                     >
                                           <MinusIcon color='white'  />
                                       </Flex>
+                                      </button>
                                   </Box>
                              </Container>
                              <Container  display='flex' justifyContent='space-between'  borderWidth='1px' borderRadius='10px'  paddingTop='10px' paddingBottom='10px'  width={['100%' ,'100%' ,'100%' ,'40%','40%','40%','40%']}    >
                                   <Box>
                                      <Text>
-                                       Living Room
+                                         Bathroom
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'   width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}   >
+                                    <button onClick={handleFourthPlusClick}  >
                                   <Flex
         
                                     align="center"
@@ -486,7 +511,9 @@ useEffect(() => {
                                     >
                                           <AddIcon color='white'  />
                                       </Flex>
-                                      <Text fontSize='20px' >1</Text>
+                                      </button>
+                                      <Text fontSize='20px' >{fourth}</Text>
+                                      <button  onClick={handleFourthMinusClick}  >
                                       <Flex
         
                                     align="center"
@@ -502,15 +529,17 @@ useEffect(() => {
                                     >
                                           <MinusIcon color='white'  />
                                       </Flex>
+                                      </button>
                                   </Box>
                              </Container>
                              <Container  display='flex' justifyContent='space-between'  borderWidth='1px' borderRadius='10px'  paddingTop='10px' paddingBottom='10px'  width={['100%' ,'100%' ,'100%' ,'40%','40%','40%','40%']}    >
                                   <Box>
                                      <Text>
-                                       Living Room
+                                        Dining
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'   width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}  >
+                                    <button onClick={handleFivePlusClick}  >
                                   <Flex
         
                                     align="center"
@@ -526,7 +555,9 @@ useEffect(() => {
                                     >
                                           <AddIcon color='white'  />
                                       </Flex>
-                                      <Text fontSize='20px' >1</Text>
+                                      </button>
+                                      <Text fontSize='20px' >{five}</Text>
+                                      <button  onClick={handleFiveMinusClick}   >
                                       <Flex
         
                                     align="center"
@@ -542,6 +573,7 @@ useEffect(() => {
                                     >
                                           <MinusIcon color='white'  />
                                       </Flex>
+                                      </button> 
                                   </Box>
                              </Container>
                              <Container  display='flex' justifyContent='space-between'  borderWidth='1px' borderRadius='10px'  paddingTop='10px' paddingBottom='10px'  width={['100%' ,'100%' ,'100%' ,'40%','40%','40%','40%']}    >
@@ -551,6 +583,7 @@ useEffect(() => {
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'    width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}   >
+                                    <button>
                                   <Flex
         
                                     align="center"
@@ -566,7 +599,9 @@ useEffect(() => {
                                     >
                                           <AddIcon color='white'  />
                                       </Flex>
+                                      </button>
                                       <Text fontSize='20px' >1</Text>
+                                      <button>
                                       <Flex
         
                                     align="center"
@@ -582,6 +617,7 @@ useEffect(() => {
                                     >
                                           <MinusIcon color='white'  />
                                       </Flex>
+                                      </button>
                                   </Box>
                              </Container>
                            </VStack>  
@@ -596,32 +632,155 @@ useEffect(() => {
                   </Box>
              )}
              { index=== 2 &&  ( 
-                  <Box>
-                      <RadioGroup >
+                  <Box         flexDirection='column'     marginTop='50px'      >
+                      <Box    w= {[ "100%" , "100%" , "100%" ,  "100%" , "40%" ,  "40%" ]}  marginBottom='50px'  >
+                      <RadioGroup       >
                         <Stack direction='column'>
-                          <Radio size='lg'  value='1'>
-                              <img
-                                 
-                              />
-                          </Radio>
-                          
+                         <Box    w = {[ "100%" , "100%" , "100%" ,  "100%" , "100%" ,  "100%" ]}    borderWidth='1px' textAlign='left'    borderRadius='10px'    >
+                             <Radio  value='1'  size='lg'   >
+    
+                                <Text>Essentials (₹₹)</Text>
+                             </Radio>
+                             <Container width='93%'  >
+                             <Text>A range of essential home interior solutions that's perfect for all your needs.</Text>
+                             </Container>
+                             <Box   justify = 'center'  align = 'center'  marginTop='10px'  mb='15px'   >
+                                < Image
+                                   borderRadius='10px'
+                                   src= {essentials}
+                                   alt = {essentials}
+                                   width='90%'
+                                />
+                             </Box> 
+                         
+                             <Container     width='100%' marginTop='10px'  >
+                                 <Box display='flex'  width='50%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Affordable Pricing</Text>
+                                 </Box>
+                                 <Box display='flex'   width='50%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Convenient design</Text>
+                                 </Box>
+                                 <Box display='flex'   width='45%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Basic Accesories</Text>
+                                 </Box>
+                             </Container>
+                          </Box>   
+
+
+                          <Box    w = {[ "100%" , "100%" , "100%" ,  "100%" , "100%" ,  "100%" ]}    borderWidth='1px' textAlign='left'    borderRadius='10px'    >
+                             <Radio   value='2'  size='lg'   >
+    
+                                <Text>Premium (₹₹₹)</Text>
+                             </Radio>
+                             <Container width='93%'  >
+                             <Text>Superior home interior solutions that will take your interiors to the next level.</Text>
+                             </Container>
+                             <Box   justify = 'center'  align = 'center'  marginTop='10px'  mb='15px'   >
+                                < Image
+                                   borderRadius='10px'
+                                   src= {essentials}
+                                   alt = {essentials}
+                                   width='90%'
+                                />
+                             </Box> 
+                         
+                             <Container     width='100%' marginTop='10px'  >
+                                 <Box display='flex'  width='50%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Mid-range pricing</Text>
+                                 </Box>
+                                 <Box display='flex'   width='50%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Premium designs</Text>
+                                 </Box>
+                                 <Box display='flex'   width='45%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Wide range of accessories</Text>
+                                 </Box>
+                             </Container>
+                          </Box>   
+
+
+                          <Box    w = {[ "100%" , "100%" , "100%" ,  "100%" , "100%" ,  "100%" ]}    borderWidth='1px' textAlign='left'    borderRadius='10px'    >
+                             <Radio   value='3'  size='lg'   >
+    
+                                <Text>Luxe (₹₹₹₹)</Text>
+                             </Radio>
+                             <Container width='93%'  >
+                             <Text>High-end interior solutions for the ultimate home interior experience you deserve.</Text>
+                             </Container>
+                             <Box   justify = 'center'  align = 'center'  marginTop='10px'  mb='15px'   >
+                                < Image
+                                   borderRadius='10px'
+                                   src= {essentials}
+                                   alt = {essentials}
+                                   width='90%'
+                                />
+                             </Box> 
+                         
+                             <Container     width='100%' marginTop='10px'  >
+                                 <Box display='flex'  width='50%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Elite pricing</Text>
+                                 </Box>
+                                 <Box display='flex'   width='50%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Lavish designs</Text>
+                                 </Box>
+                                 <Box display='flex'   width='45%'  justifyContent='space-between'  >
+                                    <CheckIcon color='green' />
+                                    <Text>Extensive range of accessories</Text>
+                                 </Box>
+                             </Container>
+                          </Box>   
+
                         </Stack>
                       </RadioGroup>
-                      <button onClick={handleButtonClick}>Next</button>
+                      </Box>
+                      <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
+                    <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='30px'   >
+                      <Button onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button onClick={handleButtonClick}>Next</Button>
+                  </Box>      
                   </Box>
              )}
              { index=== 3 &&  ( 
-                  <Box>
-                      <RadioGroup >
-                        <Stack direction='column'>
-                          <Radio value='1'>First</Radio>
-                          <Radio value='2'>Second</Radio>
-                          <Radio value='3'>Third</Radio>
-                          <Radio value='4'>Fourth</Radio>
-                          <Radio value='5'>Fifth</Radio>
-                        </Stack>
-                      </RadioGroup>
-                      <button onClick={handleButtonClick}>Next</button>
+                  <Box alignItems='center' justifyContent='center'  flexDirection='column' marginTop='20px'   >
+                     <Box>
+                        <Text>Your estimate is almost ready</Text>
+                     </Box>
+                     <Box>
+                     <FormControl     w = {[ "100%" , "100%" , "100%" , '40%' , '40%' ,  '40%' ]}   marginTop='30px'  >
+                      <VStack spacing='20px'  >
+                      <Input
+                       type='name'  
+                       placeholder='name' 
+                       />
+                        <Input
+                       type='email'  
+                       placeholder='email' 
+                       />
+                        <Input
+                       type='number'  
+                       placeholder='number' 
+                       />
+                      <Checkbox defaultChecked>Send me updates on whats app</Checkbox>
+
+                      <Input
+                       type='number'  
+                       placeholder='name' 
+                       />
+                       </VStack>
+                    </FormControl>
+                     </Box>
+                     <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
+                    <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='30px'   >
+                      <Button onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button onClick={handleButtonClick}>Next</Button>
+                  </Box>   
                   </Box>
              )}
         </Box>

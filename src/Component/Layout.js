@@ -82,6 +82,7 @@ import services from './Images/services.png'
 import buiildhood from './Images/buildhood-logo.png'
 import "./ImageSlider.css";
 import costplusshort from './Images/costplusshort.png'
+import './SecondImageSlider.css'
 
 
 const Layout = () => {
@@ -120,7 +121,6 @@ const Layout = () => {
 
         const distance = Math.sqrt(dx ** 2 + dy ** 2);
         setDistance(distance);
-        alert(distance)
       }
     };
 
@@ -668,11 +668,11 @@ const colors = [
       </Card>
         </SimpleGrid>
       </Box>
-          <Box   bgColor= '#ffefea'  width='100%'     justify = 'center' align='center' >
-          <Box  >
-          {/* <Heading     color='black' >How It Works?</Heading> */}
+          <Box   bgColor= '#ffefea'  width='100%'     justify = 'center' align='center'   zIndex='2'  position='relative'  >
+          <Box  paddingTop='50px'   >
+          <Heading    color='black' >How It Works?</Heading>
           </Box>
-              <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }    >
+              <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }   marginTop='50px'     >
   
               <Flex
                     ref={circle1Ref}
@@ -763,8 +763,8 @@ const colors = [
                     boxSizing="border-box"
                     backgroundColor={activeIndex === 5 ? "#ff8c00" : "#a9a9a9"}
                     >
-                        <Box  borderWidth='10px' position='absolute'     style={{ marginLeft:`-${ distance}px`,  width: `${ distance}px` }}     borderColor='grey' zIndex='-1'   >  
-                                  {distance}             
+                        <Box  borderWidth='1px' position='absolute'     style={{ marginLeft:`-${ distance}px`,  width: `${ distance}px` }}     borderColor='grey' zIndex='-1'   >  
+                
                          </Box>
                       
                   
@@ -772,27 +772,50 @@ const colors = [
               </Box>
         
               <Box     h='800px'  width='100%'   align = 'center' justify = 'center' >
-              <div style={{borderWidth : '1px'  , marginTop : '10px' , marginLeft:'10px',  backgroundColor :'yellow' , h : '1500px',  width:'100%' }} ></div>
-                    <div className="slideshow" style={{marginTop: '20px'}} >
+              <div style={{ marginTop : '10px' , marginLeft:'10px' , h : '1500px',  width:'100%' }} ></div>
+                    <div className="Secondslideshow" style={{marginTop: '20px'}} >
                       <div
-                         className="slideshowSlider"
+                         className="SecondslideshowSlider"
                          style={{ transform: `translate3d(${-activeIndex * 100}%, 0, 0)` }}
                        >
                      {data.map((backgroundColor, index) => (
-                     <div className="slide" key={index} >
-                                                    <Image
-                        boxSize='200px'
-                        objectFit='cover'
-                        src={backgroundColor.image}
-                        alt='Dan Abramov'
-                        w='100%'
-                        height='450px'
-                      />
-                                
-                      <Card   display='block' textAlign= 'left'   width='700px' height='130px'  overflow='hidden'   >
-                        <Text   overflow='hidden'  fontSize='20px'   ml='20px'  marginTop='25px' color='orange'>{backgroundColor.text1}</Text>
-                        <Text      ml='20px' color='black'>{backgroundColor.text2}</Text>
-                      </Card>       
+                     <div className="Secondslide" key={index} >
+
+                      <Image
+                      boxSize='200px'
+                      objectFit='cover'
+                      src={backgroundColor.image}
+                      alt='Dan Abramov'
+                      w='100%'
+                      bgColor='red'
+                      height='450px'
+                    />
+                   <Card
+                        display='block'
+                        textAlign='left'
+                        width='700px'
+                        height='130px'
+                        bgColor='white'
+                        whiteSpace='normal'
+                        borderRadius='15px'
+                      >
+                        <Text
+                          fontSize='20px'
+                          ml='20px'
+                          paddingTop='20px'
+                          color='orange'
+
+                        >
+                          {backgroundColor.text1}
+                        </Text>
+                        <Text
+                          ml='20px'
+                          color='black'
+                        >
+                          {backgroundColor.text2}
+                        </Text>
+                      </Card>
+
                                    
                                   
                      </div>
