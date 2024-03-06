@@ -1410,264 +1410,404 @@ const colors = [
         </Flex>
       </Flex>
        
+           
+        {!isBelow720px && (
+               <Flex justify='center' align='center'  flexDirection='column'   mt='40px'     >
+               <Box>
+                  <Text  fontSize='30px' fontWeight='500' fontFamily='serif'  >Frequently Asked Questions</Text>
+               </Box>
+               <Box   borderRadius='45px'   bgColor='rgba(0, 0, 0, 0.8)'  width='75%' flexDirection='column'  align = 'center' justify = 'center'  marginBottom='50px'  marginTop='50px'  >
+                     <Box   display='flex'   width='75%'  justifyContent='space-between'   mb='40px'mt='40px'   >
+                           <Accordion allowToggle  width='50%'  borderColor='rgba(0, 0, 0, 0.15)' 
+                            // _expanded={{ backgroundColor : 'rgba(0, 0, 0, 0.7)' }}
+                            border="none"   >
+                              <AccordionItem>
+                                  <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'     fontSize='20px' fontWeight='200' fontFamily='serif'     textAlign='left' >
+                                      What are services BUILDHOOD provides?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel  textAlign='left'  color='white'      >
+                                        Home/Villa/Building Turn-key construction, Interior design And House renovations.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                           <Accordion allowToggle  width='50%'  borderColor='rgba(0, 0, 0, 0.15)'     >
+                              <AccordionItem>
+                              <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >                         
+                                 How do you monitor the work quality?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel textAlign='left' color='white'    >
+                                  A dedicated and experienced civil engineer will be assigned to the project and he will me monitoring the progress and Quality of the work.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                     </Box>
+                     <Box   display='flex'   width='75%'  justifyContent='space-between'  mb='40px'   >
+                           <Accordion allowToggle  width='50%'    borderColor='rgba(0, 0, 0, 0.15)'   >
+                              <AccordionItem>
+                                  <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text   color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >                   
+                                   Why should you choose BUILDHOOD?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel  textAlign='left'  color='white'   >
+                                        
+                                     BUILDHOOD is a fast growing brand for its quality & Trustworthy services with certified professionals.
+                                     <ul>
+                                        <li>150+ Projects Experience </li>
+                                        <li>Trustworthy, Reliable, And Secure</li>
+                                        <li>Fixed package cost with customization</li>
+                                        <li>Great Value For Money</li>
+                                        <li>Experienced Professionals &amp; Labour</li>
+                                        <li>Dedicated Civil Engineers</li>
+                                        <li>Quality Assurance</li>
+                                        <li>Upto 10 Years Warranty</li>
+                                        <li>Verified &amp; Quality Material</li>
+                                        <li>On-Time Completion Of Projects</li>
+                                        <li>Flexible Payment schedules</li>
+                                        <li>Transparency</li>
+                                        <li>Hassle-Free Service</li>
+                                        <li>100% Satisfaction Guaranteed</li>
+                                        </ul>
+                                  </AccordionPanel >
+                              </AccordionItem>
+                           </Accordion>
+                           <Accordion allowToggle  width='50%'   borderColor='rgba(0, 0, 0, 0.15)' >
+                              <AccordionItem>
+                              <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'    textAlign='left'  >
+                                      
+                                    How is BUILDHOOD payment process?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel textAlign='left' color='white'    >
+                                       
+                                          We provide flexible Payment schedule. The project will be devided into several stages and the calculated payments will be defined for each stage.
+                                          Client can make the payment for the stages by monitoring the progress.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                     </Box>
+                     <Box   display='flex'   width='75%'  justifyContent='space-between'  mb='40px'   >
+                           <Accordion allowToggle  width='50%'   borderColor='rgba(0, 0, 0, 0.15)'  >
+                              <AccordionItem>
+                                  <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'    textAlign='left'  >
+                                     
+                                  Do you charge separately for Designs?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel  textAlign='left'   color='white'   >
+                                  NO, we do not charge for Designs, it is included with the package.
+                                  </AccordionPanel  >
+                              </AccordionItem>
+                           </Accordion>
+                           <Accordion allowToggle  width='50%'  borderColor='rgba(0, 0, 0, 0.15)'  >
+                              <AccordionItem>
+                              <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'   >                         
+                                 
+                                          Whom to contact during work?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel textAlign='left' color='white'    >
+                                 
+                                    A dedicated Project manager and Site engineer will be assigned to each project.
+                                    Client can contact the Site engineer or project Manager for any queries.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                     </Box>
+                     <Box   display='flex'   width='75%'  justifyContent='space-between'  mb='40px'   >
+                           <Accordion allowToggle  width='50%'  borderColor='rgba(0, 0, 0, 0.15)'   >
+                              <AccordionItem>
+                                  <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
+                                     
+                                    Do you help with governmental approvals?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel  textAlign='left'  color='white'    >
+                                  YES, We do help our clients with all the government approvals and Temporary electric connects.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                           <Accordion allowToggle  width='50%'   borderColor='rgba(0, 0, 0, 0.15)' >
+                              <AccordionItem>
+                              <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
+                                     
+                                   Does the Client need to follow up the work regularly?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel textAlign='left' color='white'    >
+                                       
+                                          NO, Clients need not followup or worry about the work. Our team will be taking care of it.
+                                          Client can enjoy our hassle-free process and service and he/she visit the project only when required.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                     </Box>
+                     <Box   display='flex'   width='75%'  justifyContent='space-between' mb='40px'   >
+                           <Accordion allowToggle  width='50%'  borderColor='rgba(0, 0, 0, 0.15)'   >
+                              <AccordionItem>
+                                  <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
+                                     
+                                 How do you assure on-time completion of the project?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel  textAlign='left'  color='white'   >
+                                  We will plan and define a schedule and timeline for each stage of the project which helps us to meet the target date and we closely monitor all the stages.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                           <Accordion allowToggle  width='50%'  borderColor='rgba(0, 0, 0, 0.15)' >
+                              <AccordionItem>
+                              <AccordionButton>
+                                  <Box display='flex' >  
+                                  <Image
+                                  boxSize='20px'
+                                  objectFit='cover'
+                                  src={hign}
+                                  alt='Dan Abramov'
+                                 
+                                />
+                                  <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
+                                     
+                                  How does the Client monitor the progress of the project?
+                                  </Text>
+                                  </Box>
+                                  </AccordionButton>
+                                  <AccordionPanel textAlign='left' color='white'    >
+                                  We will be sending the status updates through Email or Whatsapp group. Photos and Videos will be captured at site.
+                                  </AccordionPanel>
+                              </AccordionItem>
+                           </Accordion>
+                     </Box>
+               </Box>
+          </Flex>
+        )}
 
-      <Flex justify='center' align='center'  flexDirection='column'   mt='40px'     >
-           <Box>
-              <Text  fontSize='30px' fontWeight='500' fontFamily='serif'  >Frequently Asked Questions</Text>
-           </Box>
-           <Box   borderRadius='45px'   bgColor='rgba(0, 0, 0, 0.7)'  width='75%' flexDirection='column'  align = 'center' justify = 'center'  marginBottom='50px'  marginTop='50px'  >
-                 <Box   display='flex'   width='75%'  justifyContent='space-between'   mb='40px'mt='40px'   >
-                       <Accordion allowToggle  width='50%'  _expanded={{ backgroundColor : 'rgba(0, 0, 0, 0.7)' }}    >
-                          <AccordionItem>
-                              <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'     fontSize='20px' fontWeight='200' fontFamily='serif'     textAlign='left' >
-                                  What are services BUILDHOOD provides?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel  textAlign='left'      >
-                                    Home/Villa/Building Turn-key construction, Interior design And House renovations.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                       <Accordion allowToggle  width='50%' >
-                          <AccordionItem>
-                          <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >                         
-                             How do you monitor the work quality?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel textAlign='left' >
-                              A dedicated and experienced civil engineer will be assigned to the project and he will me monitoring the progress and Quality of the work.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                 </Box>
-                 <Box   display='flex'   width='75%'  justifyContent='space-between'  mb='40px'   >
-                       <Accordion allowToggle  width='50%'    >
-                          <AccordionItem>
-                              <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text   color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >                   
-                               Why should you choose BUILDHOOD?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel  textAlign='left'  >
-                                    
-                                 BUILDHOOD is a fast growing brand for its quality & Trustworthy services with certified professionals.
-                                 <ul>
-                                    <li>150+ Projects Experience </li>
-                                    <li>Trustworthy, Reliable, And Secure</li>
-                                    <li>Fixed package cost with customization</li>
-                                    <li>Great Value For Money</li>
-                                    <li>Experienced Professionals &amp; Labour</li>
-                                    <li>Dedicated Civil Engineers</li>
-                                    <li>Quality Assurance</li>
-                                    <li>Upto 10 Years Warranty</li>
-                                    <li>Verified &amp; Quality Material</li>
-                                    <li>On-Time Completion Of Projects</li>
-                                    <li>Flexible Payment schedules</li>
-                                    <li>Transparency</li>
-                                    <li>Hassle-Free Service</li>
-                                    <li>100% Satisfaction Guaranteed</li>
-                                    </ul>
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                       <Accordion allowToggle  width='50%' >
-                          <AccordionItem>
-                          <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'    textAlign='left'  >
-                                  
-                                How is BUILDHOOD payment process?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel textAlign='left' >
+
+        <Flex 
+        justifyContent='center'
+        alignContent='center'
+        flexDirection='column'
+
+        >
+              <Box  
+              justify='center'
+              align='center'
+               >
+                  <Text  color='black'    fontSize='50px' fontWeight='200' fontFamily='serif'    >               
+                         Trusted Brands
+                  </Text>
+              </Box>
+              <Box>
+                    <div className="slideshow" style={{marginTop: '20px'}} >
+                      <div
+                         className="slideshowSlider"
+                         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+                       >
+                     {colors.map((backgroundColor, index) => (
+                     <div className="slide" key={index} >
+                                
+                                  <Image
+                                    boxSize='250px'
+                                   // objectFit='cover'
+                                   width='500px'
+                                    key={index}
+                                    src={backgroundColor.item1}
+                                    alt={`Slide ${index + 1}`}
+                                  />
                                    
-                                      We provide flexible Payment schedule. The project will be devided into several stages and the calculated payments will be defined for each stage.
-                                      Client can make the payment for the stages by monitoring the progress.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                 </Box>
-                 <Box   display='flex'   width='75%'  justifyContent='space-between'  mb='40px'   >
-                       <Accordion allowToggle  width='50%'    >
-                          <AccordionItem>
-                              <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'    textAlign='left'  >
-                                 
-                              Do you charge separately for Designs?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel  textAlign='left'  >
-                              NO, we do not charge for Designs, it is included with the package.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                       <Accordion allowToggle  width='50%' >
-                          <AccordionItem>
-                          <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'   >                         
-                             
-                                      Whom to contact during work?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel textAlign='left' >
-                             
-                                A dedicated Project manager and Site engineer will be assigned to each project.
-                                Client can contact the Site engineer or project Manager for any queries.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                 </Box>
-                 <Box   display='flex'   width='75%'  justifyContent='space-between'  mb='40px'   >
-                       <Accordion allowToggle  width='50%'    >
-                          <AccordionItem>
-                              <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
-                                 
-                                Do you help with governmental approvals?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel  textAlign='left'  >
-                              YES, We do help our clients with all the government approvals and Temporary electric connects.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                       <Accordion allowToggle  width='50%' >
-                          <AccordionItem>
-                          <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
-                                 
-                               Does the Client need to follow up the work regularly?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel textAlign='left' >
-                                   
-                                      NO, Clients need not followup or worry about the work. Our team will be taking care of it.
-                                      Client can enjoy our hassle-free process and service and he/she visit the project only when required.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                 </Box>
-                 <Box   display='flex'   width='75%'  justifyContent='space-between' mb='40px'   >
-                       <Accordion allowToggle  width='50%'    >
-                          <AccordionItem>
-                              <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
-                                 
-                             How do you assure on-time completion of the project?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel  textAlign='left'  >
-                              We will plan and define a schedule and timeline for each stage of the project which helps us to meet the target date and we closely monitor all the stages.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                       <Accordion allowToggle  width='50%' >
-                          <AccordionItem>
-                          <AccordionButton>
-                              <Box display='flex' >  
-                              <Image
-                              boxSize='20px'
-                              objectFit='cover'
-                              src={hign}
-                              alt='Dan Abramov'
-                             
-                            />
-                              <Text  color='white'    fontSize='20px' fontWeight='200' fontFamily='serif'   textAlign='left'  >
-                                 
-                              How does the Client monitor the progress of the project?
-                              </Text>
-                              </Box>
-                              </AccordionButton>
-                              <AccordionPanel textAlign='left' >
-                              We will be sending the status updates through Email or Whatsapp group. Photos and Videos will be captured at site.
-                              </AccordionPanel>
-                          </AccordionItem>
-                       </Accordion>
-                 </Box>
-           </Box>
-      </Flex>
+                                    <Image
+                                    mt='50px'
+                                    boxSize='250px'
+                                    width='500px'
+                                    //objectFit='cover'
+                                    key={index}
+                                   src={backgroundColor.item2}
+                                   alt={`Slide ${index + 1}`}
+                                  />
+                     </div>
+                      ))}
+                      </div>
+                    
+                   </div>
+              </Box>
+        </Flex>
+
+        <Flex
+     alignItems="center"
+     justifyContent="center"
+     bgColor='#262626' 
+     flexDirection="column"
+    //  width={['100%' , '100%' ,'100%' , '100%' , '100%' , '100%' , '100%']} 
+   >
+      <Box 
+        width= {['100%' , '100%' , '100%' , '75%' , '75%' , '75%' , '75%']}  
+        flexDirection={isBelow720px ? 'column' : 'row' } 
+        display='flex'    
+        justifyContent='space-between'
+         >
+             <Box display='block'   width=  {['100%' , '100%' , '100%' , '75%' , '30%' , '30%' , '30%']}  marginTop={isBelow720px ? '100px' : '0px' }  marginLeft='25px'    >
+                <Box>
+                    <Text  color='white'  fontSize={["25px" , "25px" , "25px" , '15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif'  marginTop={isBelow720px ? '0px' : '70px' }    >Buildhood</Text>
+                </Box>
+                <Box  marginTop='3px' >
+                <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }   >Copyright - 2021 Buildhood All rights Reserved. </Text>
+                </Box>
+                <Box    >
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' >Powered by Buildhood Infratech Pvt Ltd.</Text>
+                </Box>
+             </Box>
+             <Box display='block' marginBottom={isBelow720px ? '100px' : '0px'}   marginTop={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
+                     <Box>
+                     <Text  color='white'  fontSize={["25px" , "25px" , "25px" ,'15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif' marginTop={isBelow720px ? '0px' : '50px' }    >Quick Links</Text>
+                     </Box>
+                     <Box>
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop={isBelow720px ? '0px' : '20px' }  marginBottom={isBelow720px ? '0px' : '10px' }      >Home</Text>
+                     </Box>
+                     <Box>
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >About Us</Text>
+                     </Box>
+                     <Box>
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }  >Cost-Plus Model</Text>
+                     </Box>
+                     <Box>
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Packages</Text>
+                     </Box>
+                     <Box>
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   > Projects</Text>
+                     </Box>
+                     <Box>
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Career</Text>
+                     </Box>
+                     <Box>
+                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '50px' }   >Contact Us</Text>
+                     </Box>
+                </Box>
+                <Box marginBottom={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
+                    <Box>
+                         <Text  color='white'  fontSize={["25px" , "25px" , "25px" , '15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'   >Contact Us</Text>
+                    </Box>
+                    <Box>
+                         <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >+91 7802-80-80-80</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >enquiry@buildhood.com</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >sales@buildhood.com</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >careers@buildhood.com</Text>
+                    </Box>
+
+                </Box>
+                <Box marginBottom='40px'  marginLeft='25px' >
+                    <Box>
+                       <Text color='white'  fontSize={["25px" , "25px" , "25px" , '15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'  >Important Links</Text>
+                    </Box>
+                    <Box>
+                        <Text  fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >Architecture</Text> 
+                    </Box>
+                    <Box>
+                         <Text  fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Sitemap</Text>
+                    </Box>
+                    <Box>
+                         <Text  fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Terms and Condition</Text>
+                    </Box>
+                </Box>
+      </Box>
+   
+   </Flex>
 
 
     </Flex>
