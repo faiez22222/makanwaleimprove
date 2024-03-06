@@ -1738,71 +1738,71 @@ const colors = [
          >
              <Box display='block'   width=  {['100%' , '100%' , '100%' , '75%' , '30%' , '30%' , '30%']}  marginTop={isBelow720px ? '100px' : '0px' }  marginLeft='25px'    >
                 <Box>
-                    <Text  color='white'  fontSize={["25px" , "25px" , "25px" , '15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif'  marginTop={isBelow720px ? '0px' : '70px' }    >Buildhood</Text>
+                    <Text  color='white'  fontSize={["30px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]}  fontWeight='700' fontFamily='serif'  marginTop={isBelow720px ? '0px' : '70px' }    >Buildhood</Text>
                 </Box>
                 <Box  marginTop='3px' >
-                <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }   >Copyright - 2021 Buildhood All rights Reserved. </Text>
+                <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }   >Copyright - 2021 Buildhood All rights Reserved. </Text>
                 </Box>
                 <Box    >
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' >Powered by Buildhood Infratech Pvt Ltd.</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' >Powered by Buildhood Infratech Pvt Ltd.</Text>
                 </Box>
              </Box>
              <Box display='block' marginBottom={isBelow720px ? '100px' : '0px'}   marginTop={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
                      <Box>
-                     <Text  color='white'  fontSize={["25px" , "25px" , "25px" ,'15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif' marginTop={isBelow720px ? '0px' : '50px' }    >Quick Links</Text>
+                     <Text  color='white'  fontSize={["30px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]}  fontWeight='700' fontFamily='serif' marginTop={isBelow720px ? '0px' : '50px' }    >Quick Links</Text>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop={isBelow720px ? '0px' : '20px' }  marginBottom={isBelow720px ? '0px' : '10px' }      >Home</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop={isBelow720px ? '0px' : '20px' }  marginBottom={isBelow720px ? '0px' : '10px' }      >Home</Text>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >About Us</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >About Us</Text>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }  >Cost-Plus Model</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }  >Cost-Plus Model</Text>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Packages</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Packages</Text>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   > Projects</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   > Projects</Text>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Career</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Career</Text>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '50px' }   >Contact Us</Text>
+                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '50px' }   >Contact Us</Text>
                      </Box>
                 </Box>
                 <Box marginBottom={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
                     <Box>
-                         <Text  color='white'  fontSize={["25px" , "25px" , "25px" , '15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'   >Contact Us</Text>
+                         <Text  color='white' fontSize={["30px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]} fontWeight='700' fontFamily='serif'   marginTop='50px'   >Contact Us</Text>
                     </Box>
                     <Box>
-                         <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >+91 7802-80-80-80</Text>
+                         <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >+91 7802-80-80-80</Text>
                     </Box>
                     <Box>
-                        <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >enquiry@buildhood.com</Text>
+                        <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >enquiry@buildhood.com</Text>
                     </Box>
                     <Box>
-                        <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >sales@buildhood.com</Text>
+                        <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >sales@buildhood.com</Text>
                     </Box>
                     <Box>
-                        <Text fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >careers@buildhood.com</Text>
+                        <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >careers@buildhood.com</Text>
                     </Box>
 
                 </Box>
                 <Box marginBottom='40px'  marginLeft='25px' >
                     <Box>
-                       <Text color='white'  fontSize={["25px" , "25px" , "25px" , '15px', '15px', '15px', '15px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'  >Important Links</Text>
+                       <Text color='white'  fontSize={["25px" , "25px" , "25px" , '20px', '20px', '20px', '20px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'  >Important Links</Text>
                     </Box>
                     <Box>
-                        <Text  fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >Architecture</Text> 
+                        <Text  fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >Architecture</Text> 
                     </Box>
                     <Box>
-                         <Text  fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Sitemap</Text>
+                         <Text  fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Sitemap</Text>
                     </Box>
                     <Box>
-                         <Text  fontSize={["25px" , "25px" , "25px" , "15px" , "15px" , "15px" ,"15px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Terms and Condition</Text>
+                         <Text  fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Terms and Condition</Text>
                     </Box>
                 </Box>
       </Box>
