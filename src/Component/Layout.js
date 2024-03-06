@@ -83,6 +83,7 @@ import buiildhood from './Images/buildhood-logo.png'
 import "./ImageSlider.css";
 import costplusshort from './Images/costplusshort.png'
 import './SecondImageSlider.css'
+import './CardSlider.css'
 
 
 const Layout = () => {
@@ -192,7 +193,7 @@ const Layout = () => {
   useEffect(() => {
     // Set up a timer to switch the active circular box
     const intervalId = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) %5 );
+      setActiveIndex((prevIndex) => (prevIndex + 1) %6 );
     }, 3000); // Change the duration as needed
 
     // Clear the timer on component unmount to avoid memory leaks
@@ -217,11 +218,11 @@ const Layout = () => {
   ];
 
   const data = [
-    { text1 : '1. Consultation' , text2 : 'Raise an enquiry or call us on +91 7802-80-80-80, our Technical expert will get in touch with you and take all your detailed requirements and provide you the estimation for your requiremen', image: images[0] },
+    { text1 : '1. Consultation' , text2 : 'Raise an enquiry or call us on +91 7802-80-80-80, our Technical expert will get in touch with you and take all your detailed requirements and provide you the estimation for your requirement', image: images[0] },
     { text1 : '2. Review our work' , text2 :  'Review our work Visit our Projects and get to know about our work and quality, come to office, discuss, and close the deal', image: images[1] },
     { text1 : '3. Place the order' , text2 : ' Place the order Find your good day and sign the transparent construction contract. It helps us to proceed further with Design.', image: images[2] },
     { text1 : '4. Design' , text2 : ' Our experienced Architect will provide you the quality Designs and Architecture as per your requirements and inputs. Discuss and finalize the Design.', image: images[3] },
-    { text1 : '5. Execution & Tracking' , text2 : 'construction work flow image 5. Execution & Tracking Project execution will be started. Our project management team will be updating you the daily work progress in the form of Photos and Videos.', image: images[4] },
+    { text1 : '5. Execution & Tracking' , text2 : ' Execution & Tracking Project execution will be started. Our project management team will be updating you the daily work progress in the form of Photos and Videos.', image: images[4] },
     { text1 : '6. Move in ' , text2 :  'Move in We make sure the project completes on time without any hassles. You can Happily move into your Dream Home. ', image: images[5] },
     
   ];
@@ -654,6 +655,181 @@ const colors = [
       </Card>
         </SimpleGrid>
       </Box>
+      
+      
+                <Box   bgColor= '#ffefea'  width='100%'     justify = 'center' align='center'   zIndex='2'  position='relative'  >
+          <Box  paddingTop='50px'   >
+          <Heading    color='black' >How It Works?</Heading>
+          </Box>
+              <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }   marginTop='50px'     >
+  
+              <Flex
+                    ref={circle1Ref}
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 0 ? "#ff8c00" : "#a9a9a9"}
+                 
+                    >
+                         
+                      
+                    </Flex>
+                  
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 1 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                    
+                    </Flex>
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 2 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                    </Flex>
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 3 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                    
+                     
+                         
+                  
+                    </Flex>
+                    <Flex
+                    
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 4 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                     
+                         
+                  
+                    </Flex>
+                    <Flex
+                     ref={circle2Ref}
+                    align="center"
+                    justify="center"
+                    width= '30px'
+                    height="30px"
+                    borderRadius="50%"
+                    borderWidth="2px"
+                    
+                    boxSizing="border-box"
+                    backgroundColor={activeIndex === 5 ? "#ff8c00" : "#a9a9a9"}
+                    >
+                        <Box  borderWidth='1px' position='absolute'     style={{ marginLeft:`-${ distance}px`,  width: `${ distance}px` }}     borderColor='grey' zIndex='-1'   >  
+                
+                         </Box>
+                      
+                  
+                    </Flex>     
+              </Box>
+              
+              <Box  className="Secondslideshow" style={{marginTop: '20px'}}      >
+                <Box  className="SecondslideshowSlider"
+                         style={{ transform: `translate3d(${-activeIndex * 100}%, 0, 0)` }}   >
+                    {data.map((backgroundColor, index) => (
+                     <Box  className="Secondslide" key={index}    >
+                                
+                                  <Image                                  
+                                    boxSize='400px'
+                                    width='100%'
+                                    key={index}
+                                    src={backgroundColor.image}
+                                    alt={`Slide ${index + 1}`}
+                                  />
+                     </Box>
+                      ))}
+                    </Box>    
+
+              </Box>
+
+              <Box  className="Secondcardslideshow" style={{marginTop: '20px'}}      >
+                <Box  className="SecondcardslideshowSlider"
+                         style={{ transform: `translate3d(${-activeIndex * 100}%, 0, 0)` }}    >
+                    {data.map((backgroundColor, index) => (
+                     <Box  className="Secondcardslide" key={index}      >
+                                
+                                <Card
+                        display='block'
+                        textAlign='left'
+                        width=  {["100%" , "100%" ,"100%" ,"700px" ,"700px" , "700px" ]}
+                        height ='100%'
+                        whiteSpace='normal'
+                        borderRadius='15px'
+                        bgColor='white'
+                        
+                      >
+                        <Text
+                          fontSize={["25px","20px","20px","20px","15px","15px","25px"]}
+                          ml='20px'
+                          paddingTop='20px'
+                          color='orange'
+                          fontStyle='normal'
+                          fontFamily='serif'
+
+                        >
+                          {backgroundColor.text1}
+                        </Text>
+                        <Text
+                          ml='20px'
+                          fontSize=  {["25px","20px","20px","20px","15px","15px","25px"]}
+                          color='black'
+                          fontStyle='normal'
+                          fontFamily='serif'
+                          noOfLines={3}
+                        >
+                          {backgroundColor.text2}
+                        </Text>
+                      </Card>
+                     </Box>
+                      ))}
+                    </Box>    
+
+              </Box>
+
+
+
+          </Box>
+
+      
+
+
       <Box   bgColor='#f2f2f2'   align='center' justify='center'   >
            <Box   width='75%'   >
           <Text   fontSize='40px'   fontFamily='serif' fontStyle='normal'    color='black'  paddingTop='70px' >Advantages of Cost-Plus Model</Text>
