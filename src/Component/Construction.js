@@ -34,7 +34,7 @@ const Construction = () => {
   };
   const gridProps = isBelow720px
   ? {  spacingY : '50px'  , rows: 4 }
-  : {  spacingX : '50px' , columns: 4 };
+  : {  spacingX : ['10px'] , columns: 4 };
 
 
   return (
@@ -44,23 +44,30 @@ const Construction = () => {
               justifyContent="center"
               flexDirection="column"
               bgColor='#F0F0F0'
+              mb='60px'
               >
-              <Heading mt='80px' > Construction Packages</Heading>
+              <Text textAlign='center'  mt='40px'   fontSize='35px' fontWeight='500'  fontFamily='sans-serif'  >Home Construction Packages</Text>
 
-           <SimpleGrid  {...gridProps}    g  mt='70px'  >
-                <VStack   spacing={0} >
-                <Box bgColor='orangered' w='270px'  height='40px'  
+           <SimpleGrid  {...gridProps}    
+             mt='40px'    width={["90%" , "80%" , "75%" , "" , "90%" ,"90%" ,"75%"]}       alignItems="center" justifyContent="center"   >
+                <VStack   spacing={0}     width={["100%" , "100%" , "100%" , "" , "100%" , "90%" , "80%" ]}   >
+                <Box bgColor='orangered'   height='40px'  
                    display='flex'
                    alignItems='center'
                    justifyContent='center'
+                   width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]} 
                  >
                    <Text fontWeight={700} fontSize='20px'  color='white'  >Silver</Text> 
                 </Box>
-                <Box  w='270px' >
-                <Image src={silver} alt='Dan Abramov' />
+                <Box   bgColor='black'  width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]} >
+                <Image 
+                  // width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}
+                  src={silver} alt='Dan Abramov'
+                  width='100%'
+                   />
                 </Box>
-                <Box w='270px'  borderWidth='1px' borderColor='f9f9f9'  height='350px'  >
-                  <Box height='270px'   >   
+                <Box   borderWidth='1px' borderColor='f9f9f9'  height='380px'  width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}  >
+                  <Box height='300px'   >   
                 <Table variant='simple'  >
                       <Thead>
                         <Tr>
@@ -115,19 +122,23 @@ const Construction = () => {
                     </Box>
                 </Box>
                 </VStack>    
-                <VStack   spacing={0} >
+                <VStack   spacing={0}    width={["100%" , "100%" , "100%" , "" , "100%" , "90%" , "80%" ]} >
                 <Box bgColor='orangered' w='270px'  height='40px'  
                    display='flex'
                    alignItems='center'
                    justifyContent='center'
+                   width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]} 
                  >
                    <Text fontWeight={700} fontSize='20px'  color='white'  >Gold</Text> 
                 </Box>
-                <Box  w='270px' >
-                <Image src={gold} alt='Dan Abramov' />
+                <Box width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]} > 
+                <Image 
+                src={gold} alt='Dan Abramov'
+                width='100%'
+                 />
                 </Box>
-                <Box w='270px'  borderWidth='1px' borderColor='f9f9f9'  height='350px'  >
-                  <Box height='270px'>
+                <Box width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}   borderWidth='1px' borderColor='f9f9f9'  height='380px'  >
+                  <Box height='300px'>
                 <Table variant='simple'  >
                       <Thead>
                         <Tr>
@@ -180,19 +191,22 @@ const Construction = () => {
                     </Box>
                 </Box>
                 </VStack>    
-                <VStack   spacing={0} >
-                <Box bgColor='orangered' w='270px'  height='40px'  
+                <VStack   spacing={0}  width={["100%" , "100%" , "100%" , "" , "100%" , "90%" , "80%" ]} >
+                <Box bgColor='orangered'width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}  height='40px'  
                    display='flex'
                    alignItems='center'
                    justifyContent='center'
                  >
                    <Text fontWeight={700} fontSize='20px'  color='white'  >Diamond</Text> 
                 </Box>
-                <Box  w='270px' >
-                <Image src={diamond} alt='Dan Abramov' />
+                <Box  width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}  >
+                <Image
+                 src={diamond} alt='Dan Abramov'
+                 width='100%'
+                  />
                 </Box>
-                <Box w='270px'  borderWidth='1px' borderColor='f9f9f9' height='350px'  >
-                  <Box height='270px'>
+                <Box width={["100%" , "100%" , "90%" , "" , "100%" , "100%" , "100%" ]}   borderWidth='1px' borderColor='f9f9f9' height='380px'  >
+                  <Box height='300px'>
                 <Table variant='simple'>
                       <Thead>
                         <Tr>
@@ -246,19 +260,23 @@ const Construction = () => {
                     </Box>
                 </Box>
                 </VStack>      
-                <VStack   spacing={0} >
-                <Box bgColor='orangered' w='270px'  height='40px'  
+                <VStack   spacing={0}  width={["100%" , "90%" , "100%" , "" , "100%" , "90%" , "80%" ]}  >
+                <Box bgColor='orangered'width={["100%" , "90%" , "90%" , "" , "100%" , "100%" , "100%" ]}   height='40px'  
                    display='flex'
                    alignItems='center'
                    justifyContent='center'
+            
                  >
                    <Text fontWeight={700} fontSize='20px'  color='white'  >Platinum</Text> 
                 </Box>
-                <Box  w='270px' >
-                <Image src={platinum} alt='Dan Abramov' />
+                <Box  width={["100%" , "90%" , "90%" , "" , "100%" , "100%" , "100%" ]}  >
+                <Image 
+                src={platinum} alt='Dan Abramov' 
+                width='100%'
+                />
                 </Box>
-                <Box w='270px'  borderWidth='1px' borderColor='f9f9f9'height='350px'  >
-                  <Box height='270px' >
+                <Box width={["100%" , "90%" , "90%" , "" , "100%" , "100%" , "100%" ]}  borderWidth='1px' borderColor='f9f9f9'height='380px'  >
+                  <Box height='300px' >
                 <Table variant='simple'>
                       <Thead>
                         <Tr>

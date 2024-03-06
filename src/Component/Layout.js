@@ -192,7 +192,7 @@ const Layout = () => {
   useEffect(() => {
     // Set up a timer to switch the active circular box
     const intervalId = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % 6);
+      setActiveIndex((prevIndex) => (prevIndex + 1) %5 );
     }, 3000); // Change the duration as needed
 
     // Clear the timer on component unmount to avoid memory leaks
@@ -233,6 +233,12 @@ const Layout = () => {
   const gridProps = isBelow720px
   ?{  spacingX : '100px'  }
   :  {  spacingY : '50px'  , columns : '4' }
+
+  const gridProps1 = isBelow720px
+  ? { spacingY: ["100px", "40px", "40px", "40px", "40px", "40px", "40px"] }
+  : { spacingY: '50px', columns: '4' };
+
+
 
   const gridPropCards = isBelow720px
   ?{  spacingY : '30px'  }
@@ -275,7 +281,7 @@ const colors = [
 
 
   return (
-    < >
+    <Flex  flexDirection='column'   minH='100vh'    >
       
        <Image 
             boxSize='620px'
@@ -286,28 +292,28 @@ const colors = [
           />
          <Box  bgColor='white'  >
         <Center>
-        <Text  fontSize='35px' fontWeight='500'  color='black'  mt='50px' >Our Expertise</Text>
+        <Text  fontSize='35px' fontWeight='500'  fontFamily='sans-serif'  color='black'  mt='50px' >Our Expertise</Text>
         </Center>
         </Box>
-      <Box   mt='30px'    mb='30px'    >
+      <Flex  mt='30px'    mb='30px'   width='100%'     justify = 'center' align='center' flexDirection='column'   >
               {isBelow720px ? (
   
-                 <Flex    justify='center'  align='center'   flexDirection='column'  gap='5'    >
+                 <SimpleGrid   {...gridProps1}    marginTop='100px'   width='100%'   justifyContent='center' alignItems='center'    >
                  <Box
                className={`card ${isFlipped ? 'flipped' : ''}`}
-               onClick={handleCardFlip}
+              //  onClick={handleCardFlip}
                justify = 'center'
                align = 'center'
              >
                <Box className="card-inner"    >
                  <Box className="card-front">
                  <Image
-                   boxSize='100px'
+                   boxSize=  {["180px" , "180px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                    objectFit='cover'
                    src={homeconstruction}
                    alt='Dan Abramov'
                  />
-                   <Text  color='black' fontSize="20px" fontWeight='600' >Home Construction</Text>
+                   <Text  color='black' fontSize={["25px" , "25px" , "25px" , "20px" , "20px", "20px","20px"]}       fontWeight='400' fontFamily='sans-serif'   >Home Construction</Text>
                    {/* Add your image here */}
                  </Box>
                  <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -320,19 +326,19 @@ const colors = [
          
              <Box
                className={`card ${isFlipped ? 'flipped' : ''}`}
-               onClick={handleCardFlip}
+              //  onClick={handleCardFlip}
                justify = 'center'
                align = 'center'
              >
                <Box className="card-inner"  >
                  <Box className="card-front">
                  <Image
-                   boxSize='100px'
+                   boxSize={["180px" , "120px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                    objectFit='cover'
                    src={architecture }
                    alt='Dan Abramov'
                  />
-                   <Text  color='black' fontSize="20px" fontWeight='600'>Architecural design</Text>
+                   <Text  color='black'    fontSize={["25px" , "25px" , "25px" , "20px" , "20px", "20px","20px"]}       fontWeight='400' fontFamily='sans-serif' >Architecural & Structural Design</Text>
                 
                  </Box>
                  <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -346,19 +352,19 @@ const colors = [
          
              <Box
                className={`card ${isFlipped ? 'flipped' : ''}`}
-               onClick={handleCardFlip}
+              //  onClick={handleCardFlip}
                justify = 'center'
                align = 'center'
              >
                <Box className="card-inner"   >
                  <Box className="card-front">
                  <Image
-                   boxSize='100px'
+                   boxSize={["180px" , "120px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                    objectFit='cover'
                    src={interiors}
                    alt='Dan Abramov'
                  />
-                   <Text fontSize="20px" fontWeight='600' color='black' >interior design</Text>
+                   <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px", "20px","20px"]}       fontWeight='400' fontFamily='sans-serif'  color='black' >Interior design</Text>
                   
                  </Box>
                  <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -371,19 +377,19 @@ const colors = [
          
              <Box
                className={`card ${isFlipped ? 'flipped' : ''}`}
-               onClick={handleCardFlip}
+              //  onClick={handleCardFlip}
                justify = 'center'
                align = 'center'
              >
                <Box className="card-inner"   >
                  <Box className="card-front">
                  <Image
-                   boxSize='100px'
+                   boxSize={["180px" , "120px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                    objectFit='cover'
                    src={management}
                    alt='Dan Abramov'
                  />
-                   <Text fontSize="20px" fontWeight='600' color='black' >Planning Management</Text>
+                   <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px", "20px","20px"]}       fontWeight='400' fontFamily='sans-serif'  color='black' >Planning&Management</Text>
                  
                  </Box>
                  <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -393,10 +399,10 @@ const colors = [
                  </Box>
                </Box>
              </Box>
-                 </Flex>
+                 </SimpleGrid>
               ) : (
-                <Box justify ='center'  align  = 'center'   >
-                <Flex   justify='center'  justifyContent='space-between'  alignSelf='center'    width='80%'  >
+                <Box justify ='center'  align  = 'center'  width=  {["80%" , "80%" , "80%" , "100%" , "100%", "100%" ,"80%" ]}   >  
+                <Flex   justify='center'  justifyContent='space-between'  alignSelf='center'    width=  {["80%" , "80%" , "80%" , "100%" , "100%", "80%" ,"80%" ]}   >
                 <Box
               className={`card ${isFlipped ? 'flipped' : ''}`}
               onClick={handleCardFlip}
@@ -407,12 +413,12 @@ const colors = [
               <Box className="card-inner"   >
                 <Box className="card-front">
                 <Image
-                  boxSize='100px'
+                  boxSize={["180px" , "120px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                   objectFit='cover'
                   src={homeconstruction}
                   alt='Dan Abramov'
                 />
-                  <Text  color='black' fontSize="xl">Home Construction</Text>
+                  <Text fontSize={["25px" , "25px" , "25px" , "25px" , "22px", "25px","20px"]}       fontWeight='300' fontFamily='sans-serif'  color='black' >Home Construction</Text>
                   {/* Add your image here */}
                 </Box>
                 <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -432,12 +438,12 @@ const colors = [
               <Box className="card-inner"   >
                 <Box className="card-front">
                 <Image
-                  boxSize='100px'
+                  boxSize={["180px" , "120px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                   objectFit='cover'
                   src={architecture }
                   alt='Dan Abramov'
                 />
-                  <Text  color='black' fontSize="xl">Architecural design</Text>
+                  <Text  color='black' fontSize={["25px" , "25px" , "25px" , "25px" , "22px", "25px","20px"]}       fontWeight='400' fontFamily='sans-serif'>Architecural design</Text>
                   {/* Add your image here */}
                 </Box>
                 <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -458,12 +464,12 @@ const colors = [
               <Box className="card-inner"   >
                 <Box className="card-front">
                 <Image
-                  boxSize='100px'
+                  boxSize={["180px" , "120px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                   objectFit='cover'
                   src={interiors}
                   alt='Dan Abramov'
                 />
-                  <Text fontSize="xl" color='black' >interior design</Text>
+                  <Text fontSize={["25px" , "25px" , "25px" , "25px" , "22px", "25px","20px"]}       fontWeight='400' fontFamily='sans-serif' color='black' >interior design</Text>
                   {/* Add your image here */}
                 </Box>
                 <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -483,12 +489,12 @@ const colors = [
               <Box className="card-inner" >
                 <Box className="card-front">
                 <Image
-                  boxSize='100px'
+                  boxSize={["180px" , "120px" , "120px" , "120px" , "100px", "100px" ,"100px" ]}
                   objectFit='cover'
                   src={management}
                   alt='Dan Abramov'
                 />
-                  <Text fontSize="xl" color='black' >Planning Management</Text>
+                  <Text fontSize={["25px" , "25px" , "25px" , "25px" , "22px", "25px","20px"]}       fontWeight='400' fontFamily='sans-serif' color='black' >Planning Management</Text>
                   {/* Add your image here */}
                 </Box>
                 <Box className="card-back" backgroundColor="#ff8c00 " p={4} borderRadius="md">
@@ -502,9 +508,9 @@ const colors = [
                 </Box>
               )}
          
-        </Box>
-        
-             <Link href="/contact-us" >
+        </Flex>
+
+        <Link href="/contact-us" >
                <Image
                   width = '100%'
                   objectFit='cover'
@@ -523,34 +529,14 @@ const colors = [
             width='100%'
           />
              </Link>
-            
-
-               {/* <Flex
-        justify='center'
-        align='center'
-        bgColor='white'
-        mt='50px'
-      >
-        <VStack spacing={4}>
-          <Text fontSize='2xl' fontWeight='bold' color='black'>
-            Get an estimate for your home interiors
-          </Text>
-          <Text color='black' fontSize='md' noOfLines={2}>
-            Calculate the approximate cost of doing up your home with our easy-to-use tool.
-          </Text>
-        </VStack>
-      </Flex> */}
-
-           
-           
-
-
-      <Box bgColor='white' p={8}  justify = 'center' align = 'center' >
+             <Box bgColor='white' p={8}  justify = 'center' align = 'center' >
       <Text fontSize='40px'fontWeight='500' fontFamily=  'sans-serif'  >  Get an estimate for your home interiors</Text>
       <Text fontSize='20px'fontWeight='450' fontFamily=  'sans-serif'  > Calculate the approximate cost of doing up your home with our easy-to-use tool.</Text>
-        <SimpleGrid {...gridPropCards}  justifyContent='center' alignItems='center'    width='85%'  marginTop='40px'  >
+        <SimpleGrid {...gridPropCards}  justifyContent='center' alignItems='center'     marginTop='40px' 
+            width={['85%' , '85%' , '85%' , '100%' , '100%' ,'85%' , '75%']}
+           >
           <Card
-          width='400px'
+          width={["300px" , "300px" , "400px" , "300px" , "300px" , "400px" , "500px"]}
           height='300px'
         onMouseEnter={() => handleMouseEnterCard(1)}
         onMouseLeave={handleMouseLeaveCard}
@@ -592,7 +578,7 @@ const colors = [
           onMouseEnter={() => handleMouseEnterCard(2)}
           onMouseLeave={handleMouseLeaveCard}
           style={getHoverStyle(2)}
-          width='400px'
+          width={["300px" , "300px" , "400px" , "300px" , "300px" , "400px" , "500px"]}
           height='300px'
        >  
         <CardHeader>
@@ -631,7 +617,7 @@ const colors = [
          onMouseEnter={() => handleMouseEnterCard(3)}
          onMouseLeave={handleMouseLeaveCard}
          style={getHoverStyle(3)}
-         width='400px'
+         width = {["300px" , "300px" , "400px" , "300px" , "300px" , "400px" , "500px"]}
          height='300px'
        >
         <CardHeader>
@@ -668,167 +654,10 @@ const colors = [
       </Card>
         </SimpleGrid>
       </Box>
-          <Box   bgColor= '#ffefea'  width='100%'     justify = 'center' align='center'   zIndex='2'  position='relative'  >
-          <Box  paddingTop='50px'   >
-          <Heading    color='black' >How It Works?</Heading>
+      <Box   bgColor='#f2f2f2'   align='center' justify='center'   >
+           <Box   width='75%'   >
+          <Text   fontSize='40px'   fontFamily='serif' fontStyle='normal'    color='black'  paddingTop='70px' >Advantages of Cost-Plus Model</Text>
           </Box>
-              <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }   marginTop='50px'     >
-  
-              <Flex
-                    ref={circle1Ref}
-                    align="center"
-                    justify="center"
-                    width= '30px'
-                    height="30px"
-                    borderRadius="50%"
-                    borderWidth="2px"
-                    
-                    boxSizing="border-box"
-                    backgroundColor={activeIndex === 0 ? "#ff8c00" : "#a9a9a9"}
-                 
-                    >
-                         
-                      
-                    </Flex>
-                  
-                    <Flex
-                    
-                    align="center"
-                    justify="center"
-                    width= '30px'
-                    height="30px"
-                    borderRadius="50%"
-                    borderWidth="2px"
-                    
-                    boxSizing="border-box"
-                    backgroundColor={activeIndex === 1 ? "#ff8c00" : "#a9a9a9"}
-                    >
-                    
-                    </Flex>
-                    <Flex
-                    
-                    align="center"
-                    justify="center"
-                    width= '30px'
-                    height="30px"
-                    borderRadius="50%"
-                    borderWidth="2px"
-                    
-                    boxSizing="border-box"
-                    backgroundColor={activeIndex === 2 ? "#ff8c00" : "#a9a9a9"}
-                    >
-                    </Flex>
-                    <Flex
-                    
-                    align="center"
-                    justify="center"
-                    width= '30px'
-                    height="30px"
-                    borderRadius="50%"
-                    borderWidth="2px"
-                    
-                    boxSizing="border-box"
-                    backgroundColor={activeIndex === 3 ? "#ff8c00" : "#a9a9a9"}
-                    >
-                    
-                     
-                         
-                  
-                    </Flex>
-                    <Flex
-                    
-                    align="center"
-                    justify="center"
-                    width= '30px'
-                    height="30px"
-                    borderRadius="50%"
-                    borderWidth="2px"
-                    
-                    boxSizing="border-box"
-                    backgroundColor={activeIndex === 4 ? "#ff8c00" : "#a9a9a9"}
-                    >
-                     
-                         
-                  
-                    </Flex>
-                    <Flex
-                     ref={circle2Ref}
-                    align="center"
-                    justify="center"
-                    width= '30px'
-                    height="30px"
-                    borderRadius="50%"
-                    borderWidth="2px"
-                    
-                    boxSizing="border-box"
-                    backgroundColor={activeIndex === 5 ? "#ff8c00" : "#a9a9a9"}
-                    >
-                        <Box  borderWidth='1px' position='absolute'     style={{ marginLeft:`-${ distance}px`,  width: `${ distance}px` }}     borderColor='grey' zIndex='-1'   >  
-                
-                         </Box>
-                      
-                  
-                    </Flex>     
-              </Box>
-        
-              <Box     h='800px'  width='100%'   align = 'center' justify = 'center' >
-              <div style={{ marginTop : '10px' , marginLeft:'10px' , h : '1500px',  width:'100%' }} ></div>
-                    <div className="Secondslideshow" style={{marginTop: '20px'}} >
-                      <div
-                         className="SecondslideshowSlider"
-                         style={{ transform: `translate3d(${-activeIndex * 100}%, 0, 0)` }}
-                       >
-                     {data.map((backgroundColor, index) => (
-                     <div className="Secondslide" key={index} >
-
-                      <Image
-                      boxSize='200px'
-                      objectFit='cover'
-                      src={backgroundColor.image}
-                      alt='Dan Abramov'
-                      w='100%'
-                      bgColor='red'
-                      height='450px'
-                    />
-                   <Card
-                        display='block'
-                        textAlign='left'
-                        width='700px'
-                        height='130px'
-                        bgColor='white'
-                        whiteSpace='normal'
-                        borderRadius='15px'
-                      >
-                        <Text
-                          fontSize='20px'
-                          ml='20px'
-                          paddingTop='20px'
-                          color='orange'
-
-                        >
-                          {backgroundColor.text1}
-                        </Text>
-                        <Text
-                          ml='20px'
-                          color='black'
-                        >
-                          {backgroundColor.text2}
-                        </Text>
-                      </Card>
-
-                                   
-                                  
-                     </div>
-                      ))}
-                      </div>
-                    
-                   </div>
-              </Box>
-          </Box>
-         
-
- <Box   bgColor='#f2f2f2'   align='center' justify='center'   >
-          <Heading color='black'  paddingTop='70px' >Advantages of Cost-Plus Model</Heading>
           <Box overflowX='auto'   width='100%'  >
         <Table  size='lg' width='70%' borderWidth="1px" borderColor="gray.300" marginTop='80px'  marginBottom='50px'  >
           <Thead>
@@ -836,125 +665,26 @@ const colors = [
               { !isBelow720px && (
                    <Th></Th>
               )}
-              <Th textAlign='center' bgColor='orange' color='white'   >Cost-Plus</Th>
-              <Th textAlign='center' color='black' >Turn-Key / Fixed-Price</Th>
+              <Th textAlign='center' bgColor='#f34e00' color='white'  borderTopRadius='20px'   ><Text   fontSize= {["27px","27px","20px","20px","20px","20px","20px"]}fontFamily='serif' fontStyle='normal'  >Cost-Plus</Text></Th>
+              <Th textAlign='center' color='black' ><Text fontSize= {["27px","20px","20px","20px","20px","20px","20px"]}   fontFamily='serif' fontStyle='normal' >Lumpsum / Fixed-Price</Text></Th>
             </Tr>
           </Thead>
           <Tbody>
             <Tr>
               { !isBelow720px && (
-                   <Td fontWeight='bold' bgColor='#f2f2f2' color='black' >Money Safety</Td>
+                   <Td  bgColor='#f2f2f2' color='black' ><Text fontSize='40px'   fontFamily='serif' fontStyle='normal'  >Money Safety</Text></Td>
               )}
               <Td bgColor='#ffffff'color='black' >
                 <UnorderedList>
                   <ListItem>
-                    Clients will be making payments only after they receive the material to their site and the specific work is completed. So, here the client's money will be safe with them, and they can pay only when required.
+                    <Text fontSize= {["27px","27px","20px","20px","20px","20px","20px"]}   fontFamily='Open Sans' fontStyle='normal'  >Clients will be making payments only after they receive the material to their site and the specific work is completed. So, here the client's money will be safe with them, and they can pay only when required.</Text>
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
+              <Td  bgColor='#f2f2f2' color='black'>
                 <UnorderedList>
                   <ListItem>
-                    Clients will be required to make bulk advance payments upfront, irrespective of the progress or completion of specific work, posing a potential risk to their funds without a guarantee of receiving materials or completed work.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-            </Tr>
-            <Tr>
-              
-              { !isBelow720px && (
-                  <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Cost saving</Td>
-              )}
-              <Td bgColor='#ffffff'color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Clients will be saving up to 10% of the overall project cost since the payments will be made directly to the vendors.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    No option to save as the project cost is Fixed, and Clients have to pay the agreed amount to the contractor.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-            </Tr>
-            <Tr>
-              { !isBelow720px && (
-                  <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>High Quality</Td>
-              )}
-              <Td bgColor='#ffffff'color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Contractor prioritizes quality over cost-cutting since their profit isn't directly tied to minimizing expenses, potentially leading to a higher standard of workmanship and usage of quality materials.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Here, Contractors prioritize cost-cutting over quality, as their profit is directly tied to minimizing expenses, potentially leading to a lower standard of workmanship and usage of subpar materials.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-            </Tr>
-            <Tr>
-              { !isBelow720px && (
-                 <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Client Satisfaction</Td>
-              )}
-              <Td bgColor='#ffffff'color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    With the ability to adjust project details as needed, Clients are more likely to be satisfied with the final result.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Due to the inability to modify project details as required, Clients may not be satisfied with the final result, as they have limited flexibility during the construction process.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-            </Tr>
-            <Tr>
-             
-              { !isBelow720px && (
-                  <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Transparency</Td>
-              )}
-              
-              <Td bgColor='#ffffff'color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Cost-plus contracts provide transparent pricing with full client visibility into project costs, including materials, labor, contractor fee, and design costs. Detailed cost breakdowns ensure transparency, allowing informed decisions without surprises or hidden expenses.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Lack of transparency in pricing, as clients may not have full visibility into the project's costs, including detailed breakdowns of materials, labor, contractor fees, and design costs. This limited transparency may lead to uncertainties, potential surprises, and hidden costs, making it challenging for clients to make decisions.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-            </Tr>
-            <Tr>
-             
-              { !isBelow720px && (
-                   <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Flexibility</Td>
-              )}
-              <Td bgColor='#ffffff'color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Cost-plus facilitates adjustments and customizations without the need for extensive negotiation. This is particularly advantageous for projects requiring customization, as clients have the flexibility to modify project details, materials, and features as the project progresses, accommodating their evolving preferences.
-                  </ListItem>
-                </UnorderedList>
-              </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
-                <UnorderedList>
-                  <ListItem>
-                    Lack of flexibility can be a limitation for projects that require customization, as clients may face challenges in modifying project details, materials, and features during the course of the project, limiting their ability to accommodate evolving preferences.
+                  <Text fontSize = {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  > Clients will be required to make bulk advance payments upfront, irrespective of the progress or completion of specific work, posing a potential risk to their funds without a guarantee of receiving materials or completed work.</Text>
                   </ListItem>
                 </UnorderedList>
               </Td>
@@ -962,19 +692,57 @@ const colors = [
             <Tr>
               
               { !isBelow720px && (
-                  <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Control over Project</Td>
+                  <Td  bgColor='#f2f2f2' color='black'><Text  fontSize='40px'   fontFamily='serif' fontStyle='normal'  >Cost saving</Text></Td>
               )}
               <Td bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
-                    Cost-plus model provides improved project control, empowering clients with active involvement in decision-making processes for every aspect of their project. This enhances their ability to influence and oversee the desired outcomes.
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >Clients will be saving up to 10% of the overall project cost since the payments will be made directly to the vendors.</Text>
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
+              <Td  bgColor='#f2f2f2' color='black'>
                 <UnorderedList>
                   <ListItem>
-                    Fixed-price models limit client control over project decisions, restricting their involvement in decision-making processes for various aspects of their project. This constrains their ability to influence and oversee outcomes, reducing the level of empowerment in the project.
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >No option to save as the project cost is Fixed, and Clients have to pay the agreed amount to the contractor.</Text>
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+            </Tr>
+            <Tr>
+              { !isBelow720px && (
+                  <Td    fontSize='40px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>High Quality</Td>
+              )}
+              <Td bgColor='#ffffff'color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' > Contractor prioritizes quality over cost-cutting since their profit isn't directly tied to minimizing expenses, potentially leading to a higher standard of workmanship and usage of quality materials.</Text>
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+              <Td  bgColor='#f2f2f2' color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >Here, Contractors prioritize cost-cutting over quality, as their profit is directly tied to minimizing expenses, potentially leading to a lower standard of workmanship and usage of subpar materials.</Text>
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+            </Tr>
+            <Tr>
+              { !isBelow720px && (
+                 <Td fontSize='40px'   fontFamily='serif' fontStyle='normal'    bgColor='#f2f2f2' color='black'><Text>Client Satisfaction</Text></Td>
+              )}
+              <Td   fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#ffffff'color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >With the ability to adjust project details as needed, Clients are more likely to be satisfied with the final result.</Text>
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+              <Td  bgColor='#f2f2f2' color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >Due to the inability to modify project details as required, Clients may not be satisfied with the final result, as they have limited flexibility during the construction process.</Text>
                   </ListItem>
                 </UnorderedList>
               </Td>
@@ -982,19 +750,20 @@ const colors = [
             <Tr>
              
               { !isBelow720px && (
-                  <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Project Timeline</Td>
+                  <Td   fontSize='40px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Transparency</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              
+              <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
-                    In a cost-plus, projects often experience expedited progress due to the flexible nature of the contract. With the ability to make swift decisions and adjustments, clients and contractors collaborate seamlessly, promoting efficiency and ensuring timely completion.
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' > Cost-plus contracts provide transparent pricing with full client visibility into project costs, including materials, labor, contractor fee, and design costs. Detailed cost breakdowns ensure transparency, allowing informed decisions without surprises or hidden expenses.</Text>
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
+              <Td  bgColor='#f2f2f2' color='black'>
                 <UnorderedList>
                   <ListItem>
-                    Projects may encounter slower progress due to the rigid nature of the agreement. Limited flexibility in decision-making and adjustments can lead to potential delays, as clients and contractors face challenges in adapting to changing circumstances, potentially impacting efficiency and the timely completion of the project.
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >Lack of transparency in pricing, as clients may not have full visibility into the project's costs, including detailed breakdowns of materials, labor, contractor fees, and design costs. This limited transparency may lead to uncertainties, potential surprises, and hidden costs, making it challenging for clients to make decisions.</Text>
                   </ListItem>
                 </UnorderedList>
               </Td>
@@ -1002,19 +771,19 @@ const colors = [
             <Tr>
              
               { !isBelow720px && (
-                  <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Value Engineering</Td>
+                   <Td    fontSize='40px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Flexibility</Td>
               )}
               <Td bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
-                    In cost-plus, contractors are free from the constraints of a fixed budget, fostering a willingness to propose innovative ideas. Unlike fixed-price contracts, this approach allows for greater flexibility and encourages creative solutions. The absence of budget restrictions enables a more dynamic and open approach to project execution.
+                   <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >Cost-plus facilitates adjustments and customizations without the need for extensive negotiation. This is particularly advantageous for projects requiring customization, as clients have the flexibility to modify project details, materials, and features as the project progresses, accommodating their evolving preferences.</Text> 
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
+              <Td  bgColor='#f2f2f2' color='black'>
                 <UnorderedList>
                   <ListItem>
-                    In fixed-price contracts, the predetermined budget restricts contractors from proposing innovative ideas, in contrast to the flexibility allowed by cost-plus models. The rigidity of fixed budgets can discourage creative solutions and hinder a dynamic approach to project execution.
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >  Lack of flexibility can be a limitation for projects that require customization, as clients may face challenges in modifying project details, materials, and features during the course of the project, limiting their ability to accommodate evolving preferences.</Text> 
                   </ListItem>
                 </UnorderedList>
               </Td>
@@ -1022,19 +791,79 @@ const colors = [
             <Tr>
               
               { !isBelow720px && (
-                 <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Manpower</Td>
+                  <Td fontSize='40px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Control over Project</Td>
               )}
               <Td bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
-                    Contractors can strategically allocate skilled manpower, prioritizing the delivery of high-quality work. This approach allows for a focus on expertise and professionalism, enhancing the overall quality of the project.
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' > Cost-plus model provides improved project control, empowering clients with active involvement in decision-making processes for every aspect of their project. This enhances their ability to influence and oversee the desired outcomes.</Text> 
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>
+              <Td  bgColor='#f2f2f2' color='black'>
                 <UnorderedList>
                   <ListItem>
-                    With the constraint of cost minimization, contractors may struggle to strategically allocate skilled manpower, compromising the prioritization of high-quality work. This could impact the overall project quality by limiting the focus on expertise and professionalism.
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' > Fixed-price models limit client control over project decisions, restricting their involvement in decision-making processes for various aspects of their project. This constrains their ability to influence and oversee outcomes, reducing the level of empowerment in the project.</Text> 
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+            </Tr>
+            <Tr>
+             
+              { !isBelow720px && (
+                  <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black'>Project Timeline</Td>
+              )}
+              <Td bgColor='#ffffff'color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >In a cost-plus, projects often experience expedited progress due to the flexible nature of the contract. With the ability to make swift decisions and adjustments, clients and contractors collaborate seamlessly, promoting efficiency and ensuring timely completion.</Text> 
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+              <Td  bgColor='#f2f2f2' color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' > Projects may encounter slower progress due to the rigid nature of the agreement. Limited flexibility in decision-making and adjustments can lead to potential delays, as clients and contractors face challenges in adapting to changing circumstances, potentially impacting efficiency and the timely completion of the project.</Text> 
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+            </Tr>
+            <Tr>
+             
+              { !isBelow720px && (
+                  <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black'>Value Engineering</Td>
+              )}
+              <Td fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#ffffff'color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' > In cost-plus, contractors are free from the constraints of a fixed budget, fostering a willingness to propose innovative ideas. Unlike fixed-price contracts, this approach allows for greater flexibility and encourages creative solutions. The absence of budget restrictions enables a more dynamic and open approach to project execution.</Text> 
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+              <Td  bgColor='#f2f2f2' color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'>  In fixed-price contracts, the predetermined budget restricts contractors from proposing innovative ideas, in contrast to the flexibility allowed by cost-plus models. The rigidity of fixed budgets can discourage creative solutions and hinder a dynamic approach to project execution.</Text> 
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+            </Tr>
+            <Tr>
+              
+              { !isBelow720px && (
+                 <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black'>Manpower</Td>
+              )}
+              <Td bgColor='#ffffff'color='black'>
+                <UnorderedList>
+                  <ListItem>
+                  <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >  Contractors can strategically allocate skilled manpower, prioritizing the delivery of high-quality work. This approach allows for a focus on expertise and professionalism, enhancing the overall quality of the project.</Text> 
+                  </ListItem>
+                </UnorderedList>
+              </Td>
+              <Td  bgColor='#f2f2f2' color='black'>
+                <UnorderedList>
+                  <ListItem>
+                    <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >With the constraint of cost minimization, contractors may struggle to strategically allocate skilled manpower, compromising the prioritization of high-quality work. This could impact the overall project quality by limiting the focus on expertise and professionalism.</Text>
                   </ListItem>
                 </UnorderedList>
               </Td>
@@ -1042,10 +871,11 @@ const colors = [
           </Tbody>
         </Table>
       </Box>
-      </Box>
+      </Box>       
+        
       <Box   bgColor='#ffefea'  justify = 'center' align = 'center'  >
-        <Box    >
-          <Heading color='black'    paddingTop='70px' >The Buildhood Advantage</Heading>
+        <Box   width='75%'   >
+          <Text color='black'   fontSize='40px'   fontFamily='serif' fontStyle='normal'     paddingTop='70px' >The Buildhood Advantage</Text>
         </Box>  
           <Box overflowX='auto'   width='100%'  >
         <Table  size='lg' width='70%' borderWidth="1px" borderColor="gray.300"  marginTop='80px'  marginBottom='50px'  >
@@ -1055,17 +885,17 @@ const colors = [
                { !isBelow720px && (
                   <Th></Th>
               )}
-              <Th textAlign='center' bgColor='orange' color='white'   >BUILDHOOD</Th>
-              <Th textAlign='center' color='black' >	TYPICAL EXPERIENCE</Th>
+              <Th textAlign='center' bgColor='orange' color='white'    fontSize='30px' borderTopRadius='20px'   fontFamily='serif' fontStyle='normal'   >BUILDHOOD</Th>
+              <Th textAlign='center' color='black'  fontSize='30px'   fontFamily='serif' fontStyle='normal'  >	TYPICAL EXPERIENCE</Th>
             </Tr>
           </Thead>
           <Tbody>
             <Tr>
              
                { !isBelow720px && (
-                   <Td fontWeight='bold' bgColor='#f2f2f2' color='black' >PRICE</Td>
+                   <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black' >PRICE</Td>
               )}
-              <Td bgColor='#ffffff'color='black' >
+              <Td bgColor='#ffffff'color='black'  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >
                 <UnorderedList>
                   <ListItem>
                   Best price guarantee
@@ -1075,7 +905,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Td   fontSize ={["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   Comparatively higher prices
@@ -1089,9 +919,9 @@ const colors = [
             <Tr>
              
                 { !isBelow720px && (
-                   <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Quality</Td>
+                   <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Quality</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td bgColor='#ffffff'color='black' fontSize = {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >
                 <UnorderedList>
                   <ListItem>
                   Branded material
@@ -1110,7 +940,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   Inferior materials used to cut the costs
@@ -1133,9 +963,9 @@ const colors = [
             <Tr>
              
                 { !isBelow720px && (
-                   <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>SUB-CONTRACTORS</Td>
+                   <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>SUB-CONTRACTORS</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td bgColor='#ffffff'color='black'  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >
                 <UnorderedList>
                   <ListItem>
                   No Sub-Contractors
@@ -1145,7 +975,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   YES
@@ -1159,9 +989,9 @@ const colors = [
             <Tr>
               
                 { !isBelow720px && (
-                   <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>TRANSPARENCY</Td>
+                   <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>TRANSPARENCY</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td bgColor='#ffffff'color='black 'fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' >
                 <UnorderedList>
                   <ListItem>
                   Transparent at every level
@@ -1171,7 +1001,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   Limited to No transparency
@@ -1181,9 +1011,9 @@ const colors = [
             </Tr>
             <Tr>
                  { !isBelow720px && (
-                    <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>CONVINIENCE</Td>
+                    <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>CONVINIENCE</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
                   One-stop solution
@@ -1193,7 +1023,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   Hassle experience to No support
@@ -1204,16 +1034,16 @@ const colors = [
             <Tr>
               
                 { !isBelow720px && (
-                <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>DESIGN</Td>
+                <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>DESIGN</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td bgColor='#ffffff'color='black 'fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  >
                 <UnorderedList>
                   <ListItem>
                   Personalized Designs and Architecture
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   Cookie-cutter designs and Architecture
@@ -1224,9 +1054,9 @@ const colors = [
             <Tr>
               
                 { !isBelow720px && (
-                <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>TIMELINES</Td>
+                <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>TIMELINES</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td bgColor='#ffffff'color='black 'fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  >
                 <UnorderedList>
                   <ListItem>
                   On-Time Project Completion with appropriate Timelines
@@ -1236,7 +1066,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold' color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   Delays in project completion and unreliable timelines
@@ -1250,9 +1080,9 @@ const colors = [
             <Tr>
               
               { !isBelow720px && (
-               <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>WARRANTY</Td>
+               <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>WARRANTY</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
                   5 years warranty for the service
@@ -1262,7 +1092,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Text fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   No warranty or Warranty for namesake
@@ -1271,21 +1101,21 @@ const colors = [
                   No after sales service
                   </ListItem>
                 </UnorderedList>
-              </Td>
+              </Text>
             </Tr>
             <Tr>
              
                 { !isBelow720px && (
-               <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Value Engineering</Td>
+               <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Value Engineering</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
                     In cost-plus, contractors are free from the constraints of a fixed budget, fostering a willingness to propose innovative ideas. Unlike fixed-price contracts, this approach allows for greater flexibility and encourages creative solutions. The absence of budget restrictions enables a more dynamic and open approach to project execution.
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold'  color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'   color='black'>
                 <UnorderedList>
                   <ListItem>
                     In fixed-price contracts, the predetermined budget restricts contractors from proposing innovative ideas, in contrast to the flexibility allowed by cost-plus models. The rigidity of fixed budgets can discourage creative solutions and hinder a dynamic approach to project execution.
@@ -1296,16 +1126,16 @@ const colors = [
             <Tr>
               
                { !isBelow720px && (
-              <Td fontWeight='bold' bgColor='#f2f2f2' color='black'>Manpower</Td>
+              <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Manpower</Td>
               )}
-              <Td bgColor='#ffffff'color='black'>
+              <Td  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal' bgColor='#ffffff'color='black'>
                 <UnorderedList>
                   <ListItem>
                     Contractors can strategically allocate skilled manpower, prioritizing the delivery of high-quality work. This approach allows for a focus on expertise and professionalism, enhancing the overall quality of the project.
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Td fontWeight='bold' color='black'>
+              <Td    fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='Open Sans' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                     With the constraint of cost minimization, contractors may struggle to strategically allocate skilled manpower, compromising the prioritization of high-quality work. This could impact the overall project quality by limiting the focus on expertise and professionalism.
@@ -1319,19 +1149,20 @@ const colors = [
       </Box>
       </Box>
 
-       <Flex
+      <Flex
          bgColor= '#fffafa'
         direction="column"
         align="center"
         justify='center'
+ 
       >
         <Box   >
-        <Text textAlign="center" mb="4" color='black' marginTop='50px'  >
-            Why choose Buildhood?
-        </Text>
+          <Text color='black'   fontSize='40px'   fontFamily='serif' fontStyle='normal'   >Why choose buildhood</Text>
         </Box>
-        <Flex      marginTop='50px'    justify = 'center' align='center' >
-          <SimpleGrid   {...gridProps}  spacingY="8"         >
+        <Flex      marginTop='50px'    justify = 'center' align='center'   w= {["100%" , "100%" , "90%" , "90%", "90%" , "75%" , "50%" ]}  >
+          <SimpleGrid   {...gridProps}  spacingY="8"    w= {["100%" , "100%" , "100%" , "100%", "100%" , "100%" , "100%" ]}
+          
+                >
             {/* Card 1 */}
               <Card
               display='flex'
@@ -1339,22 +1170,24 @@ const colors = [
               justifyContent='center'
               alignItems='center'
               boxShadow="lg"
-              bg="white"
-              height='170px'
-              w='240px'
+              height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+              w= {["100%" , "100%" , "100%" , "180px", "220px" , "280px" , "310px" ]}
             >
-              <CardBody>
+              <Flex  
+                  justifyContent='center'
+                  alignItems='center'
+                  flexDirection='column'
+                  textAlign='center'
+                >
                 <Image
-                  boxSize='50px'
-                  objectFit='cover'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   src={nosuncontractor}
                   alt='Dan Abramov'
-                  ml='50px'
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","18px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                   No subcontractors
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
   
   
@@ -1367,23 +1200,28 @@ const colors = [
               alignItems='center'
               boxShadow="lg"
               bg="white"
-              height='170px'
-              w='240px'
+              height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+              w= {["100%" , "100%" , "100%" , "180px", "220px" , "280px" , "310px" ]}
             
             >
            
-              <CardBody>
+              <Flex
+                justifyContent='center'
+                alignItems='center'
+                flexDirection='column'
+                textAlign='center'
+              >
               <Image
-                  boxSize='50px'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   objectFit='cover'
                   src={professional}
                   alt='Dan Abramov'
-                  ml='50px'
+      
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","18px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                   Professional Project Management
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
   
             {/* Card 3 */}
@@ -1394,24 +1232,26 @@ const colors = [
               justifyContent='center'
               alignItems='center'
               boxShadow="lg"
-              bg="white"
-              height='170px'
-              w='240px'
-        
+              height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+              w= {["100%" , "100%" , "100%" , "180px", "220px" , "280px" , "310px" ]}        
             >
             
-              <CardBody>
+              <Flex
+                 justifyContent='center'
+                 alignItems='center'
+                 flexDirection='column'
+                 textAlign='center' 
+              >
               <Image
-                  boxSize='50px'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   objectFit='cover'
                   src={unique}
                   alt='Dan Abramov'
-                  ml='50px'
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","18px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                   Unique and modern designs
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
   
             {/* Card 4 */}
@@ -1422,24 +1262,28 @@ const colors = [
                 justifyContent='center'
                 alignItems='center'
                 boxShadow="lg"
-                bg="white"
-                height='170px'
-                w='240px'
+                height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+                w= {["100%" , "100%" , "100%" , "180px", "220px" , "280px" , "310px" ]}
             
             >
              
-              <CardBody>
+              <Flex
+                justifyContent='center'
+                alignItems='center'
+                flexDirection='column'
+                textAlign='center'
+              >
               <Image
-                  boxSize='50px'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   objectFit='cover'
                   src={quality}
                   alt='Dan Abramov'
-                  ml='50px'
+                  
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","15px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                   Quality
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
             <Card
              
@@ -1448,23 +1292,26 @@ const colors = [
              justifyContent='center'
              alignItems='center'
              boxShadow="lg"
-             bg="white"
-             height='170px'
-             w='240px'
+             height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+             w= {["100%" , "100%" , "100%" , "180px", "220px" , "280px" , "310px" ]}
             >
              
-              <CardBody>
+              <Flex
+                justifyContent='center'
+                alignItems='center'
+                flexDirection='column'
+                textAlign='center'   
+              >
               <Image
-                  boxSize='50px'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   objectFit='cover'
                   src={process}
                   alt='Dan Abramov'
-                  ml='50px'
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","18px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                     Transparency
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
   
             <Card
@@ -1473,24 +1320,27 @@ const colors = [
              justifyContent='center'
              alignItems='center'
              boxShadow="lg"
-             bg="white"
-             height='170px'
-             w='240px'
+             height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+             w= {["100%" , "100%" , "100%" , "180px", "220px" , "260px" , "310px" ]}
             
             >
              
-              <CardBody>
+              <Flex
+                justifyContent='center'
+                alignItems='center'
+                flexDirection='column'
+                textAlign='center' 
+               >
               <Image
-                  boxSize='50px'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   objectFit='cover'
                   src={adherence}
                   alt='Dan Abramov'
-                  ml='50px'
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","18px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                    Brand/Trustworthy
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
   
             <Card
@@ -1499,24 +1349,27 @@ const colors = [
            justifyContent='center'
            alignItems='center'
            boxShadow="lg"
-           bg="white"
-           height='170px'
-           w='240px'
+           height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+           w= {["100%" , "100%" , "100%" , "180px", "220px" , "280px" , "310px" ]}
             
             >
              
-              <CardBody>
+              <Flex
+                justifyContent='center'
+                alignItems='center'
+                flexDirection='column'
+                textAlign='center' 
+              >
               <Image
-                  boxSize='50px'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   objectFit='cover'
                   src={competitive}
                   alt='Dan Abramov'
-                  ml='50px'
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","18px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                 Professional Customer Service
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
   
             <Card
@@ -1526,24 +1379,27 @@ const colors = [
               justifyContent='center'
               alignItems='center'
               boxShadow="lg"
-              bg="white"
-              height='170px'
-              w='240px'
+              height= {["270px" ,"270px","270px" , "170px" ,"170px" , "170px" ,"170px"]}
+              w= {["100%" , "100%" , "100%" , "180px", "220px" , "280px" , "310px" ]}
             
             >
              
-              <CardBody>
+              <Flex
+                 justifyContent='center'
+                 alignItems='center'
+                 flexDirection='column'
+                 textAlign='center' 
+               >
               <Image
-                  boxSize='50px'
+                  boxSize= {[ "130px" ,"130" ,"130px" , "50px" ,"50px" ,"50px" ,"50px" ]}
                   objectFit='cover'
                   src={hign}
                   alt='Dan Abramov'
-                  ml='50px'
                 />
-                <Text mt="4" fontWeight="600" textTransform="uppercase" color='black'>
+                <Text mt="4" fontSize =  {["30px","30px","30px","18px","20px","20px","20px"]}      fontFamily='serif' fontStyle='normal' textTransform="uppercase" color='black'>
                    Hassle-Free Service
                 </Text>
-              </CardBody>
+              </Flex>
             </Card>
   
   
@@ -1553,6 +1409,8 @@ const colors = [
           </SimpleGrid>
         </Flex>
       </Flex>
+       
+
       <Flex justify='center' align='center'  flexDirection='column'   mt='40px'     >
            <Box>
               <Text  fontSize='30px' fontWeight='500' fontFamily='serif'  >Frequently Asked Questions</Text>
@@ -1810,57 +1668,9 @@ const colors = [
                  </Box>
            </Box>
       </Flex>
-        <Flex 
-        justifyContent='center'
-        alignContent='center'
-        flexDirection='column'
 
-        >
-              <Box  
-              justify='center'
-              align='center'
-               >
-                  <Text  color='black'    fontSize='50px' fontWeight='200' fontFamily='serif'    >               
-                         Trusted Brands
-                  </Text>
-              </Box>
-              <Box>
-              <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '10px', width : '100%' , marginLeft:'10px' }} ></div>
-                    <div className="slideshow" style={{marginTop: '20px'}} >
-                      <div
-                         className="slideshowSlider"
-                         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-                       >
-                     {colors.map((backgroundColor, index) => (
-                     <div className="slide" key={index} >
-                                
-                                  <Image
-                                    boxSize='250px'
-                                   // objectFit='cover'
-                                   width='500px'
-                                    key={index}
-                                    src={backgroundColor.item1}
-                                    alt={`Slide ${index + 1}`}
-                                  />
-                                   
-                                    <Image
-                                    mt='50px'
-                                    boxSize='250px'
-                                    width='500px'
-                                    //objectFit='cover'
-                                    key={index}
-                                   src={backgroundColor.item2}
-                                   alt={`Slide ${index + 1}`}
-                                  />
-                     </div>
-                      ))}
-                      </div>
-                    
-                   </div>
-              </Box>
-        </Flex>
-        
-    </>
+
+    </Flex>
   );
 };
 

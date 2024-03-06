@@ -46,7 +46,7 @@ const MainLayoutBelow720px = () => {
       bgColor='orangered'
       justifyContent='center'
       align='center'
-      width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']} 
+      width={['100%' , '100%' , '100%' , '100%' , '100%' , '100%' , '100%']} 
     >
         <Box  width='100%'  display='block'  justifyContent='space-between'  justify = 'center' align = 'center'  marginBottom='15px' marginTop='15px'   >
              <Box display='flex'  justifyContent='center' alignContent='center'  >

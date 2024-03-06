@@ -15,7 +15,7 @@
   .Secondslide {
     display: inline-block;
   
-    height: 700px;
+    /* height: 700px; */
     width: 100%;
     border-radius: 40px;
   }
