@@ -133,6 +133,7 @@ const ArchitectureDesign = () => {
                              </Tabs>
                           </Box>
                    </Box>
+                   
             </Flex>
            
 

@@ -18,6 +18,7 @@ import facebook from './Images/icons8-facebook-logo-24.png'
 import twitter from './Images/icons8-twitter-50.png'
 import youtube from './Images/youtube.png'
 import iso from  './Images/iso_icon.png'
+import makanwale from './Images/MakanWale.png'
 
 
 
@@ -84,10 +85,10 @@ const MainLayout = () => {
    >
             <Box width='70%'  display='flex'   justify = 'center' align='center'  >
               <Box     >
-                    <Image
+              <Image
                     boxSize='60px'
                     width='250px'
-                    src= {buiildhood}
+                    src= {makanwale}
                     alt='Dan Abramov'
                   
                   />

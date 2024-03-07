@@ -46,7 +46,8 @@ const MainLayoutBelow720px = () => {
       bgColor='orangered'
       justifyContent='center'
       align='center'
-      width={['100%' , '100%' , '100%' , '100%' , '100%' , '100%' , '100%']} 
+      width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']} 
+    
     >
         <Box  width='100%'  display='block'  justifyContent='space-between'  justify = 'center' align = 'center'  marginBottom='15px' marginTop='15px'   >
              <Box display='flex'  justifyContent='center' alignContent='center'  >
@@ -86,7 +87,7 @@ const MainLayoutBelow720px = () => {
              </Box>
         </Box>
     </Flex>
-     <Flex
+     {/* <Flex
      alignItems="center"
      justifyContent="center"
      height='80px'
@@ -94,7 +95,7 @@ const MainLayoutBelow720px = () => {
      visibility={isVisible && isBelow720px ? "visible" : "hidden"}
    >
     
-              <Box  align ='center' justify = 'center' display='flex'    width='80%' >
+              <Box  align ='center' justify = 'center' display='flex'    width='95%'  >
                   <Box        >
                         <Image
                         boxSize='60px'
@@ -104,10 +105,10 @@ const MainLayoutBelow720px = () => {
                       />
                   </Box> 
                    <Spacer/>
-                      <Box  >
-                      <Button colorScheme='teal'   ref={btnRef}  onClick={onOpen}    >
-                        <i className="fas fa-bars" style={{ color: 'orange' }} ></i>
-                      </Button>
+                      <Box   >
+                      <button   ref={btnRef}  onClick={onOpen}    >
+                        <i className="fas fa-bars" style={{  fontSize  :'40px',  color : 'orangered'  }} ></i>
+                      </button>
                       
                           <Drawer
                             isOpen={isOpen}
@@ -174,7 +175,9 @@ const MainLayoutBelow720px = () => {
 
               </Box>
    
-   </Flex>
+   </Flex> */}
+  
+   
    </>
   );
 };
