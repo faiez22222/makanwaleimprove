@@ -297,37 +297,55 @@ const colors = [
           /> */}
               <Box display='block' textAlign='center'  marginTop='20px'  marginBottom='20px'    >
               <Box justifyContent='center' alignItems='center'  >
-                 <Text  fontWeight='600' fontFamily='sans-serif'  fontSize='50px' >THE FUTURE  OF</Text>
+                 <Text  fontWeight='600' fontFamily='sans-serif'  fontSize=  {["25px" , "" , "" , "" ,"" ,"" ,""]}  >THE FUTURE  OF</Text>
               </Box>
               <Box  justifyContent='center' alignItems='center' >
-                 <Text  color='orangered'  fontWeight='600' fontFamily='sans-serif'  fontSize='50px' >HOME CONSTRUCTION</Text>
+                 <Text  color='orangered'  fontWeight='600' fontFamily='sans-serif'  fontSize= {["25px" , "" , "" , "" ,"" ,"" ,""]} >HOME CONSTRUCTION</Text>
               </Box>
               <Box justifyContent='center' alignItems='center' >
-              <Text   fontWeight='600' fontFamily='sans-serif'  fontSize='40px' >introducing</Text>
+              <Text   fontWeight='600' fontFamily='sans-serif'  fontSize='35px' >introducing</Text>
               </Box>
               <Box  justifyContent='center' alignItems='center' >
-                 <Text  color='orangered'  fontWeight='600' fontFamily='sans-serif'  fontSize='50px' >COST-PLUS CONTRACT</Text>
+                 <Text  color='orangered'  fontWeight='600' fontFamily='sans-serif'  fontSize= {["25px" , "" , "" , "" ,"" ,"" ,""]} >COST-PLUS CONTRACT</Text>
               </Box>
               <Box justifyContent='center' alignItems='center' >
-              <Text   fontWeight='600' fontFamily='sans-serif'  fontSize='40px' >SAVE UPTO 10% COST</Text>
+              <Text   fontWeight='600' fontFamily='sans-serif'  fontSize= {["25px" , "" , "" , "" ,"" ,"" ,""]} >SAVE UPTO 10% COST</Text>
               </Box>
               <Box  justify = 'center' align = 'center'  >
                    <Box bgColor='orangered' textAlign='center'  width='50%'  roundedLeft='30px' roundedRight='30px'   >
-                      <Text  paddingBottom='20px' paddingTop='20px'   fontSize='40px'  color='white' >Contact Us</Text>
+                      <Text  paddingBottom='10px' paddingTop='10px'   fontSize= {["20px" , "" , "" , "" ,"" ,"" ,""]}  color='white' >Contact Us</Text>
                    </Box>
               </Box>
          </Box>
          <Box display='block' justifyContent='center'  alignItems='center'  marginTop='40px' marginBottom='80px'   >
               <Box justifyContent='center' alignItems='center' textAlign='center'  >
-                <Text   fontWeight='450' fontFamily='sans-serif'  fontSize='50px' >Quick Enquiry</Text>
+                <Text   fontWeight='450' fontFamily='sans-serif'  fontSize= {["25px" , "" , "" , "" ,"" ,"" ,""]} >Quick Enquiry</Text>
               </Box>
               <Box justify= 'center' align= 'center'  >
-         <FormControl size='sm'  borderWidth='1px'    width='75%'   >
+         <FormControl size='sm'     width='75%'   >
           <VStack spacing='10px' >
-            <Textarea  borderWidth='5px'  fontSize='30px'  placeholder='Name'  / >
-            <Textarea  borderWidth='5px'  fontSize='30px'  placeholder='Mobile No'  / >
-            <Textarea  borderWidth='5px'  fontSize='30px'  placeholder='Email'  / >
-            <Textarea  borderWidth='5px'  fontSize='30px'  placeholder='Pincode'  / >
+            <Input
+                type='email'
+                placeholder="Name"
+            />
+             <Input
+                type='email'
+                placeholder="Mobile No"
+            />
+            <Input
+                type='email'
+                placeholder="Email"
+            />
+            <Select>
+              <option>Bangalore</option>
+              <option>Hyderabad</option>
+              <option>Delhi</option>
+            </Select>
+              <Input
+                type='email'
+                placeholder="Pincode"
+            />
+            <Button color='white' width='250px' type="Submit"  bgColor='orangered' >Submit</Button>
           </VStack>                
                     
          </FormControl>
@@ -344,7 +362,7 @@ const colors = [
           />
       }
       
-         {/* <Box  bgColor='white'  >
+         <Box  bgColor='white'  >
         <Center>
         <Text  fontSize='35px' fontWeight='500'  fontFamily='sans-serif'  color='black'  mt='50px' >Our Expertise</Text>
         </Center>
@@ -562,7 +580,7 @@ const colors = [
                 </Box>
               )}
          
-        </Flex> */}
+        </Flex>
 
         {/* <Link href="/contact-us" >
                <Image
