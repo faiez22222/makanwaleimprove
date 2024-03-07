@@ -582,7 +582,7 @@ const colors = [
          
         </Flex>
 
-        {/* <Link href="/contact-us" >
+        <Link href="/contact-us" >
                <Image
                   width = '100%'
                   objectFit='cover'
@@ -590,9 +590,9 @@ const colors = [
                   alt='Dan Abramov'
                 />
              </Link>    
-             <Construction/>     */}
+             <Construction/>    
        
-             {/* <Link href = '/cost-plus-contract-house-construction' >
+             <Link href = '/cost-plus-contract-house-construction' >
              <Image 
             boxSize='420px'
             objectFit='cover'
@@ -600,8 +600,8 @@ const colors = [
             alt='Dan Abramov'
             width='100%'
           />
-             </Link> */}
-             {/* <Box bgColor='white' p={8}  justify = 'center' align = 'center' >
+             </Link>
+             <Box bgColor='white' p={8}  justify = 'center' align = 'center' >
       <Text fontSize='40px'fontWeight='500' fontFamily=  'sans-serif'  >  Get an estimate for your home interiors</Text>
       <Text fontSize='20px'fontWeight='450' fontFamily=  'sans-serif'  > Calculate the approximate cost of doing up your home with our easy-to-use tool.</Text>
         <SimpleGrid {...gridPropCards}  justifyContent='center' alignItems='center'     marginTop='40px' 
@@ -726,9 +726,9 @@ const colors = [
       </Card>
         </SimpleGrid>
       </Box>
-       */}
       
-                {/* <Box   bgColor= '#ffefea'  width='100%'     justify = 'center' align='center'   zIndex='2'  position='relative'  >
+      
+                <Box   bgColor= '#ffefea'  width='100%'     justify = 'center' align='center'   zIndex='2'  position='relative'  >
           <Box  paddingTop='50px'   >
           <Heading    color='black' >How It Works?</Heading>
           </Box>
@@ -896,12 +896,12 @@ const colors = [
 
 
 
-          </Box> */}
+          </Box>
 
       
 
 
-      {/* <Box   bgColor='#f2f2f2'   align='center' justify='center'   >
+      <Box   bgColor='#f2f2f2'   align='center' justify='center'   >
            <Box   width='75%'   >
           <Text   fontSize='40px'   fontFamily='serif' fontStyle='normal'    color='black'  paddingTop='70px' >Advantages of Cost-Plus Model</Text>
           </Box>
@@ -1118,9 +1118,9 @@ const colors = [
           </Tbody>
         </Table>
       </Box>
-      </Box>        */}
+      </Box>       
         
-      {/* <Box   bgColor='#ffefea'  justify = 'center' align = 'center'  >
+      <Box   bgColor='#ffefea'  justify = 'center' align = 'center'  >
         <Box   width='75%'   >
           <Text color='black'   fontSize='40px'   fontFamily='serif' fontStyle='normal'     paddingTop='70px' >The Buildhood Advantage</Text>
         </Box>  
@@ -1394,9 +1394,9 @@ const colors = [
          
         </Table>
       </Box>
-      </Box> */}
+      </Box>
 
-      {/* <Flex
+      <Flex
          bgColor= '#fffafa'
         direction="column"
         align="center"
@@ -1647,10 +1647,10 @@ const colors = [
             </Card>
           </SimpleGrid>
         </Flex>
-      </Flex> */}
+      </Flex>
        
            
-        {/* {!isBelow720px && (
+        {!isBelow720px && (
                <Flex justify='center' align='center'  flexDirection='column'   mt='40px'     >
                <Box>
                   <Text  fontSize='30px' fontWeight='500' fontFamily='serif'  >Frequently Asked Questions</Text>
@@ -1910,10 +1910,10 @@ const colors = [
                      </Box>
                </Box>
           </Flex>
-        )} */}
+        )}
 
 
-        {/* <Flex 
+        <Flex 
         justifyContent='center'
         alignContent='center'
         flexDirection='column'
@@ -1958,9 +1958,9 @@ const colors = [
                     
                    </div>
               </Box>
-        </Flex> */}
+        </Flex>
 
-        {/* <Flex
+        <Flex
      alignItems="center"
      justifyContent="center"
      bgColor='#262626' 
@@ -2088,7 +2088,7 @@ const colors = [
                 </Box>
       </Box>
    
-   </Flex> */}
+   </Flex>
 
 
     </Flex>
