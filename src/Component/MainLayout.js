@@ -32,7 +32,8 @@ const MainLayout = () => {
       bgColor='orangered'
       justifyContent='center'
       align='center'
-      width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']} 
+      // width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']} 
+      width='100vw'
     >
         <Box  width='70%'  display='flex'  justifyContent='space-between'   >
              <Box  display='flex'  >
