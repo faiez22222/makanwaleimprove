@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image , Flex, Center  ,useMediaQuery ,} from '@chakra-ui/react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image , Flex, Center  ,useMediaQuery ,Link} from '@chakra-ui/react';
 import icon1 from './Images/icon1.png'
 import icon2 from './Images/icon2.png'
 import icon3 from './Images/icon3.png'
@@ -65,6 +65,7 @@ import Tabpane411 from './Tabpane411';
 import Tabpane412 from './Tabpane412';
 import Tabpane413 from './Tabpane413';
 import './animation.css'
+import makanwale from './Images/MakanWale.png'
 
 const Glow = () => {
   // State to track active tabs
@@ -83,20 +84,22 @@ const Glow = () => {
   ];
 
   return (
-    <Flex   direction='column' justifyContent='center' alignContent='center' 
+    <Flex   direction='column' justifyContent='center' alignContent='center'  
     //  width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1440px' , '2560px']}  
+    width='100%'
       >
           <div class="wrapper"  style={{display:'block' ,alignItems : 'center' ,  flexDirection: 'column',  marginTop :'50px', marginBottom  : '50px'   }}  >
             <h1>Home Construction Packages</h1>
             <Text fontSize='25px' > End-to-End Construction </Text>
           </div>
-      <Tabs isLazy   orientation={isBelow720px ? 'vertical' : 'horizontal'  }   variant='unstyled'  width={['100%' , '100%'  , '100%' ,'100%'  ,'85%' , '75%' ]}   ml={['0px' , '0px' , '0px' , '0px' , '30px' , '180px']} height='1100px'    >    
+          <Box  justifyContent='center' alignItems='center'   >
+      <Tabs isLazy   orientation={isBelow720px ? 'vertical' : 'horizontal'  }    variant='unstyled'  width={['100%' , '100%'  , '100%' ,'100%'  ,'85%' , '75%' ]}   ml={['0px' , '0px' , '0px' , '0px' , '30px' , '180px']} height='1100px'    >    
           <TabList  marginLeft={isBelow720px ? '0px' : '100px'}  >
      
-      <Tab   _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='#DCDCDC'   style={{  height : '50px'}} width={['250px' , '280px'  , '330px' ,'250px'  ,'200px' , '330px' ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  >Silver</Tab>
-      <Tab _selected={{ color: 'white', bgColor : 'orange' }}   bgColor='#DCDCDC'   style={{  height : '50px'    }} width={['250px' , '280px'  , '330px' ,'250px'  ,'200px' , '330px' ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}    >Gold</Tab>
-      <Tab _selected={{ color: 'white', bgColor : 'orange' }}  bgColor='#DCDCDC'   style={{  height : '50px'    }} width={['250px' , '280px'  , '330px' ,'250px'  ,'200px' , '330px' ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  >Diomond</Tab>
-      <Tab _selected={{ color: 'white', bgColor : 'orange' }}  bgColor='#DCDCDC'   style={{  height : '50px'    }} width={['250px' , '280px'  , '330px' ,'250px'  ,'200px' , '330px' ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  >Platinum</Tab>
+      <Tab   _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='#DCDCDC'   style={{  height : '50px'}} width={['260px' , '260px'  , '250px' ,'150px'  ,'200px' , '25%',"25%" ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  >Silver</Tab>
+      <Tab _selected={{ color: 'white', bgColor : 'orange' }}   bgColor='#DCDCDC'   style={{  height : '50px'    }} width={['260px' , '260px'  , '250px' ,'150px'  ,'200px' , '25%' ,"25%" ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}    >Gold</Tab>
+      <Tab _selected={{ color: 'white', bgColor : 'orange' }}  bgColor='#DCDCDC'   style={{  height : '50px'    }} width={['260px' , '260px'  , '250px' ,'150px'  ,'200px' , '25%'  ,"25%"]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  >Diomond</Tab>
+      <Tab _selected={{ color: 'white', bgColor : 'orange' }}  bgColor='#DCDCDC'   style={{  height : '50px'    }} width={['260px' , '260px'  , '250px' ,'150px'  ,'200px' , '25%' ,"25%" ]}  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  >Platinum</Tab>
     </TabList>  
       <TabPanels>
          <TabPanel   style={{position : 'absolute'  }} top = {['220px' ,'220px' , '220px' , '220px' , '50px' ,'50px' ,]} left={['0px' ,'0px' ,'0px' ,'0px' ,'20px' ,'20px'  ]} width={['100%' ,'100%' ,'100%' ,'100%' ,'100%' ,'100%'  ]}       >
@@ -207,6 +210,154 @@ const Glow = () => {
           </TabList>
            <TabPanels>
               <TabPanel>
+                  <Tabpanel11/>
+             </TabPanel>
+            <TabPanel>
+              <Tabpanel12/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel13/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel14/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel15/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel16/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel17/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel18/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel19/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel110/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel111/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel112/>
+            </TabPanel>
+            <TabPanel>
+               <Tabpanel113/>
+            </TabPanel>
+           </TabPanels>
+          </Tabs>
+         </TabPanel>
+         <TabPanel   style={{position : 'absolute'  }} top = {['220px' ,'220px' , '220px' , '220px' , '50px' ,'50px' ,]} left={['0px' ,'0px' ,'0px' ,'0px' ,'20px' ,'20px'  ]} width={['100%' ,'100%' ,'100%' ,'100%' ,'100%' ,'100%'  ]}       >
+         <Tabs isLazy orientation="vertical" variant='unstyled'  height='800px'        overflowY='auto'  >
+          <TabList  bgColor='grey'  top='0'        position='sticky' zIndex='sticky'   >
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px',}}   width={['30%' , '50px'  , '50px' ,'70px'  ,'70px' , '70px' ]}      >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon1}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}    >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon2}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon3}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon4}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon5}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon6}
+              alt='Dan Abramov'
+            />
+              </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon7}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon8}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon9}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon10}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }} >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon11}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
+            <Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon12}
+              alt='Dan Abramov'
+            />
+            </Tab>
+            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  ><Image
+              boxSize='25px'
+              objectFit='cover'
+              src= {icon13}
+              alt='Dan Abramov'
+            /></Tab>
+          </TabList>
+           <TabPanels>
               <TabPanel>
                   <Tabpanel11/>
             </TabPanel>
@@ -246,7 +397,6 @@ const Glow = () => {
             <TabPanel>
                <Tabpanel113/>
             </TabPanel>
-              </TabPanel>
            </TabPanels>
           </Tabs>
          </TabPanel>
@@ -358,7 +508,6 @@ const Glow = () => {
           </TabList>
            <TabPanels>
               <TabPanel>
-              <TabPanel>
                   <Tabpanel11/>
             </TabPanel>
             <TabPanel>
@@ -397,7 +546,6 @@ const Glow = () => {
             <TabPanel>
                <Tabpanel113/>
             </TabPanel>
-              </TabPanel>
            </TabPanels>
           </Tabs>
          </TabPanel>
@@ -509,7 +657,6 @@ const Glow = () => {
           </TabList>
            <TabPanels>
               <TabPanel>
-              <TabPanel>
                   <Tabpanel11/>
             </TabPanel>
             <TabPanel>
@@ -548,249 +695,145 @@ const Glow = () => {
             <TabPanel>
                <Tabpanel113/>
             </TabPanel>
-              </TabPanel>
-           </TabPanels>
-          </Tabs>
-         </TabPanel>
-         <TabPanel   style={{position : 'absolute'  }} top = {['220px' ,'220px' , '220px' , '220px' , '50px' ,'50px' ,]} left={['0px' ,'0px' ,'0px' ,'0px' ,'20px' ,'20px'  ]} width={['100%' ,'100%' ,'100%' ,'100%' ,'100%' ,'100%'  ]}       >
-         <Tabs isLazy orientation="vertical" variant='unstyled'  height='800px'        overflowY='auto'  >
-          <TabList  bgColor='grey'  top='0'        position='sticky' zIndex='sticky'   >
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px',}}   width={['50px' , '50px'  , '50px' ,'70px'  ,'70px' , '70px' ]}      >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon1}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}    >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon2}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon3}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon4}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon5}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}     >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon6}
-              alt='Dan Abramov'
-            />
-              </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon7}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon8}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon9}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon10}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }} >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon11}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}   >
-            <Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon12}
-              alt='Dan Abramov'
-            />
-            </Tab>
-            <Tab _selected={{ color:'white', backgroundColor : 'orange' }}  bgColor='grey'   style={{  height : '50px'     ,  }}  ><Image
-              boxSize='25px'
-              objectFit='cover'
-              src= {icon13}
-              alt='Dan Abramov'
-            /></Tab>
-          </TabList>
-           <TabPanels>
-              <TabPanel>
-              <TabPanel>
-                  <Tabpanel11/>
-            </TabPanel>
-            <TabPanel>
-              <Tabpanel12/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel13/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel14/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel15/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel16/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel17/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel18/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel19/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel110/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel111/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel112/>
-            </TabPanel>
-            <TabPanel>
-               <Tabpanel113/>
-            </TabPanel>
-              </TabPanel>
            </TabPanels>
           </Tabs>
          </TabPanel>
       </TabPanels>
     </Tabs>
+    </Box>
 
-    <Flex
+<Flex
      alignItems="center"
      justifyContent="center"
      bgColor='#262626' 
      flexDirection="column"
-    //  width={['100%' , '100%' ,'100%' , '100%' , '100%' , '100%' , '100%']} 
-   >
+     width='100%'
+   >   
+
       <Box 
         width= {['100%' , '100%' , '100%' , '75%' , '75%' , '75%' , '75%']}  
         flexDirection={isBelow720px ? 'column' : 'row' } 
         display='flex'    
         justifyContent='space-between'
+
          >
-             <Box display='block'   width=  {['100%' , '100%' , '100%' , '75%' , '30%' , '30%' , '30%']}  marginTop={isBelow720px ? '100px' : '0px' }  marginLeft='25px'    >
-                <Box>
-                    <Text  color='white'  fontSize={["30px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]}  fontWeight='700' fontFamily='serif'  marginTop={isBelow720px ? '0px' : '70px' }    >Buildhood</Text>
+             <Box display='block'   width=  {['80%' , '80%' , '89%' , '75%' , '30%' , '30%' , '30%']}  marginTop={isBelow720px ? '100px' : '0px' }  marginLeft='25px'    >
+                <Box  width='90%'  >  
+                  <Image
+                     src = {makanwale} 
+                     width='100%'
+                     height='150px'
+                  />
                 </Box>
                 <Box  marginTop='3px' >
-                <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }   >Copyright - 2021 Buildhood All rights Reserved. </Text>
+                <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='20px' marginBottom={isBelow720px ? '0px' : '10px' }   >Copyright - 2021 Buildhood All rights Reserved. </Text>
                 </Box>
                 <Box    >
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' >Powered by Buildhood Infratech Pvt Ltd.</Text>
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' >Powered by Buildhood Infratech Pvt Ltd.</Text>
                 </Box>
              </Box>
              <Box display='block' marginBottom={isBelow720px ? '100px' : '0px'}   marginTop={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
-                     <Box>
-                     <Text  color='white'  fontSize={["30px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]}  fontWeight='700' fontFamily='serif' marginTop={isBelow720px ? '0px' : '50px' }    >Quick Links</Text>
+                     <Box   w={isBelow720px && "30%"}   marginBottom={isBelow720px ? '10px' : '0px'}  >
+                     <Text  color='white'  fontSize={["20px" , "20px" , "20px" , '25px', '25px', '25px', '25px' ]}  fontWeight='700' fontFamily='serif' marginTop={isBelow720px ? '0px' : '50px' }    >Quick Links</Text>
+                     <Box display='flex'  width='40%'  justifyContent='space-between'   >
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor= 'whitesmoke' width='25%'  >
+                          
+                          </Box>
+                     </Box>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop={isBelow720px ? '0px' : '20px' }  marginBottom={isBelow720px ? '0px' : '10px' }      >Home</Text>
+                      <Link href = '/' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop={isBelow720px ? '0px' : '20px' }  marginBottom={isBelow720px ? '0px' : '10px' }      >Home</Text>
+                     </Link>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >About Us</Text>
+                      <Link href = '/about-us' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >About Us</Text>
+                     </Link>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }  >Cost-Plus Model</Text>
+                      <Link href = '/cost-plus-contract-house-construction' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }  >Cost-Plus Model</Text>
+                     </Link>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Packages</Text>
+                      <Link  href = '/construction-packages' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Packages</Text>
+                     </Link>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   > Projects</Text>
+                      <Link href = '/projects' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   > Projects</Text>
+                     </Link>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Career</Text>
+                      <Link href = "/" >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Career</Text>
+                     </Link>
                      </Box>
                      <Box>
-                     <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '50px' }   >Contact Us</Text>
+                      <Link href = "/contact-us" >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '50px' }   >Contact Us</Text>
+                     </Link>
                      </Box>
                 </Box>
                 <Box marginBottom={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
-                    <Box>
-                         <Text  color='white' fontSize={["30px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]} fontWeight='700' fontFamily='serif'   marginTop='50px'   >Contact Us</Text>
+                    <Box  w={isBelow720px && "50%"}   marginBottom={isBelow720px ? '10px' : '0px'} >
+                         <Text  color='white' fontSize={["25px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]} fontWeight='700' fontFamily='serif'   marginTop='50px'   >Contact Us</Text>
+                         <Box display='flex'  width='40%'  justifyContent='space-between'  >
+                      <Box borderWidth= {["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  bgColor='orangered' width='25%'  >
+                          
+                          </Box>
+                     </Box>
+                         
                     </Box>
                     <Box>
-                         <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >+91 7802-80-80-80</Text>
+                         <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >+91 7802-80-80-80</Text>
                     </Box>
                     <Box>
-                        <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >enquiry@buildhood.com</Text>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >enquiry@buildhood.com</Text>
                     </Box>
                     <Box>
-                        <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >sales@buildhood.com</Text>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >sales@buildhood.com</Text>
                     </Box>
                     <Box>
-                        <Text fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >careers@buildhood.com</Text>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >careers@buildhood.com</Text>
                     </Box>
 
                 </Box>
                 <Box marginBottom='40px'  marginLeft='25px' >
-                    <Box>
-                       <Text color='white'  fontSize={["25px" , "25px" , "25px" , '20px', '20px', '20px', '20px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'  >Important Links</Text>
+                    <Box   w={isBelow720px && "50%"}   marginBottom={isBelow720px ? '10px' : '0px'} >
+                       <Text color='white'  fontSize={["20px" , "25px" , "25px" , '20px', '20px', '20px', '20px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'  >Important Links</Text>
+                       <Box display='flex'  width='40%'  justifyContent='space-between'  >
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  bgColor='orangered' width='25%'  >
+                          
+                          </Box>
+                     </Box>
                     </Box>
                     <Box>
-                        <Text  fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >Architecture</Text> 
+                        <Link href = "/" >
+                        <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >Architecture</Text> 
+                        </Link>
                     </Box>
                     <Box>
-                         <Text  fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Sitemap</Text>
+                         <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Sitemap</Text>
                     </Box>
                     <Box>
-                         <Text  fontSize={["25px" , "25px" , "25px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Terms and Condition</Text>
+                         <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Terms and Condition</Text>
                     </Box>
                 </Box>
       </Box>
    
-   </Flex> 
+   </Flex>
          
   </Flex>
   );
