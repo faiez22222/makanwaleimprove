@@ -1,5 +1,5 @@
 import React, { useState , useEffect  , useRef} from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem } from '@chakra-ui/react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem ,useMediaQuery, Stack } from '@chakra-ui/react';
 
 import icon1 from './Images/Buildhood_Floor_plans.jpeg'
 import icon2 from './Images/silver1.jpg' 
@@ -20,6 +20,7 @@ import Waterproofing from './Images/water-proofing.jpg'
 
 const Tabpanel11 = () => {
        const [index, setIndex] = useState(0);
+       const [isBelow720px] = useMediaQuery("(max-width: 720px)");
     const imagesss = [
         icon1,
         icon2,
@@ -54,10 +55,15 @@ const Tabpanel11 = () => {
        }
      }
 
+     const gridProps = isBelow720px
+     ?{  templateRows : '2'  }
+     :  { templateColumns : 'repeat(2, 1fr)'  }
+   
+
   return (
       
-           <Flex  width='100%'     >
-            <Grid templateColumns='repeat(2, 1fr)' width='59%'    >
+           <Flex  width='100%'   >
+            <Grid   {...gridProps}  width='100%'       >
                 <GridItem   >
                 <Box   >
                      <Text  fontWeight='400' fontSize='20px' >Structure & Civil</Text>
@@ -78,7 +84,7 @@ const Tabpanel11 = () => {
                             <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
                             ISI standard FE-500/550TMT Steel will be used as per structural requirement.
                      </Text>
-                     <Box display='flex' mt='15px' >
+                     <Box display= {isBelow720px ? 'block' : 'flex'} mt='15px' >
                      <Image
                         boxSize='40px'
                         width='150px'
@@ -112,7 +118,7 @@ const Tabpanel11 = () => {
                             Maha, Priya or equivalent Brands will be used.
                      </Text>
 
-                     <Box display='flex' mt='15px' >
+                     <Stack direction={isBelow720px ? 'column' : 'row' }   mt='15px'  >
                      <Image
                         boxSize='60px'
                         width='90px'
@@ -123,13 +129,13 @@ const Tabpanel11 = () => {
                     <Image
                         boxSize='60px'
                         ml='25px'
-                        width='60px'
+                        width='90px'
                         objectFit='cover'
                         src= {Priya}
                         alt='Dan Abramov'
                         mt='2px'
                     />
-                    </Box>
+                    </Stack>
                     <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '20px', width : '100%'}} ></div>
                      <Text mt='10px' >
                             <Text display="inline" fontWeight="700" color="black">{'< sand - '}</Text>
@@ -160,7 +166,7 @@ const Tabpanel11 = () => {
                      <Text>
                             <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
                             6-inch blocks for External walls and 4-inch blocks for internal walls.
-                            <Box display='flex' mt='25px' mb='10px'  >
+                            <Box   display={isBelow720px ? 'block' : 'flex'  }     mt='25px' mb='10px'  >
                                 <Image
                                     boxSize='60px'
                                     width='120px'
@@ -209,7 +215,7 @@ const Tabpanel11 = () => {
                             20mm and 40mm will used.
 
                      </Text>
-                     <Box display='flex' mt='25px' mb='10px'  >
+                     <Box  display={isBelow720px ? 'block' : 'flex' }    mt='25px' mb='10px'  >
                                 <Image
                                     boxSize='60px'
                                     width='120px'

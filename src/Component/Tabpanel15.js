@@ -1,5 +1,5 @@
 import React, { useState , useEffect  , useRef} from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem } from '@chakra-ui/react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem , useMediaQuery } from '@chakra-ui/react';
 
 import icon1 from './Images/Buildhood_Floor_plans.jpeg'
 import icon2 from './Images/silver1.jpg' 
@@ -20,6 +20,7 @@ import Waterproofing from './Images/water-proofing.jpg'
 
 const Tabpanel11 = () => {
        const [index, setIndex] = useState(0);
+       const [isBelow720px] = useMediaQuery("(max-width: 720px)");
     const imagesss = [
         icon1,
         icon2,
@@ -53,95 +54,60 @@ const Tabpanel11 = () => {
          clearTimeout(timeoutRef.current);
        }
      }
+     
+     const gridProps = isBelow720px
+     ?{  templateRows : '2'  }
+     :  { templateColumns : 'repeat(2, 1fr)'  }
 
   return (
       
            <Flex  width='100%'     >
-            <Grid templateColumns='repeat(2, 1fr)' width='59%'    >
+            <Grid  {...gridProps}   width='100%'    >
                 <GridItem   >
                 <Box   >
-                     <Text  fontWeight='400' fontSize='20px' >Structure & Civil</Text>
+                     <Text  fontWeight='400' fontSize='20px' >Woodwork</Text>
                      <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '10px', width : '100%'}} ></div>
                      <Box ml='20px' marginTop='30px'  >
                      <Heading as="h5" size="sm" fontWeight="bold" color="black" mt='10px' >
-                        Steel :
+                        Main door and Frame :
                      </Heading>
                      <Text mt='5px' >
                             <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
-                            ISI standard FE-500/550TMT Steel will be used as per structural requirement.
+                            Main door will be provided worth of Rs.15000 including frame and fixtures.
                      </Text>
                      <Text mt='5px' >
                             <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
-                            Steel Rods starting from 6mm upto 20mm will be used according to the structural design and requirement.
+                            Height and width of the Main door frame will be 7 feet X3 feet 6 inches.
                      </Text>
                      <Text mt='5px' >
                             <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
-                            ISI standard FE-500/550TMT Steel will be used as per structural requirement.
+                            Thickness of the wood section will be 5 inches X3 inches.
                      </Text>
-                     <Box display='flex' mt='15px' >
-                     <Image
-                        boxSize='40px'
-                        width='150px'
-                        objectFit='cover'
-                        src= {IndiaGold}
-                        alt='Dan Abramov'
-                    />
-                    <Image
-                        boxSize='40px'
-                        width='150px'
-                        objectFit='cover'
-                        src= {Kamdhenu}
-                        alt='Dan Abramov'
-                    />
-                    </Box>
+                     <Text mt='5px' >
+                            <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
+                            Standard Door designs will be provided.
+                     </Text>
+                    
                     <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '20px', width : '100%'}} ></div>
                     <Heading as="h5" size="sm" fontWeight="bold" color="black" mt='15px' >
-                       Cement :
+                    Windows :
                     </Heading>
                      <Text mt='5px'>
                             <Text display="inline" fontWeight="700" color="black">{'< '}</Text>
-                             ISI Standard 53 and 43 Grade cement will be used.
+                            2-track Aluminium sliding windows with 5mm clear glass will be provided.
 
                      </Text>
                      <Text mt='5px' >
                             <Text display="inline" fontWeight="700" color="black">{'< '}</Text>
-                            53-Grade will be used for Masonry and 43-Grade will be used for Plastering.
+                            MS grill with 10mm square rods for windows will be provided.
                      </Text>
                      <Text mt='5px' >
                             <Text display="inline" fontWeight="700" color="black">{'< '}</Text>
-                            Maha, Priya or equivalent Brands will be used.
+                            Height and Width of the Windows and Grill design will be as per company standards.
                      </Text>
 
-                     <Box display='flex' mt='15px' >
-                     <Image
-                        boxSize='60px'
-                        width='90px'
-                        objectFit='cover'
-                        src= {Maha}
-                        alt='Dan Abramov'
-                    />
-                    <Image
-                        boxSize='60px'
-                        ml='25px'
-                        width='60px'
-                        objectFit='cover'
-                        src= {Priya}
-                        alt='Dan Abramov'
-                        mt='2px'
-                    />
-                    </Box>
+                     
                     <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '20px', width : '100%'}} ></div>
-                     <Text mt='10px' >
-                            <Text display="inline" fontWeight="700" color="black">{'< sand - '}</Text>
-                            M-Sand will used for Masonry and P-Sand will be used for Plastering.
-                     </Text>
-                     <Image
-                        boxSize='40px'
-                        width='50px'
-                        objectFit='cover'
-                        src= {Sand}
-                        alt='Dan Abramov'
-                    />
                      </Box>
                       
                 </Box>
@@ -151,96 +117,34 @@ const Tabpanel11 = () => {
                 <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '40px', width : '100%'}} ></div>
                      <Box ml='20px' marginTop='30px'  >
                      <Heading as="h5" size="sm" fontWeight="bold" color="black" mt='10px' >
-                           Blocks/Bricks :
+                     Internal Doors and Frames :
                      </Heading>
                      <Text>
                             <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
-                            Standard Solid 6-inch and 4-inch concrete blocks will be used.
+                            Doors for internal rooms will be provided worth of Rs.8000 including frame and fixtures.
                      </Text>
                      <Text>
                             <Text display="inline" fontWeight="600" color="black">{'< '}</Text>
-                            6-inch blocks for External walls and 4-inch blocks for internal walls.
-                            <Box display='flex' mt='25px' mb='10px'  >
-                                <Image
-                                    boxSize='60px'
-                                    width='120px'
-                                    objectFit='cover'
-                                    src= {Bricks1}
-                                    alt='Dan Abramov'
-                                />
-                                <Image
-                                    boxSize='60px'
-                                    width='120px'
-                                    objectFit='cover'
-                                    src= {Bricks2}
-                                    alt='Dan Abramov'
-                                />
-                                <Image
-                                    boxSize='60px'
-                                    width='120px'
-                                    objectFit='cover'
-                                    src= {Bricks3}
-                                    alt='Dan Abramov'
-                                />
-                    </Box>
+                            SAL wood will be provided for Internal Door Frames.
+                           
                      </Text>
-                     <Text>
-                            <Text display="inline" fontWeight="600" color="black">Note:</Text>
-                            {" Clay-bricks can be used with Extra cost of Rs.90/sqft and Wire-cut bricks for Rs.100/sqft on the package."}
-                     </Text>
-                     <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '40px', width : '100%'}} ></div>
                      <Text>
                             <Text display="inline" fontWeight="600" color="black">{'< Concrete: '}</Text>
-                            RCC Design mix will be used as per structural
+                            Flush Doors will be provided for Internal Rooms.
                      </Text>
-                     <Image
-                                    boxSize='60px'
-                                    width='120px'
-                                    objectFit='cover'
-                                    src= {truck}
-                                    alt='Dan Abramov'
-                                />
-                    <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '20px', width : '100%'}} ></div>
-                    <Heading as="h5" size="sm" fontWeight="bold" color="black" mt='10px' >
-                    Aggregates : 
-                    </Heading>
                      <Text>
-                            <Text display="inline" fontWeight="700" color="black">{'< '}</Text>
-                            20mm and 40mm will used.
-
+                            <Text display="inline" fontWeight="600" color="black">{'< Concrete: '}</Text>
+                            Height and width of the internal door frame will be 7 feet X 3 feet.
                      </Text>
-                     <Box display='flex' mt='25px' mb='10px'  >
-                                <Image
-                                    boxSize='60px'
-                                    width='120px'
-                                    objectFit='cover'
-                                    src= {aggregates1}
-                                    alt='Dan Abramov'
-                                />
-                                <Image
-                                    ml='5px'
-                                    boxSize='60px'
-                                    width='120px'
-                                    objectFit='cover'
-                                    src= {aggregates2}
-                                    alt='Dan Abramov'
-                                />
-                    </Box>
-                    <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '20px', width : '100%'}} ></div>
                      <Text>
-                            <Text display="inline" fontWeight="700" color="black">{'< Waterproofing : '}</Text>
-                            5 Dr.Fixit Water proofing solution will be used.
+                            <Text display="inline" fontWeight="600" color="black">{'< Concrete: '}</Text>
+                            Thickness of the wood section will be 5 inches X 3 inches.
                      </Text>
-                     <Box display='flex' mt='15px' >
-                     <Image
-                        boxSize='60px'
-                        width='90px'
-                        objectFit='cover'
-                        src= {Waterproofing}
-                        alt='Dan Abramov'
-                    />
-                    </Box>
-                    <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '20px', width : '100%'}} ></div>
+                     <Text>
+                            <Text display="inline" fontWeight="600" color="black">{'< Concrete: '}</Text>
+                            Plain Doors will be provided.
+                     </Text>
+                     <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '40px', width : '100%'}} ></div>
                      </Box>
                 </Box> 
                 </GridItem>

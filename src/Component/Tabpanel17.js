@@ -1,5 +1,5 @@
 import React, { useState , useEffect  , useRef} from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem } from '@chakra-ui/react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Image, Flex , Grid, GridItem  ,useMediaQuery} from '@chakra-ui/react';
 
 import icon1 from './Images/Buildhood_Floor_plans.jpeg'
 import icon2 from './Images/silver1.jpg' 
@@ -27,7 +27,7 @@ const Tabpanel11 = () => {
         // Add more image URLs as needed
       ];
   // State to track active tabs
-
+  const [isBelow720px] = useMediaQuery("(max-width: 720px)");
   useEffect(() => {
        resetTimeout();
        timeoutRef.current = setTimeout(() =>
@@ -54,14 +54,19 @@ const Tabpanel11 = () => {
        }
      }
 
+     const gridProps = isBelow720px
+     ?{  templateRows : '2'  }
+     :  { templateColumns : 'repeat(2, 1fr)'  }
+
   return (
       
            <Flex  width='100%'     >
-            <Grid templateColumns='repeat(2, 1fr)' width='59%'    >
+            <Grid   {...gridProps}   width='100%'    >
                 <GridItem   >
                 <Box   >
-                     <Text  fontWeight='400' fontSize='20px' >Structure & Civil</Text>
+                     <Text  fontWeight='400' fontSize='20px' >Flooring</Text>
                      <div style={{borderWidth : '1px' , color : 'darkgray' , marginTop : '10px', width : '100%'}} ></div>
+                     
                      <Box ml='20px' marginTop='30px'  >
                      <Heading as="h5" size="sm" fontWeight="bold" color="black" mt='10px' >
                         Steel :
