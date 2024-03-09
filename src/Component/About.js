@@ -213,43 +213,42 @@ const About = () => {
        </Text>
      </Box>
      </Box>
-     <Box  width='100%'   justify = 'center' align = 'center'  bgColor='red'  >
-     <Grid   {... gridConstructionProps }   width= {["80%" , "80%" , "80%" ,"80%","85%","75%","60%"]}  marginTop='100px'   >
-             
-        
-            
-              
-                   <GridItem colSpan={1}  textAlign='left'     >
-                   <Text fontWeight="bold"  fontFamily='serif'  fontSize={['25px' ,'25px' ,'25px' ,'20px' ,'20px' ,'20px'  ,"28px"]}>
-                   House/Villa Construction
-               </Text>
-               <Text fontSize={['20px' ,'20px' ,'20px' ,'20px' ,'20px' ,'20px',"25px"]}  fontFamily='serif'  >
-               “A transparent and outstanding construction service with 5 years of warranty”
-               </Text>
-               <Text fontSize={['18px' ,'18px' ,'18px' ,'15px' ,'20px' ,'20px' , "20px"]}   fontFamily='serif' >
-               Buildhood Infratech feels proud for completing 150+ projects in its journey. We are urged to provide modernized, quality, professional, and transparent service to everyone. Our experts are specialized in turning your dream house into reality. We carefully pick and finalize the best in everything. We are recognized for our world-class finishing that made even a simple house look stylish.
-     
-               </Text>
-               <Text fontSize={['18px' ,'18px' ,'18px' ,'15px' ,'20px' ,'20px' , "20px"]}   fontFamily='serif' >
-               Every house owner is valued at Buildhood Infratech. We are satisfied and relaxed when our house owner’s expectations are met. Hence, we boldly offer service with 5 years of warranty.
-     
-               </Text>
-               <Text fontSize={['18px' ,'18px' ,'18px' ,'15px' ,'20px' ,'20px' , "20px"]}   fontFamily='serif' >
-               Through on-time completion of projects, we have earned the trust in the market. Our professional and friendly customer service made us stand out distinctively from the crowd.
-     
-     
-               </Text>
-                </GridItem>
-                <GridItem  colSpan={1}    >
-                   <Image 
-                borderRadius='30px'
-                src={team}
-                width = '100%'
-                height= 'auto't                alt='Dan Abramov'
-              />
-                </GridItem>
-              </Grid>
+        <Box display={isBelow720px ? 'block' : 'flex' }  justifyContent= 'space-around'   justify = 'center' align = 'center'  >
+              <Box    >
+              <Box mt='10px'  mb='100px'    w='75%'    textAlign={['center' , 'center','center','left','left','left']}     >  
+          <Text   fontSize='20px'  fontWeight='500'  mb="8" >
+                 Hire Our Trusted Service
+          </Text>
+          <Box justify = 'center' align = 'center'   >
+          <Stack     direction=  {isBelow720px ? 'column' : 'row'}    mt='20px'   align = {isBelow720px ? 'center' : 'left'}    justify =  {isBelow720px ? 'center' : 'left'}   >
+               <Box  display={isBelow720px ? 'block' : 'flex'} alignItems = 'center'   width  = {['200px' ,'200px' ,'200px' ,'200px' ,'200px' ,'200px' ]}   >
+                    <i className="fas fa-home" style={{ fontSize: "25px", color: 'orange' }}></i>
+                    <Text>Quality Homes</Text>
+                    {/* Your other components or content */}
+               </Box>
+               <Box display={isBelow720px ? 'block' : 'flex'} alignItems = 'center'   width  = {['200px' ,'200px' ,'200px' ,'200px' ,'200px' ,'200px' ]}   >
+                    <i className="fas fa-eye" style={{ fontSize: "25px", color: 'orange' }}></i>
+                    <Text>Transparent Service</Text>
+                    {/* Your other components or content */}
+               </Box>
+               <Box display={isBelow720px ? 'block' : 'flex'} alignItems = 'center'   width  = {['200px' ,'200px' ,'200px' ,'200px' ,'200px' ,'200px' ]}   >
+                    <i className="fas fa-inr" style={{ fontSize: "25px", color: 'orange'  }}></i>
+                    <Text>Great Value</Text>
+                    {/* Your other components or content */}
+               </Box>
+                     </Stack>     
+          </Box>
+          <Button width='200px'     mt='30px'  bgColor='orange'>Build</Button>
      </Box>
+              </Box>
+              <Box   >
+                  <Image
+                     src = {team}
+                     width='300px'
+                     height='300px'
+                  />
+              </Box>
+        </Box>
    </Flex>
   );
 };

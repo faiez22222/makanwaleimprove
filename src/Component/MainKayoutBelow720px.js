@@ -127,7 +127,7 @@ const MainLayoutBelow720px = () => {
                               <DrawerBody>
                               <Flex flexDirection='column'    >
                       <div class="dropdown">
-                        <button class="dropbtn"><Text fontSize='15px' fontWeight='650' ><Link to='/' >HOME</Link></Text></button>
+                        <button class="dropbtn"><Text fontSize='15px' fontWeight='650' ><Link href='/' >HOME</Link></Text></button>
                           <div class="dropdown-content">
                           </div>
                       </div>
