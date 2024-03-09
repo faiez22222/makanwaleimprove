@@ -32,6 +32,8 @@ import fifthprojectdetail from './Images/5projectdetail.jpg'
 import sixthprojectdetail from './Images/6projectdetail.jpeg'
 import axios from 'axios';
 
+
+
 const Projects = () => {
   // State to track active tabs
     
@@ -52,18 +54,27 @@ const Projects = () => {
   }, []); // Empty dependency array ensures useEffect runs once when the component mounts
   
 
-  const imageDataArray = formData.map((data) => {
+  const getFileNameFromPath = (imagePath) => {
+    // Replace backslashes with forward slashes
+    const normalizedPath = imagePath.replace(/\\/g, '/');
+
+    // Create an absolute path and extract the filename
+    const absolutePath = new URL(normalizedPath, window.location.origin);
+    return absolutePath.pathname.split('/').pop();
+};
+
+const imageDataArray = formData.map((data) => {
     // Extract the first value of imagePath1 and imagePath2
-    const image1 = data.imagePath1.length > 0 ? data.imagePath1[0] : null;
-    const image2 = data.imagePath2.length > 0 ? data.imagePath2[0] : null;
-  
+    const image1 = data.imagePath1.length > 0 ? getFileNameFromPath(data.imagePath1[0]) : null;
+    const image2 = data.imagePath2.length > 0 ? getFileNameFromPath(data.imagePath2[0]) : null;
+
     // Create an object with the extracted values
     return {
-      projectcode: data.projectcode,
-      image1,
-      image2,
+        projectcode: data.projectcode,
+        image1,
+        image2,
     };
-  });
+});
 
   const [isBelow720px] = useMediaQuery("(max-width: 720px)");
   const commonProps = {
@@ -84,9 +95,17 @@ const Projects = () => {
                            <Text fontSize='30px' >Home Construction Projects </Text> 
                        </Box>
                        <Box    align = 'center' justify = 'center'   marginTop='50px'  >
+                       {/* <Image
+                                                width={['49.5%']}
+                                                height='430px'
+                                                objectFit='cover'
+                                                src= {'http://localhost:3001/1709319199327-2design.jpg'} 
+                                                alt='Dan Abramov'
+                                                borderRadius='2%'
+                                        /> */}
                           <SimpleGrid  {...gridProps}  >
                                 {
-                                    projectdetail.map((item , index) =>(
+                                    imageDataArray.map((item , index) =>(
                                         <Box    height='500px'   borderRadius='2%'  borderWidth='1px'     transition="transform 0.3s ease-in-out"  _hover={{ transform: 'scale(1.1)' }}  >
                                       
                                        
@@ -95,7 +114,7 @@ const Projects = () => {
                                                 width={['49.5%']}
                                                 height='430px'
                                                 objectFit='cover'
-                                                src= {item}
+                                                src= {`http://localhost:3001/${item.image1}`} 
                                                 alt='Dan Abramov'
                                                 borderRadius='2%'
                                         />
@@ -103,13 +122,13 @@ const Projects = () => {
                                                 width={['49.5%']}
                                                 height='430px'
                                                 objectFit='cover'
-                                                src= {item}
+                                                src= {`http://localhost:3001/${item.image2}`} 
                                                 alt='Dan Abramov'
                                                 borderRadius='2%'
                                         />
                                         </HStack>  
                                         <Container display='flex'  mt='8px'  >
-                                            <Text  >BH202303SVR</Text>
+                                            <Text  >{item.projectcode}</Text>
                                               <Spacer/>
                                             <Text   >Bangalore</Text>
                                         </Container>

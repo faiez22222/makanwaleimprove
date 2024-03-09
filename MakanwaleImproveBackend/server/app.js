@@ -125,7 +125,7 @@ app.use(express.urlencoded({ extended: true, limit: '100mb' })); // <- Parses UR
 
 
 // Multer configuration for file uploads
-
+app.use(express.static('uploads')); 
 
 // Multer configuration for file uploads
 const storage = multer.diskStorage({
