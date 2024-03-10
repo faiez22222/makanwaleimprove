@@ -39,6 +39,7 @@ const validateToken = require('./utils/validateToken');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const FormDataModel= require('./models/ImageUploaderDemo')
+const ArchitectureDataModel = require('./models/ArchitectureFormDesign')
 const contactRoutes = require('../server/routes/ContactFormRoutes')
 // const io = initializeSocket(server);
 
@@ -198,6 +199,58 @@ app.get('/api/formData', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+
+app.post('/api/architecture/upload', upload.single('image1') , async (req, res) => {
+  try {  
+    const { projectcode , client , location , area , floors , service , type  , status } = req.body;
+    const existingArchitectureData = await ArchitectureDataModel.findOne({ projectcode });
+
+    
+    if (existingArchitectureData) {
+      // Update existing record with image path based on category
+        existingArchitectureData.imagePath.push(req.file.path);
+      // Save the updated record
+      await existingArchitectureData.save();
+
+      res.json({ message: 'Image path added to existing form data successfully!' });
+    } else {
+      // Create a new database instance
+      const ArchitectureData = {
+        projectcode,
+        client,
+        location,
+        area,
+        floors,
+        service ,
+        type ,
+        status,
+      };
+        ArchitectureData.imagePath = [req.file.path];
+    
+
+      const formDataInstance = new  ArchitectureDataModel(ArchitectureData)
+      await formDataInstance.save();
+
+      res.json({ message: 'Architecture data and image uploaded successfully!' });
+    }
+  } catch (error) {
+    console.error('Error uploading form data and image:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+app.get('/api/Architecture/formData', async (req, res) => {
+  try {
+    const formData = await ArchitectureDataModel.find();
+    res.json(formData);
+  } catch (error) {
+    console.error('Error retrieving form data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 app.use(errorController); // <- Error Handling Middleware
 

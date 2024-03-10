@@ -1,4 +1,5 @@
 import React, { useState  , useEffect} from 'react';
+import { useNavigate } from "react-router-dom";
 import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text , Flex, Container , SimpleGrid , Image, HStack , VStack ,
   Table,
   Thead,
@@ -17,6 +18,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text , Flex, C
   UnorderedList,
   useMediaQuery, 
   Spacer,
+  Link
 
 } from '@chakra-ui/react';
 import diamond from './Images/diamond.jpg'
@@ -39,6 +41,7 @@ const Projects = () => {
     
 
   const [formData, setFormData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,6 +79,7 @@ const imageDataArray = formData.map((data) => {
     };
 });
 
+console.log("hey" ,  imageDataArray)
   const [isBelow720px] = useMediaQuery("(max-width: 720px)");
   const commonProps = {
     mt: '70px',
@@ -87,9 +91,22 @@ const imageDataArray = formData.map((data) => {
 
   const projectdetail = [firstprojectdetail , secondprojectdetail , thirdprojectdetail , fourthprojectdetail , fifthprojectdetail , sixthprojectdetail ]
 
+
+
+  const handleCardClick = (index) => {
+    // Navigate to the overview page with user ID and contest ID
+    
+    const data = formData[index]
+    navigate('/projectsdetails', {
+      state: {
+          data
+      },
+    });
+  };
+
   return (
  
-            <Flex    width={['320px' , '375px' , '425px' , '768px' , '1024px' , '1540px' , '2560px']}   align='center' justify='center'  minH='100vh'  >
+            <Flex    width={['100%' , '100%' , '100%' , '100%' , '100%' ,'100%' ,'100%']}   align='center' justify='center'  minH='100vh'     flexDirection='column' >
                    <Box    width={['95%', '90%' , '90%' , '90%' , '75%' , '75%'  ]}  mt='30px' >
                        <Box   align='center' justify = 'center' >
                            <Text fontSize='30px' >Home Construction Projects </Text> 
@@ -108,7 +125,9 @@ const imageDataArray = formData.map((data) => {
                                     imageDataArray.map((item , index) =>(
                                         <Box    height='500px'   borderRadius='2%'  borderWidth='1px'     transition="transform 0.3s ease-in-out"  _hover={{ transform: 'scale(1.1)' }}  >
                                       
-                                       
+                                         <Link 
+                                           onClick={() => handleCardClick(index)} 
+                                          >
                                          <HStack  spacing='0px'  align = 'center' justify = 'center'  > 
                                         <Image
                                                 width={['49.5%']}
@@ -127,6 +146,7 @@ const imageDataArray = formData.map((data) => {
                                                 borderRadius='2%'
                                         />
                                         </HStack>  
+                                        </Link>
                                         <Container display='flex'  mt='8px'  >
                                             <Text  >{item.projectcode}</Text>
                                               <Spacer/>

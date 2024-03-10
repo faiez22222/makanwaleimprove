@@ -979,7 +979,7 @@ const colors = [
             </Tr>
             <Tr>
               { !isBelow720px && (
-                 <Td fontSize='40px'   fontFamily='serif' fontStyle='normal'    bgColor='#f2f2f2' color='black'><Text>Client Satisfaction</Text></Td>
+                 <Td fontSize='40px'  lineHeight='1.1'  fontFamily='serif' fontStyle='normal'    bgColor='#f2f2f2' color='black'><Text>Client Satisfaction</Text></Td>
               )}
               <Td   fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#ffffff'color='black'>
                 <UnorderedList>
@@ -1040,7 +1040,7 @@ const colors = [
             <Tr>
               
               { !isBelow720px && (
-                  <Td fontSize='40px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>Control over Project</Td>
+                  <Td fontSize='40px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black' lineHeight='1.1' >Control over Project</Td>
               )}
               <Td bgColor='#ffffff'color='black'>
                 <UnorderedList>
@@ -1060,7 +1060,7 @@ const colors = [
             <Tr>
              
               { !isBelow720px && (
-                  <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black'>Project Timeline</Td>
+                  <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black' lineHeight='1.1' >Project Timeline</Td>
               )}
               <Td bgColor='#ffffff'color='black'>
                 <UnorderedList>
@@ -1080,7 +1080,7 @@ const colors = [
             <Tr>
              
               { !isBelow720px && (
-                  <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black'>Value Engineering</Td>
+                  <Td  fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#f2f2f2' color='black' lineHeight='1.1' >Value Engineering</Td>
               )}
               <Td fontSize='40px'   fontFamily='serif' fontStyle='normal'   bgColor='#ffffff'color='black'>
                 <UnorderedList>
@@ -1212,7 +1212,7 @@ const colors = [
             <Tr>
              
                 { !isBelow720px && (
-                   <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black'>SUB-CONTRACTORS</Td>
+                   <Td  fontSize='30px'   fontFamily='serif' fontStyle='normal'  bgColor='#f2f2f2' color='black' lineHeight='1.1' >SUB-CONTRACTORS</Td>
               )}
               <Td lineHeight='1.1'  bgColor='#ffffff'color='black'  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='sans-serif' fontStyle='normal' >
                 <UnorderedList>
@@ -1341,7 +1341,7 @@ const colors = [
                   </ListItem>
                 </UnorderedList>
               </Td>
-              <Text  lineHeight='1.1'  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='sans-serif' fontStyle='normal'  color='black'>
+              <Td  lineHeight='1.1'  fontSize =  {["27px","27px","20px","20px","20px","20px","20px"]}  fontFamily='sans-serif' fontStyle='normal'  color='black'>
                 <UnorderedList>
                   <ListItem>
                   No warranty or Warranty for namesake
@@ -1350,7 +1350,7 @@ const colors = [
                   No after sales service
                   </ListItem>
                 </UnorderedList>
-              </Text>
+              </Td>
             </Tr>
             <Tr>
              

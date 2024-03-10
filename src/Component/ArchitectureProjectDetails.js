@@ -43,7 +43,7 @@ import ninthconstructionimage from  './Images/9constructionimage.jpg'
 import makanwale from './Images/MakanWale.png'
 
 
-const ProjectsDetail = () => {
+const ArchitectureProjectDetails = () => {
   // State to track active tabs
   const navigate = useNavigate();
   const location = useLocation();
@@ -73,8 +73,8 @@ const ProjectsDetail = () => {
   };
 
 
-  const constructionImage  =  getFileNameFromPath(variable.data.imagePath1)
-  const designImage  =  getFileNameFromPath(variable.data.imagePath2)
+  const constructionImage  =  getFileNameFromPath(variable.data.imagePath)
+
 
   return (
  
@@ -85,7 +85,7 @@ const ProjectsDetail = () => {
                  >
                   <Box justify = 'center' align = 'center'  flexDirection='column' marginTop='180px'   >
                         <Box>
-                           <Text mt='10px'    fontSize='45px' fontWeight='400' fontFamily='Georgia, serif'    >Home Construction Project</Text>
+                           <Text mt='10px'    fontSize='45px' fontWeight='400' fontFamily='Georgia, serif'    >ARCHITECTURE PROJECTS</Text>
                        </Box>
                    <Box width={['90%' , '90%' , '80%' , '75%' , '75%' , '75%']} 
                      display= {isBelow720px ? 'block' : 'flex'}
@@ -152,18 +152,10 @@ const ProjectsDetail = () => {
                                  <Tab  
                                   _selected={{ color:'white', backgroundColor : 'orange' }}  
                                   bgColor='#DCDCDC'   style={{  height : '50px'}} 
-                                  width={['90vw' , '90vw'  , '80vw' ,'250px'  ,'340px' , '100%' ]}  
+                                  width={['90vw' , '90vw'  , '80vw' ,'340px'  ,'340px' , '100%' ]}  
                                  //  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  
                                   >
                                    Silver
-                                   </Tab>
-                                   <Tab  
-                                  _selected={{ color:'white', backgroundColor : 'orange' }}  
-                                  bgColor='#DCDCDC'   style={{  height : '50px'}} 
-                                  width={['90vw' , '90vw'  , '80vw' ,'250px'  ,'350px' ,'100%'  ]}  
-                                 //  ml={['35px' , '47px' , '48px' , '0px' , '10px' , '10px']}  
-                                  >
-                                   Gold
                                    </Tab>
                                  </TabList>
                                  <TabPanels>
@@ -191,30 +183,7 @@ const ProjectsDetail = () => {
                          </SimpleGrid>
                       </Box>
                                        </TabPanel>
-                                       <TabPanel
-                                         position= {isBelow720px ? 'absolute' : 'static'}
-                                         width='100%'                                                      
-                                         top = {['95px' ,'95px' , '95px' , '95px' , 'null' ,'null' ,]}
-                                         left={['0px' ,'0px' ,'0px' ,'0px' ,'null' ,'null'  ]} 
-                                      >
-                                           <Box    align = 'center' justify = 'center'   marginTop='50px'  >
-                                            <SimpleGrid  {...gridProps}  >
-                                           {
-                                                designImage.map((item , index) =>(
-                                                   <Box>
-                                                       <Image
-                                                           boxSize='100%'
-                                                           objectFit='cover'
-                                                           src= {`http://localhost:3001/${item}`} 
-                                                           alt='Dan Abramov'
-                                                           borderRadius='2%'
-                                                         />
-                                                   </Box>
-                                   ))
-                               }
-                         </SimpleGrid>
-                      </Box>
-                                       </TabPanel>
+                                       
                                  </TabPanels>
 
                                 
@@ -362,4 +331,4 @@ const ProjectsDetail = () => {
   );
 };
 
-export default ProjectsDetail;
+export default ArchitectureProjectDetails;
