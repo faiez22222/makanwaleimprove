@@ -50,6 +50,7 @@
     "react-onesignal": "^3.0.1",
     "react-particles": "^2.12.2",
     "react-pdf": "^7.6.0",
+    "react-phone-number-input": "^3.3.9",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "^5.0.1",

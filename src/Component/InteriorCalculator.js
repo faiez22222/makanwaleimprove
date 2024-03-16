@@ -21,12 +21,16 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, Unordere
     Input  ,
     FormErrorMessage,
     FormHelperText,
-    Checkbox ,
+    Checkbox, 
+    Card,
    } from '@chakra-ui/react';
    import { MinusIcon , AddIcon , CheckIcon }    from '@chakra-ui/icons'
    import essentials from './Images/essentials-desktop-1677569928-WCHBw.jpg'
    import premium from './Images/premium-desktop-1677569932-Tc87O.jpg'
    import luxury from './Images/luxe-desktop-1677569931-ZV4Be.jpg'
+   import 'react-phone-number-input/style.css'
+   import PhoneInput from 'react-phone-number-input'
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
 
 const InteriorCalculator = () => {
   // State to track active tabs
@@ -69,72 +73,119 @@ useEffect(() => {
     return cleanup;
   }, [circle1Ref.current, circle2Ref.current]);
 
- 
 
   const [formData, setFormData] = useState({
-    bhk : "1 BHK",
-      room : "" , 
-      package : "" ,
+       bhk : '0' ,
+      room : {
+        livingRoom : 0,
+        kitchen : 0 ,
+        Bedroom : 0 ,
+        Bathroom : 0 ,
+        Dining : 0 ,
+      }, 
+      package : "0" ,
       Name  : "" ,
       Emailid : "" , 
-      Checked : "" , 
-      PropertyName : ""
+      Checked : false , 
+      PropertyName : "" ,
+      Number : ""
 
   });
+
+
+  const [isNameError, setIsNameError] = useState(false);
+  const [isEmailidError, setIsEmailidError] = useState(false);
+  const [isNumberError, setIsNumberError] = useState(false);
+  const [isPropertyName, setIsPropertyNameError] = useState(false);
+  const [isCheckedError, setIsCheckedError] = useState(false);
+
+  const handleRoomCountChange = (roomName, increment) => {
+    console.log(typeof(roomName ))
+    setFormData(prevFormData => {
+      const currentCount = prevFormData.room[roomName];
+      console.log('currentCount' , currentCount)
+      const newValue = currentCount + increment;
+      return {
+        ...prevFormData,
+        room: {
+          ...prevFormData.room,
+          [roomName]: newValue
+        }
+      };
+    });
+    console.log('formdata' , formData)
+  };
 
    const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+   
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    if(name ==='name'   )
+    {
+      setIsNameError(value.trim() === '');
+    }
+    if( name === 'Number' ){
+        setIsNumberError(value.trim() === '')
+    }
+   if( name === 'PropertyName' ){
+      setIsPropertyNameError(value.trim() === '')
+  }
+   if( name === 'Checked' ){
+    setIsCheckedError(value === false)
+   }
+     if( name === 'Emailid' ){
+      setIsEmailidError(value.trim() === '')
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
 
    const [index, setIndex] = useState(0);
-   const [first, setFirst] = useState(0);
-   const [second, setSecond] = useState(0);
-   const [third, setThird] = useState(0);
-   const [fourth, setFourth] = useState(0);
-   const [five, setFive] = useState(0);
+  
 
   const handleButtonClick = () => {
     setIndex(index + 1);
   };
 
-  const handleFirstPlusClick = () => {
-    setFirst(first + 1);
-  };
-  const handleFirstMinusClick = () => {
-    if(first > 0 ) setFirst(first - 1);
-  };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.Name.trim() === ''   || formData.Number.trim() === '' || formData.Emailid.trim() === '' || formData.Checked === false || formData.PropertyName.trim() === ''  ) {
+      // Set error states for required fields
+      setIsNameError(formData.Name.trim() === ''  );
+      setIsNumberError(formData.Number.trim() === ''  );
+      setIsEmailidError(formData.Emailid.trim() === ''  );
+      setIsPropertyNameError(formData.PropertyName.trim() === ''  );
+      setIsCheckedError(formData.Checked === false  );
+      // Set error states for other required fields if needed
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:3001/api/interior-calculator/submit-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        console.log('Form data successfully submitted to the backend');
+       
+      } else {
+        console.error('Failed to submit form data to the backend');
+       
+      }
+    } catch (error) {
+      console.error('Error submitting form data:', error);
 
-  const handleSecondPlusClick = () => {
-    setSecond(second + 1);
+    }
   };
-  const handleSecondMinusClick = () => {
-    if(second > 0 ) setSecond(second - 1);
-  };
-
-
-  const handleThirdPlusClick = () => {
-    setThird(third + 1);
-  };
-  const handleThirdMinusClick = () => {
-    if(third > 0 ) setThird(third - 1);
-  };
-
-
-  const handleFourthPlusClick = () => {
-    setFourth(fourth + 1);
-  };
-  const handleFourthMinusClick = () => {
-    if(fourth > 0 ) setFive(fourth - 1);
-  };
-
-  const handleFivePlusClick = () => {
-    setFive(five + 1);
-  };
-  const handleFiveMinusClick = () => {
-    if(five > 0 ) setFive(five - 1);
-  };
-
 
 
  
@@ -217,15 +268,15 @@ useEffect(() => {
        
         </Box   >
              { index=== 0 &&  ( 
-              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'60%'  ]}      marginTop='50px'    >
+              <Card width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'60%'  ]}     justifyContent='center'  alignItems='center'   marginTop='50px'   boxShadow='0 0 10px rgba(0, 0, 0, 0.2)'  >
                   <Box   width= {["100%" ,  "100%", "100%" , "50%" , "50%" , "50%" ]}      display='block'  justifyContent='space-between'  mt='50px'  zIndex='1000'    borderWidth='1px'  >
-                      <RadioGroup  defaultValue='0'    onChange={handleInputChange} value={formData.bhk} name="bhk"  >
+                      <RadioGroup  defaultValue= {formData.bhk}        >
                         <Stack direction='column'  spacing='15px'      >
                         <Accordion allowMultiple  width='100%'    borderWidth='1px'   >
                                     <AccordionItem  borderColor="whitesmoke"  >
                                       <h2>
                                         <AccordionButton>
-                                           <Radio value = '0'  color='#eb595f'  >
+                                           <Radio value = '0'  color='#eb595f'   name="bhk"   onChange={handleInputChange}  >
                                              1 BHK
                                            </Radio>
                                         </AccordionButton>
@@ -236,19 +287,24 @@ useEffect(() => {
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
                                         <AccordionButton>
+                                          <Box  width='100%' display='flex'  justifyContent='space-between'  >
+                                        <Radio value = '1'  color='#eb595f'   name="bhk1"   onChange={handleInputChange}  >
+                                             2 BHK
+                                           </Radio>
                                           <AccordionIcon />
+                                          </Box>
                                         </AccordionButton>
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
                                      
                                               <Stack spacing={5} direction='row'>
-                                              <Radio color='#eb595f' value='1'>
+                                              <Radio color='#eb595f' value='1' name="bhk"  onChange={handleInputChange}  >
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio color='#eb595f' value='2'>
+                                                <Radio color='#eb595f' value='2' name="bhk"  onChange={handleInputChange}  >
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
@@ -268,13 +324,13 @@ useEffect(() => {
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
                                      
                                               <Stack spacing={5} direction='row'>
-                                                <Radio color='#eb595f'  value='3'>
+                                                <Radio color='#eb595f'  value='3'  name="bhk"  onChange={handleInputChange}  >
                                                       <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio color='#eb595f' value='4'>
+                                                <Radio color='#eb595f' value='4' name="bhk"  onChange={handleInputChange}  >
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
@@ -296,13 +352,13 @@ useEffect(() => {
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
                                               <Stack spacing={5} direction='row'>
-                                                <Radio color='#eb595f'  value='5'>
+                                                <Radio color='#eb595f'  value='5' name="bhk"  onChange={handleInputChange}  >
                                                       <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio color='#eb595f' value='6'>
+                                                <Radio color='#eb595f' value='6' name="bhk"  onChange={handleInputChange}  >
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
@@ -321,13 +377,13 @@ useEffect(() => {
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
                                               <Stack spacing={5} direction='row'>
-                                                <Radio  value='7'>
+                                                <Radio  value='7' name="bhk"   onChange={handleInputChange} >
                                                       <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
                                                       </Box>
                                                 </Radio>
-                                                <Radio color='#eb595f' value='8'>
+                                                <Radio color='#eb595f' value='8' name="bhk"  onChange={handleInputChange}  >
                                                 <Box width='100%'  >
                                                           <Text>Small Values</Text>
                                                           <Text>800 sq ft</Text>
@@ -342,18 +398,18 @@ useEffect(() => {
                   </Box>
                   <Box width='100%' borderWidth='1px'  marginTop='60px'  ></Box>
                   <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='50px'   >
-                      <Button onClick={handleButtonClick} isDisabled >Back</Button>
-                      <Button onClick={handleButtonClick}>Next</Button>
+                      <Button  mb='1rem' ml='1rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button  bgColor=  '#eb595f'  mr='1rem'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonClick}>Next</Button>
                   </Box>   
-                  </Box>
+                  </Card>
                   
              )}
 
              { index=== 1 &&  ( 
-                  <Box  justifyContent='center'  alignItems='center'  >
+                  <Box  justifyContent='center'  alignItems='center'  mt='2rem'   boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" >
                        <Box justifyContent='center' alignItems='center' flexDirection='column'    >
-                          <Text  fontWeight='500px' fontSize= '25px' >Select the rooms you’d like us to design</Text>
-                          <Text  fontWeight='400px' fontSize= '20px' >To know more about this, <Link href='#' >click here</Link></Text>
+                          <Text  fontWeight='500px' fontSize= '25px'  fontFamily='Georgia, serif' >Select the rooms you’d like us to design</Text>
+                          <Text  fontWeight='400px' fontSize= '20px'fontFamily='Georgia, serif'  >To know more about this, <Link href='#' >click here</Link></Text>
                        </Box>
                        <Box   mt='50px'   >
                            <VStack  spacing='15px' >
@@ -364,7 +420,7 @@ useEffect(() => {
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'   width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}  >
-                                    <button  onClick={handleFirstPlusClick} >
+                                    <button  onClick={() => handleRoomCountChange('livingRoom', 1)} >
                                   <Flex
         
                                     align="center"
@@ -381,8 +437,8 @@ useEffect(() => {
                                           <AddIcon color='white'  />
                                       </Flex>
                                       </button>
-                                      <Text fontSize='20px' >{first}</Text>
-                                      <button onClick={handleFirstMinusClick} >
+                                      <Text fontSize='20px' >{formData.room.livingRoom}</Text>
+                                      <button onClick={() => handleRoomCountChange('livingRoom', -1)} >
                                       <Flex
         
                                     align="center"
@@ -408,7 +464,7 @@ useEffect(() => {
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'    width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}   >
-                                    <button onClick={handleSecondPlusClick} >
+                                    <button onClick={() => handleRoomCountChange('kitchen', 1)} >
                                   <Flex
                                     align="center"
                                     justify="center"
@@ -424,8 +480,8 @@ useEffect(() => {
                                           <AddIcon color='white'  />
                                       </Flex>
                                       </button  >  
-                                      <Text fontSize='20px' >{second}</Text>
-                                      <button   onClick={handleSecondMinusClick}  >
+                                      <Text fontSize='20px' >{formData.room.kitchen}</Text>
+                                      <button  onClick={() => handleRoomCountChange('kitchen',-1)}  >
                                       <Flex
         
                                     align="center"
@@ -451,7 +507,7 @@ useEffect(() => {
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'    width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}   >
-                                    <button  onClick={handleThirdPlusClick}  >
+                                    <button onClick={() => handleRoomCountChange('Bedroom', 1)}  >
                                   <Flex
         
                                     align="center"
@@ -468,8 +524,8 @@ useEffect(() => {
                                           <AddIcon color='white'  />
                                       </Flex>
                                       </button>
-                                      <Text fontSize='20px' >{third}</Text>
-                                      <button  onClick={handleThirdMinusClick}  >
+                                      <Text fontSize='20px' >{formData.room.Bedroom}</Text>
+                                      <button  onClick={() => handleRoomCountChange('Bedroom', -1)}  >
                                       <Flex
         
                                     align="center"
@@ -495,7 +551,7 @@ useEffect(() => {
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'   width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}   >
-                                    <button onClick={handleFourthPlusClick}  >
+                                    <button onClick={() => handleRoomCountChange('Bathroom', 1)}  >
                                   <Flex
         
                                     align="center"
@@ -512,8 +568,8 @@ useEffect(() => {
                                           <AddIcon color='white'  />
                                       </Flex>
                                       </button>
-                                      <Text fontSize='20px' >{fourth}</Text>
-                                      <button  onClick={handleFourthMinusClick}  >
+                                      <Text fontSize='20px' >{formData.room.Bathroom}</Text>
+                                      <button onClick={() => handleRoomCountChange('Bathroom', -1)}  >
                                       <Flex
         
                                     align="center"
@@ -539,7 +595,7 @@ useEffect(() => {
                                      </Text>
                                   </Box>
                                   <Box display='flex' justifyContent='space-between'   width={['30%' ,'25%' ,'25%' ,'25%','25%','25%','25%']}  >
-                                    <button onClick={handleFivePlusClick}  >
+                                    <button onClick={() => handleRoomCountChange('Dining', 1)}  >
                                   <Flex
         
                                     align="center"
@@ -556,8 +612,8 @@ useEffect(() => {
                                           <AddIcon color='white'  />
                                       </Flex>
                                       </button>
-                                      <Text fontSize='20px' >{five}</Text>
-                                      <button  onClick={handleFiveMinusClick}   >
+                                      <Text  color='black' fontSize='20px' >{formData.room.Dining}</Text>
+                                      <button onClick={() => handleRoomCountChange('Dining',-1)}   >
                                       <Flex
         
                                     align="center"
@@ -576,7 +632,7 @@ useEffect(() => {
                                       </button> 
                                   </Box>
                              </Container>
-                             <Container  display='flex' justifyContent='space-between'  borderWidth='1px' borderRadius='10px'  paddingTop='10px' paddingBottom='10px'  width={['100%' ,'100%' ,'100%' ,'40%','40%','40%','40%']}    >
+                             {/* <Container  display='flex' justifyContent='space-between'  borderWidth='1px' borderRadius='10px'  paddingTop='10px' paddingBottom='10px'  width={['100%' ,'100%' ,'100%' ,'40%','40%','40%','40%']}    >
                                   <Box>
                                      <Text>
                                        Living Room
@@ -619,25 +675,28 @@ useEffect(() => {
                                       </Flex>
                                       </button>
                                   </Box>
-                             </Container>
+                             </Container> */}
                            </VStack>  
                        </Box>
                                   
                        <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
-                  <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='30px'   >
-                      <Button onClick={handleButtonClick} isDisabled >Back</Button>
-                      <Button onClick={handleButtonClick}>Next</Button>
+                  <Box   width='90%' display='flex' justifyContent='space-between'  marginTop='30px'   >
+                      <Button  mb='1rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick}>Next</Button>
                   </Box>                
                          
                   </Box>
              )}
              { index=== 2 &&  ( 
-                  <Box         flexDirection='column'     marginTop='50px'      >
+                  <Box         flexDirection='column'     marginTop='50px'   boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    >
+                       <Box pt='3rem' mb = '3rem'  >
+                         <Text fontSize='1.5rem'  fontWeight='400' fontFamily='Georgia, serif' >Pick your package</Text>
+                       </Box>
                       <Box    w= {[ "100%" , "100%" , "100%" ,  "100%" , "40%" ,  "40%" ]}  marginBottom='50px'  >
-                      <RadioGroup       >
+                      <RadioGroup    defaultValue= {formData.package}      >
                         <Stack direction='column'>
                          <Box    w = {[ "100%" , "100%" , "100%" ,  "100%" , "100%" ,  "100%" ]}    borderWidth='1px' textAlign='left'    borderRadius='10px'    >
-                             <Radio  value='1'  size='lg'   >
+                             <Radio  value='0'  size='lg'   name="package"   onChange={handleInputChange}  >
     
                                 <Text>Essentials (₹₹)</Text>
                              </Radio>
@@ -653,25 +712,25 @@ useEffect(() => {
                                 />
                              </Box> 
                          
-                             <Container     width='100%' marginTop='10px'  >
-                                 <Box display='flex'  width='50%'  justifyContent='space-between'  >
+                             <Container     width='100%' marginTop='10px'   >
+                                 <HStack spacing='5rem'  >
                                     <CheckIcon color='green' />
                                     <Text>Affordable Pricing</Text>
-                                 </Box>
-                                 <Box display='flex'   width='50%'  justifyContent='space-between'  >
+                                 </HStack>
+                                 <HStack spacing = '5rem' >
                                     <CheckIcon color='green' />
                                     <Text>Convenient design</Text>
-                                 </Box>
-                                 <Box display='flex'   width='45%'  justifyContent='space-between'  >
+                                 </HStack>
+                                 <HStack spacing='5rem' >
                                     <CheckIcon color='green' />
                                     <Text>Basic Accesories</Text>
-                                 </Box>
+                                 </HStack>
                              </Container>
                           </Box>   
 
 
                           <Box    w = {[ "100%" , "100%" , "100%" ,  "100%" , "100%" ,  "100%" ]}    borderWidth='1px' textAlign='left'    borderRadius='10px'    >
-                             <Radio   value='2'  size='lg'   >
+                             <Radio   value='1'  size='lg'    name="package"   onChange={handleInputChange}  >
     
                                 <Text>Premium (₹₹₹)</Text>
                              </Radio>
@@ -687,25 +746,25 @@ useEffect(() => {
                                 />
                              </Box> 
                          
-                             <Container     width='100%' marginTop='10px'  >
-                                 <Box display='flex'  width='50%'  justifyContent='space-between'  >
+                             <Container     width='100%' marginTop='10px'     >
+                                 <HStack spacing = '5rem'  >
                                     <CheckIcon color='green' />
                                     <Text>Mid-range pricing</Text>
-                                 </Box>
-                                 <Box display='flex'   width='50%'  justifyContent='space-between'  >
+                                 </HStack>
+                                 <HStack spacing = '5rem'  >
                                     <CheckIcon color='green' />
                                     <Text>Premium designs</Text>
-                                 </Box>
-                                 <Box display='flex'   width='45%'  justifyContent='space-between'  >
+                                 </HStack>
+                                 <HStack    spacing='5rem'  >
                                     <CheckIcon color='green' />
                                     <Text>Wide range of accessories</Text>
-                                 </Box>
+                                 </HStack>
                              </Container>
                           </Box>   
 
 
                           <Box    w = {[ "100%" , "100%" , "100%" ,  "100%" , "100%" ,  "100%" ]}    borderWidth='1px' textAlign='left'    borderRadius='10px'    >
-                             <Radio   value='3'  size='lg'   >
+                             <Radio   value='2'  size='lg'   name="package"   onChange={handleInputChange}   >
     
                                 <Text>Luxe (₹₹₹₹)</Text>
                              </Radio>
@@ -722,18 +781,18 @@ useEffect(() => {
                              </Box> 
                          
                              <Container     width='100%' marginTop='10px'  >
-                                 <Box display='flex'  width='50%'  justifyContent='space-between'  >
+                                 <HStack spacing='5rem'  >
                                     <CheckIcon color='green' />
                                     <Text>Elite pricing</Text>
-                                 </Box>
-                                 <Box display='flex'   width='50%'  justifyContent='space-between'  >
+                                 </HStack>
+                                 <HStack spacing = '5rem' >
                                     <CheckIcon color='green' />
                                     <Text>Lavish designs</Text>
-                                 </Box>
-                                 <Box display='flex'   width='45%'  justifyContent='space-between'  >
+                                 </HStack>
+                                 <HStack  spacing = '5rem' >
                                     <CheckIcon color='green' />
                                     <Text>Extensive range of accessories</Text>
-                                 </Box>
+                                 </HStack>
                              </Container>
                           </Box>   
 
@@ -741,45 +800,82 @@ useEffect(() => {
                       </RadioGroup>
                       </Box>
                       <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
-                    <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='30px'   >
-                      <Button onClick={handleButtonClick} isDisabled >Back</Button>
-                      <Button onClick={handleButtonClick}>Next</Button>
+                    <Box  width='90%' display='flex' justifyContent='space-between'  marginTop='30px'   >
+                      <Button mb='2rem'   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
+                      <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick}>Next</Button>
                   </Box>      
                   </Box>
              )}
              { index=== 3 &&  ( 
-                  <Box alignItems='center' justifyContent='center'  flexDirection='column' marginTop='20px'   >
+                  <Box alignItems='center' justifyContent='center'  flexDirection='column' marginTop='20px' boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >
                      <Box>
-                        <Text>Your estimate is almost ready</Text>
+                        <Text  fontSize='1.5rem'  fontWeight='400' fontFamily='Georgia, serif' >Your estimate is almost ready</Text>
                      </Box>
                      <Box>
-                     <FormControl     w = {[ "100%" , "100%" , "100%" , '40%' , '40%' ,  '40%' ]}   marginTop='30px'  >
+                     <FormControl     w = {[ "100%" , "100%" , "100%" , '40%' , '40%' ,  '30%' ]}   marginTop='30px'  >
                       <VStack spacing='20px'  >
                       <Input
                        type='name'  
-                       placeholder='name' 
+                       placeholder='Name' 
+                       name = 'Name'
+                       value={formData.Name}
+                       isRequired = {true}
+                       isInvalid = {isNameError}
+                       onChange={handleChange}
                        />
                         <Input
                        type='email'  
-                       placeholder='email' 
+                       placeholder='Email' 
+                       name = 'Emailid'
+                       isRequired = {true}
+                       value={formData.Emailid}
+                       isInvalid = {isEmailidError}
+                       onChange={handleChange}
                        />
-                        <Input
-                       type='number'  
-                       placeholder='number' 
+                      <Input
+                       type='tel'  
+                       placeholder='Phone Number' 
+                       name = 'Number'
+                       value={formData.Number}
+                       isRequired = {true}
+                       isInvalid = {isNumberError}
+                       onChange={handleChange}
                        />
-                      <Checkbox defaultChecked>Send me updates on whats app</Checkbox>
+                      <Checkbox defaultChecked
+  
+                          name='Checked'
+                          checked={formData.Checked}
+                          onChange={handleChange}
+                          isRequired= {true}
+                          isInvalid = {isCheckedError}
+                      >
+                        Send me updates on whats app
+                        </Checkbox>
 
                       <Input
-                       type='number'  
-                       placeholder='name' 
+                       type='name'  
+                       placeholder='Property Name' 
+                       name  =  'PropertyName'
+                       value={formData.PropertyName}
+                       isRequired = {true}
+                       isInvalid = {isPropertyName}
+                       onChange={handleInputChange}
                        />
                        </VStack>
                     </FormControl>
                      </Box>
+                     <Box display='block' alignContent='space-between'    w = {[ "100%" , "100%" , "100%" , '40%' , '40%' ,  '30%' ]} textAlign='left' marginTop='30px'     >
+                       <Text>
+                          By submitting this form, you agree to the <Link    style={{ textDecoration: 'none', color: 'red' }} >privacy policy</Link> & <Link style={{ textDecoration: 'none', color: 'red' }}  >terms and conditions</Link>
+                       </Text>
+                       <Text marginTop='5px' >
+                       This site is protected by reCAPTCHA and the Google <Link    style={{ textDecoration: 'none', color: 'red' }} >Google Privacy</Link> and  <Link    style={{ textDecoration: 'none', color: 'red' }} >Terms of Service</Link>apply.
+                       </Text>
+                     </Box>
                      <Box width='100%' borderWidth='1px'  marginTop='20px'  ></Box>
-                    <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='30px'   >
-                      <Button onClick={handleButtonClick} isDisabled >Back</Button>
-                      <Button onClick={handleButtonClick}>Next</Button>
+                    <Box  width='90%' display='flex' justifyContent='space-between'  marginTop='30px'   >
+                      <Button  mb='1rem'  bgColor=  '#eb595f'   color='white'    _hover={{bgColor : '#eb595f'}}  onClick={handleSubmit}>Back</Button>
+                      <Button    bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}    type='submit'    onClick={handleSubmit}>Get My Estimate</Button>
                   </Box>   
                   </Box>
              )}

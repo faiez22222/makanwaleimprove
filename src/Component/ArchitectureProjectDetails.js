@@ -85,7 +85,7 @@ const ArchitectureProjectDetails = () => {
                  >
                   <Box justify = 'center' align = 'center'  flexDirection='column' marginTop='180px'   >
                         <Box>
-                           <Text mt='10px'    fontSize='45px' fontWeight='400' fontFamily='Georgia, serif'    >ARCHITECTURE PROJECTS</Text>
+                           <Text mt='10px'    fontSize='2.5rem' fontWeight='400' fontFamily='Georgia, serif'    >ARCHITECTURE PROJECTS</Text>
                        </Box>
                    <Box width={['90%' , '90%' , '80%' , '75%' , '75%' , '75%']} 
                      display= {isBelow720px ? 'block' : 'flex'}
@@ -104,32 +104,32 @@ const ArchitectureProjectDetails = () => {
                                 <i className="fas fa-map-marker" style={{ fontSize: "25px", color: 'white' }}></i>
                                 <Text  fontFamily='sans-serif' fontSize='18px' fontStyle='normal' color= 'white'  >&nbsp;Location: {variable.data.location}</Text>
                   
-                                {/* Your other components or content */}
+                               
                                </Box>
                                <Box  mt='15px' mb='15px' borderWidth='1px' ></Box>
                                 <Box display='flex'   >
                                 <i className="fas  fa-square" style={{ fontSize: "25px", color: 'white' }}></i>
                                 <Text  fontFamily='sans-serif' fontSize='18px' fontStyle='normal' color= 'white'  >&nbsp;Area: {variable.data.area}</Text>
 
-                                {/* Your other components or content */}
+                               
                                </Box>
                                <Box  mt='15px' mb='15px' borderWidth='1px' ></Box>
                                 <Box display='flex'   >
                                 <i class="fas fa-building" aria-hidden="true" style={{ fontSize: "25px", color: 'white' }}></i>
                                 <Text  fontFamily='sans-serif' fontSize='18px' fontStyle='normal' color= 'white'  >&nbsp;Floor: {variable.data.floors}</Text>
-                                {/* Your other components or content */}
+                               
                                </Box>
                                <Box  mt='15px' mb='15px'  borderWidth='1px' ></Box>
                                 <Box   display='flex'  >
                                 <i class="fas fa-tags" aria-hidden="true" style={{ fontSize: "25px", color: 'white' }}></i>
                                 <Text  fontFamily='sans-serif' fontSize='18px' fontStyle='normal' color= 'white'  >&nbsp;Package: Silver</Text>
-                                {/* Your other components or content */}
+                               
                                </Box>
                                <Box mt='15px' mb='15px' borderWidth='1px' ></Box>
                                 <Box  display='flex'  >
                                 <i class="fas fa-check-square" aria-hidden="true" style={{ fontSize: "25px", color: 'white' }}></i>
                                 <Text  fontFamily='sans-serif' fontSize='18px' fontStyle='normal' color= 'white'  >&nbsp;Status: {variable.data.status}</Text>
-                                {/* Your other components or content */}
+                               
                                </Box>
                                <Box mt='15px' mb='15px' borderWidth='1px' ></Box>
                                

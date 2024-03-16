@@ -21,6 +21,10 @@ import MainLayoutBelow720px from "./Component/MainKayoutBelow720px";
 import { useMediaQuery } from "@chakra-ui/react";
 import ArchitectureProjectDetails from "./Component/ArchitectureProjectDetails";
 import ArchitectureDesignForm from "./Component/Architecturedesignform";
+import KitchenCalculator from "./Component/KitchenCalculator";
+import WardrobeCalculator from "./Component/WardrobeCalculator";
+
+
 const App = () => {
  
   const [isBelow720px] = useMediaQuery("(max-width: 720px)");
@@ -48,10 +52,8 @@ const App = () => {
               <Route path="/architecture-portfolio" element={<ArchitectureDesign/>} />
               <Route path="/architecture-portfolio-details" element={<ArchitectureProjectDetails/>} />
               <Route path="/architecture-portfolio-form" element={<ArchitectureDesignForm/>} />
-              
-             
-             
-        
+              <Route path="/home-kitchen-price-calculator" element={<KitchenCalculator/>} />
+              <Route path="/home-wardrobe-price-calculator" element={<WardrobeCalculator/>} />
         </Routes>
    
         {/* <Footer/> */}

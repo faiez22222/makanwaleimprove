@@ -41,6 +41,7 @@ const multer = require('multer');
 const FormDataModel= require('./models/ImageUploaderDemo')
 const ArchitectureDataModel = require('./models/ArchitectureFormDesign')
 const contactRoutes = require('../server/routes/ContactFormRoutes')
+const interiorRoutes = require('../server/routes/interiorCalculator')
 // const io = initializeSocket(server);
 
 const corsOptions = {
@@ -123,6 +124,7 @@ app.use(express.urlencoded({ extended: true, limit: '100mb' })); // <- Parses UR
   app.use('/api/contest-plan-execution', executionRoutes)
   app.use('/api/discuss-item',discussRoutes)
   app.use('/api/contact' , contactRoutes)
+  app.use('/api/interior-calculator' , interiorRoutes)
 
 
 // Multer configuration for file uploads

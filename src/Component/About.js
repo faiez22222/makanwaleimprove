@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Flex, VStack, HStack , Image, Spacer, Button , useMediaQuery , SimpleGrid , Stack ,StackDirection, Grid, GridItem , } from '@chakra-ui/react';
+import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, UnorderedList, ListItem , List  , Flex, VStack, HStack , Image, Spacer, Button , useMediaQuery , SimpleGrid , Stack ,StackDirection, Grid, GridItem ,Link , } from '@chakra-ui/react';
 import architectural_service from './Images/architectural_service.jpg';
 import '@fortawesome/fontawesome-free/css/all.css';
 import aboutvilla from './Images/about-villa.png';
 import team from './Images/—Pngtree—flat wind in the discussion_4594811.png'
+import makanwale from './Images/MakanWale.png'
 
 
 const About = () => {
@@ -17,7 +18,7 @@ const About = () => {
 
   const gridArchitectureProps = isBelow720px
   ? { 
-      templateRows: 'repeat(2, 1fr )',
+      templateRows: '2',
       gap: '5px'
     }
   : {  
@@ -70,7 +71,7 @@ const About = () => {
           Architecture
        </Text>
       
-          <Grid   {...gridArchitectureProps}   width= {["80%" , "80%" , "80%" ,"80%","75%","75%","50%"]}  marginTop='100px'  >
+          <Grid   {...gridArchitectureProps}   width= {["90%" , "80%" , "80%" ,"80%","75%","75%","50%"]}  marginTop='1rem'  >
               <GridItem colSpan={1}  textAlign='left'    >
               <Text fontWeight="bold"  fontFamily='serif'  fontSize={['25px' ,'25px' ,'25px' ,'20px' ,'20px' ,'20px'  ,"28px"]}>
             Planning and Architecture Service
@@ -103,7 +104,7 @@ const About = () => {
         Construction
        </Text>
       
-          <Grid   {... gridConstructionProps }   width= {["80%" , "80%" , "80%" ,"80%","85%","75%","60%"]}  marginTop='100px'   >
+          <Grid   {... gridConstructionProps }   width= {["80%" , "80%" , "80%" ,"80%","85%","75%","60%"]}  marginTop='1rem'   >
              
         
         <GridItem  colSpan={1}    >
@@ -142,7 +143,7 @@ const About = () => {
       </Box>
     
    
-     <Text    fontSize=    {['30px' ,'30px' ,'30px' ,'30px' ,'30px' ,'30px']} fontFamily='poppins'  fontWeight='500'   mt='100px'>
+     <Text    fontSize=    {['30px' ,'30px' ,'30px' ,'30px' ,'30px' ,'30px']} fontFamily='poppins'  fontWeight='500'   mt='2rem'>
         Vision
      </Text>
      <Box w='100%'  justify = 'center' align = 'center'  mb='50px'  >
@@ -185,7 +186,7 @@ const About = () => {
      </Box>
 
      <Box bgColor='whitesmoke'  w='100%'       justify = 'center' align = 'center'   marginTop='50px'   paddingBottom='100px' >
-     <Text  fontSize=  {['30px' ,'30px' ,'30px' ,'30px' ,'30px' ,'30px']}  fontFamily='poppins'   fontWeight='500'  mb="8" mt='100px'>
+     <Text  fontSize=  {['30px' ,'30px' ,'30px' ,'30px' ,'30px' ,'30px']}  fontFamily='poppins'   fontWeight='500'  mb="8" mt='1rem'>
          Mission
      </Text>
      <Box  width = {["80%" , "80%" , "80%" ,"80%","75%","75%","50%"]}    textAlign='left'  marginTop='50px'   >
@@ -249,6 +250,140 @@ const About = () => {
                   />
               </Box>
         </Box>
+
+        <Flex
+     alignItems="center"
+     justifyContent="center"
+     bgColor='#262626' 
+     flexDirection="column"
+     width='100%'
+   >   
+
+      <Box 
+        width= {['100%' , '100%' , '100%' , '75%' , '75%' , '75%' , '75%']}  
+        flexDirection={isBelow720px ? 'column' : 'row' } 
+        display='flex'    
+        justifyContent='space-between'
+
+         >
+             <Box display='block'   width=  {['80%' , '80%' , '89%' , '75%' , '30%' , '30%' , '30%']}  marginTop={isBelow720px ? '100px' : '0px' }  marginLeft='25px'    >
+                <Box  width='90%'  >  
+                  <Image
+                     src = {makanwale} 
+                     width='100%'
+                     height='150px'
+                  />
+                </Box>
+                <Box  marginTop='3px' >
+                <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='20px' marginBottom={isBelow720px ? '0px' : '10px' }   >Copyright - 2021 Buildhood All rights Reserved. </Text>
+                </Box>
+                <Box    >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' >Powered by Buildhood Infratech Pvt Ltd.</Text>
+                </Box>
+             </Box>
+             <Box display='block' marginBottom={isBelow720px ? '100px' : '0px'}   marginTop={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
+                     <Box   w={isBelow720px && "30%"}   marginBottom={isBelow720px ? '10px' : '0px'}  >
+                     <Text  color='white'  fontSize={["20px" , "20px" , "20px" , '25px', '25px', '25px', '25px' ]}  fontWeight='700' fontFamily='serif' marginTop={isBelow720px ? '0px' : '50px' }    >Quick Links</Text>
+                     <Box display='flex'  width='40%'  justifyContent='space-between'   >
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor= 'whitesmoke' width='25%'  >
+                          
+                          </Box>
+                     </Box>
+                     </Box>
+                     <Box>
+                      <Link href = '/' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop={isBelow720px ? '0px' : '20px' }  marginBottom={isBelow720px ? '0px' : '10px' }      >Home</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = '/about-us' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >About Us</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = '/cost-plus-contract-house-construction' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }  >Cost-Plus Model</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link  href = '/construction-packages' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Packages</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = '/projects' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   > Projects</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = "/" >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Career</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = "/contact-us" >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '50px' }   >Contact Us</Text>
+                     </Link>
+                     </Box>
+                </Box>
+                <Box marginBottom={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
+                    <Box  w={isBelow720px && "50%"}   marginBottom={isBelow720px ? '10px' : '0px'} >
+                         <Text  color='white' fontSize={["25px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]} fontWeight='700' fontFamily='serif'   marginTop='50px'   >Contact Us</Text>
+                         <Box display='flex'  width='40%'  justifyContent='space-between'  >
+                      <Box borderWidth= {["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  bgColor='orangered' width='25%'  >
+                          
+                          </Box>
+                     </Box>
+                         
+                    </Box>
+                    <Box>
+                         <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >+91 7802-80-80-80</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >enquiry@buildhood.com</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >sales@buildhood.com</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >careers@buildhood.com</Text>
+                    </Box>
+
+                </Box>
+                <Box marginBottom='40px'  marginLeft='25px' >
+                    <Box   w={isBelow720px && "50%"}   marginBottom={isBelow720px ? '10px' : '0px'} >
+                       <Text color='white'  fontSize={["20px" , "25px" , "25px" , '20px', '20px', '20px', '20px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'  >Important Links</Text>
+                       <Box display='flex'  width='40%'  justifyContent='space-between'  >
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  bgColor='orangered' width='25%'  >
+                          
+                          </Box>
+                     </Box>
+                    </Box>
+                    <Box>
+                        <Link href = "/" >
+                        <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >Architecture</Text> 
+                        </Link>
+                    </Box>
+                    <Box>
+                         <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Sitemap</Text>
+                    </Box>
+                    <Box>
+                         <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Terms and Condition</Text>
+                    </Box>
+                </Box>
+      </Box>
+   
+   </Flex>
+
    </Flex>
   );
 };
