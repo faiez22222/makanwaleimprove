@@ -31,6 +31,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, Unordere
    import 'react-phone-number-input/style.css'
    import PhoneInput from 'react-phone-number-input'
 import { faBullseye } from '@fortawesome/free-solid-svg-icons';
+   import makanwale from './Images/MakanWale.png'
 
 const InteriorCalculator = () => {
   // State to track active tabs
@@ -186,7 +187,37 @@ useEffect(() => {
 
     }
   };
+  const [isFirstClicked, setFirstIsClicked] = useState(false);
 
+  const handleFirstClick = () => {
+    setFirstIsClicked(!isFirstClicked);
+    setSecondIsClicked(false);
+    setThirdIsClicked(false);
+    setFourthIsClicked(false);
+  };
+  const [isSecondClicked, setSecondIsClicked] = useState(false);
+
+  const handleSecondClick = () => {
+    setSecondIsClicked(!isSecondClicked);
+    setFirstIsClicked(false);
+    setThirdIsClicked(false);
+    setFourthIsClicked(false);
+  };
+  const [isThirdClicked, setThirdIsClicked] = useState(false);
+
+  const handleThirdClick = () => {
+    setThirdIsClicked(!isThirdClicked);
+    setSecondIsClicked(false);
+    setFirstIsClicked(false);
+    setFourthIsClicked(false);
+  };
+  const [isFourthClicked, setFourthIsClicked] = useState(false);
+  const handleFourthClick = () => {
+    setFourthIsClicked(!isFourthClicked);
+    setSecondIsClicked(false);
+    setThirdIsClicked(false);
+    setFirstIsClicked(false);
+  };
 
  
 
@@ -195,16 +226,16 @@ useEffect(() => {
   return (
    
 
-          <Flex   alignContent="center" justifyContent="center"     minH='100vh'       >
-           <Box  width={isBelow720px ? '90%' : '65%' }   justify = 'center' align='center'  >  
-          <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }   marginTop='100px'   >
+          <Flex   align="center" justify="center"   flexDirection='column'    minH='100vh'       >
+           <Box  width={isBelow720px ? '90%' : '65%' }   justify = 'center' align='center' mb='2rem'   >  
+          <Box    justify = 'center' align='center' justifyContent='space-between'  display='flex'   height='29px'  width={isBelow720px ? '90%' : '45%' }   marginTop='100px'    >
   
   <Flex
         ref={circle1Ref}
         align="center"
         justify="center"
-        width= '30px'
-        height="30px"
+        width= '1.5rem'
+        height="1.5rem"
         borderRadius="50%"
         borderWidth="2px"
         borderColor='black'
@@ -221,8 +252,8 @@ useEffect(() => {
         
         align="center"
         justify="center"
-        width= '30px'
-        height="30px"
+        width= '1.5rem'
+        height="1.5rem"
         borderRadius="50%"
         borderWidth="2px"
         borderColor='black'
@@ -236,8 +267,8 @@ useEffect(() => {
         
         align="center"
         justify="center"
-        width= '30px'
-        height="30px"
+        width= '1.5rem'
+        height="1.5rem"
         borderRadius="50%"
         borderWidth="2px"
         borderColor='black'
@@ -251,8 +282,8 @@ useEffect(() => {
          ref={circle2Ref}
         align="center"
         justify="center"
-        width= '30px'
-        height="30px"
+        width= '1.5rem'
+        height="1.5rem"
         borderRadius="50%"
         borderWidth="2px"
         borderColor='black'
@@ -264,18 +295,29 @@ useEffect(() => {
                    <Box  borderWidth='1px' position='absolute'       style={{ marginLeft:`-${ distance}px`,  width: `${ distance}px` }}     borderColor='grey' zIndex='-1'   >              
                   </Box>
         </Flex>
-        
-       
-        </Box   >
+        </Box    >
+        <Box   w={`${distance+50}px`} justifyContent='space-between' display='flex' mt='.5rem'  >
+          <Text fontSize={['.6rem']} >BHK TYPE</Text>
+          <Text fontSize={['.6rem']} >ROOMS TO DESIGN</Text>
+          <Text fontSize={['.6rem']} >PACKAGE</Text>
+          <Text fontSize={['.6rem']} >GET QUOTE</Text>
+        </Box>
+
              { index=== 0 &&  ( 
               <Card width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'60%'  ]}     justifyContent='center'  alignItems='center'   marginTop='50px'   boxShadow='0 0 10px rgba(0, 0, 0, 0.2)'  >
+                   
+                    <Box paddingTop='2rem' >
+                         <Text  fontSize='1.3rem'  fontWeight='400' fontFamily='Georgia, serif' >
+                             Select your BHK type
+                         </Text>
+                    </Box>
                   <Box   width= {["100%" ,  "100%", "100%" , "50%" , "50%" , "50%" ]}      display='block'  justifyContent='space-between'  mt='50px'  zIndex='1000'    borderWidth='1px'  >
                       <RadioGroup  defaultValue= {formData.bhk}        >
                         <Stack direction='column'  spacing='15px'      >
                         <Accordion allowMultiple  width='100%'    borderWidth='1px'   >
                                     <AccordionItem  borderColor="whitesmoke"  >
                                       <h2>
-                                        <AccordionButton>
+                                        <AccordionButton  >  
                                            <Radio value = '0'  color='#eb595f'   name="bhk"   onChange={handleInputChange}  >
                                              1 BHK
                                            </Radio>
@@ -286,11 +328,12 @@ useEffect(() => {
                              <Accordion allowMultiple  width='100%'     borderWidth='1px'    >
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
-                                        <AccordionButton>
+                                        <AccordionButton   onClick={handleFirstClick} >
                                           <Box  width='100%' display='flex'  justifyContent='space-between'  >
-                                        <Radio value = '1'  color='#eb595f'   name="bhk1"   onChange={handleInputChange}  >
-                                             2 BHK
-                                           </Radio>
+                                            <HStack>
+                                           <Box height='1rem' width='1rem' borderRadius='50%'   borderWidth='4px'   borderColor={isFirstClicked && '#eb595f'}  ></Box>
+                                           <Text>2 BHK</Text>
+                                           </HStack>
                                           <AccordionIcon />
                                           </Box>
                                         </AccordionButton>
@@ -317,8 +360,14 @@ useEffect(() => {
                                   <Accordion allowMultiple  width='100%'    borderWidth='1px'    >
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
-                                        <AccordionButton>
+                                        <AccordionButton onClick={handleSecondClick}  >
+                                        <Box  width='100%' display='flex'  justifyContent='space-between'  >
+                                            <HStack>
+                                           <Box height='1rem' width='1rem' borderRadius='50%'   borderWidth='4px'  borderColor={isSecondClicked && '#eb595f'}  ></Box>
+                                           <Text>3 BHK</Text>
+                                           </HStack>
                                           <AccordionIcon />
+                                          </Box>
                                         </AccordionButton>
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
@@ -344,9 +393,15 @@ useEffect(() => {
                                   <Accordion allowMultiple  width='100%'    borderWidth='1px'    >
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
-                                        <AccordionButton>
+                                        <AccordionButton  onClick={handleThirdClick}  >
                                                
+                                        <Box  width='100%' display='flex'  justifyContent='space-between'  >
+                                            <HStack>
+                                           <Box height='1rem' width='1rem' borderRadius='50%'   borderWidth='4px'   borderColor={isThirdClicked && '#eb595f'}   ></Box>
+                                           <Text>4 BHK</Text>
+                                           </HStack>
                                           <AccordionIcon />
+                                          </Box>
                                       
                                         </AccordionButton>
                                       </h2>
@@ -371,8 +426,14 @@ useEffect(() => {
                                   <Accordion allowMultiple  width='100%'    borderWidth='1px'    >
                                     <AccordionItem  borderColor="whitesmoke" >
                                       <h2>
-                                        <AccordionButton>
-                                          <AccordionIcon />                                 
+                                        <AccordionButton  onClick={handleFourthClick} >
+                                        <Box  width='100%' display='flex'  justifyContent='space-between'    >
+                                            <HStack>
+                                           <Box height='1rem' width='1rem' borderRadius='50%'   borderWidth='4px'   borderColor={isFourthClicked && '#eb595f'} ></Box>
+                                           <Text>5 BHK</Text>
+                                           </HStack>
+                                          <AccordionIcon />
+                                          </Box>                                 
                                         </AccordionButton>
                                       </h2>
                                       <AccordionPanel pb={4}  borderColor="whitesmoke" >
@@ -880,6 +941,139 @@ useEffect(() => {
                   </Box>
              )}
         </Box>
+        <Flex
+     alignItems="center"
+     justifyContent="center"
+     bgColor='#262626' 
+     flexDirection="column"
+     width='100%'
+   >   
+
+      <Box 
+        width= {['100%' , '100%' , '100%' , '75%' , '75%' , '75%' , '75%']}  
+        flexDirection={isBelow720px ? 'column' : 'row' } 
+        display='flex'    
+        justifyContent='space-between'
+
+         >
+             <Box display='block'   width=  {['80%' , '80%' , '89%' , '75%' , '30%' , '30%' , '30%']}  marginTop={isBelow720px ? '100px' : '0px' }  marginLeft='25px'    >
+                <Box  width='90%'  >  
+                  <Image
+                     src = {makanwale} 
+                     width='100%'
+                     height='150px'
+                  />
+                </Box>
+                <Box  marginTop='3px' >
+                <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='20px' marginBottom={isBelow720px ? '0px' : '10px' }   >Copyright - 2021 Buildhood All rights Reserved. </Text>
+                </Box>
+                <Box    >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' >Powered by Buildhood Infratech Pvt Ltd.</Text>
+                </Box>
+             </Box>
+             <Box display='block' marginBottom={isBelow720px ? '100px' : '0px'}   marginTop={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
+                     <Box   w={isBelow720px && "30%"}   marginBottom={isBelow720px ? '10px' : '0px'}  >
+                     <Text  color='white'  fontSize={["20px" , "20px" , "20px" , '25px', '25px', '25px', '25px' ]}  fontWeight='700' fontFamily='serif' marginTop={isBelow720px ? '0px' : '50px' }    >Quick Links</Text>
+                     <Box display='flex'  width='40%'  justifyContent='space-between'   >
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor= 'whitesmoke' width='25%'  >
+                          
+                          </Box>
+                     </Box>
+                     </Box>
+                     <Box>
+                      <Link href = '/' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop={isBelow720px ? '0px' : '20px' }  marginBottom={isBelow720px ? '0px' : '10px' }      >Home</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = '/about-us' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >About Us</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = '/cost-plus-contract-house-construction' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }  >Cost-Plus Model</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link  href = '/construction-packages' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]}  color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Packages</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = '/projects' >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   > Projects</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = "/" >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }   >Career</Text>
+                     </Link>
+                     </Box>
+                     <Box>
+                      <Link href = "/contact-us" >
+                     <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '50px' }   >Contact Us</Text>
+                     </Link>
+                     </Box>
+                </Box>
+                <Box marginBottom={isBelow720px ? '100px' : '0px'}  marginLeft='25px' >
+                    <Box  w={isBelow720px && "50%"}   marginBottom={isBelow720px ? '10px' : '0px'} >
+                         <Text  color='white' fontSize={["25px" , "30px" , "30px" , '25px', '25px', '25px', '25px' ]} fontWeight='700' fontFamily='serif'   marginTop='50px'   >Contact Us</Text>
+                         <Box display='flex'  width='40%'  justifyContent='space-between'  >
+                      <Box borderWidth= {["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  bgColor='orangered' width='25%'  >
+                          
+                          </Box>
+                     </Box>
+                         
+                    </Box>
+                    <Box>
+                         <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >+91 7802-80-80-80</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >enquiry@buildhood.com</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >sales@buildhood.com</Text>
+                    </Box>
+                    <Box>
+                        <Text fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >careers@buildhood.com</Text>
+                    </Box>
+
+                </Box>
+                <Box marginBottom='40px'  marginLeft='25px' >
+                    <Box   w={isBelow720px && "50%"}   marginBottom={isBelow720px ? '10px' : '0px'} >
+                       <Text color='white'  fontSize={["20px" , "25px" , "25px" , '20px', '20px', '20px', '20px' ]}  fontWeight='700' fontFamily='serif'   marginTop='50px'  >Important Links</Text>
+                       <Box display='flex'  width='40%'  justifyContent='space-between'  >
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  borderColor='orangered' width='65%'  >
+                          
+                      </Box>
+                      <Box borderWidth={["2px" , "2px" , "2px" , "1px" , "1px" , "1px" ,"1px" ]}  bgColor='orangered' width='25%'  >
+                          
+                          </Box>
+                     </Box>
+                    </Box>
+                    <Box>
+                        <Link href = "/" >
+                        <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif' marginTop={isBelow720px ? '0px' : '10px' }  marginBottom={isBelow720px ? '0px' : '10px' }    >Architecture</Text> 
+                        </Link>
+                    </Box>
+                    <Box>
+                         <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Sitemap</Text>
+                    </Box>
+                    <Box>
+                         <Text  fontSize={["20px" , "20px" , "20px" , "20px" , "20px" , "20px" ,"20px" ]} color='white'  fontWeight='500'  fontFamily='sans-serif'  marginTop='10px' marginBottom={isBelow720px ? '0px' : '10px' }    >Terms and Condition</Text>
+                    </Box>
+                </Box>
+      </Box>
+   
+   </Flex>
+
 
           </Flex>  
 
