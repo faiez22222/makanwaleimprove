@@ -30,6 +30,8 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, Unordere
     Tag,
     useCheckbox  , 
     useCheckboxGroup ,
+    Grid ,
+    GridItem ,
    } from '@chakra-ui/react';
    import { MinusIcon , AddIcon , CheckIcon }    from '@chakra-ui/icons'
    import essentials from './Images/essentials-desktop-1677569928-WCHBw.jpg'
@@ -68,7 +70,7 @@ import { Tabs, TabList, Tab, TabPanels, TabPanel ,  Box, Heading, Text, Unordere
    import builtinoven from './Images/build-in-oven-d-1623080392-Fa6Sd.png'
    import refriator from './Images/refrigerator-d-1623080401-BDUQw.png'
    import makanwale from './Images/MakanWale.png'
-
+   import quizinterior from './Images/quiz_confirmation_d_v1_1.png'
 
 
  const KitchenCalculator = () => {
@@ -1161,6 +1163,242 @@ useEffect(() => {
                       <Button    bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}    type='submit'    onClick={handleSubmit}>Get My Estimate</Button>
                   </Box>   
                   </Box>
+             )}
+
+{ index === 12 && (
+                   <Box>
+                        <Box width='75%'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"    pt='2rem' pb='1rem'  >  
+                             <Image
+                               width='80%'
+                               src = {quizinterior}
+                             />
+                             <Box width='75%' >
+                                  <Text  fontSize='1.5rem'  fontWeight='400' fontFamily='Georgia, serif' >
+                                  Here's your estimate! Sounds like the start of a lovely home.
+                                  </Text>
+                                  <Text fontFamily='Georgia, serif' >
+                                     We'd love to discuss it with you. We'll get in touch soon.
+                                  </Text>
+                             </Box>
+                        </Box>
+                        <Box  width='75%'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"  >
+                             <Box  pt='2rem' pb='1rem'  >   
+                               <Text fontFamily='Georgia, serif' >
+                                  Your estimated home interiors cost for
+                               </Text>
+                               <Box width='80%' >
+                                  <VStack>
+                                      <Image
+                                        src= {essentials}
+                                        rounded={"lg"}
+                                      />
+                                      <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'   >
+                                          <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Essentials</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text color='green' fontWeight='500'  >₹9.53L*</Text>
+                                         </GridItem>
+                                      </Grid>
+                                      <Box width='100%' fontFamily='Georgia, serif'  textAlign='left' >
+                                        <Text fontFamily='Georgia, serif'  >
+                                        A range of essential home interior solutions that's perfect for all your needs.
+                                        </Text>
+                                      </Box>
+                                      <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'  rowGap='1rem'   >
+                                          <GridItem textAlign='left' >
+                                          <Text  fontFamily='Georgia, serif' >Type</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text    fontFamily='Georgia, serif' >1 BHK</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Rooms</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Living Room, Kitchen, Bedroom, Bathroom, Dining</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'   fontFamily='Georgia, serif' >Modular</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'   fontFamily='Georgia, serif' >
+                                                  Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'  fontFamily='Georgia, serif' >
+                                         Furniture
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'     fontFamily='Georgia, serif' >
+                                         Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'     fontFamily='Georgia, serif' >
+                                         Services
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'    fontFamily='Georgia, serif' >
+                                        
+                                            Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle
+                                        </Text>
+                                         </GridItem>
+                                      </Grid>
+                                  </VStack>
+                               </Box>
+                             </Box>
+                            
+                        </Box>
+                        <Box width='75%' textAlign='left'  >
+                                     <Text>
+                                     *This is only an indicative price based on our clients' average spends. The final price can be higher or lower depending on factors like finish material, number of furniture, civil work required (painting, flooring, plumbing, etc.), design elements, and wood type. Don't worry, our designers can help you understand this better.
+                                     </Text>
+                         </Box>
+                         <Box  borderWidth='1px'  mt='1rem'  mb='1rem'  width='75%'  ></Box>
+                         <Box width='75%' >
+                            <Text  fontFamily='Georgia, serif' >
+                            Compare the pricing with other packages
+                            </Text>
+                         </Box>
+
+                         <Box width='80%'  mb='2rem'  >
+                                  <VStack>
+                                      <Image
+                                        src= {essentials}
+                                        rounded={"lg"}
+                                      />
+                                      <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'   >
+                                          <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Essentials</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text color='green' fontWeight='500'  >₹9.53L*</Text>
+                                         </GridItem>
+                                      </Grid>
+                                      <Box width='100%' fontFamily='Georgia, serif'  textAlign='left' >
+                                        <Text fontFamily='Georgia, serif'  >
+                                        A range of essential home interior solutions that's perfect for all your needs.
+                                        </Text>
+                                      </Box>
+                                      <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'  rowGap='1rem'   >
+                                          <GridItem textAlign='left' >
+                                          <Text  fontFamily='Georgia, serif' >Type</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text    fontFamily='Georgia, serif' >1 BHK</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Rooms</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Living Room, Kitchen, Bedroom, Bathroom, Dining</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'   fontFamily='Georgia, serif' >Modular</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'   fontFamily='Georgia, serif' >
+                                                  Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'  fontFamily='Georgia, serif' >
+                                         Furniture
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'     fontFamily='Georgia, serif' >
+                                         Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'     fontFamily='Georgia, serif' >
+                                         Services
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'    fontFamily='Georgia, serif' >
+                                        
+                                            Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle
+                                        </Text>
+                                         </GridItem>
+                                      </Grid>
+                                  </VStack>
+                               </Box>
+                               <Box width='80%' >
+                                  <VStack>
+                                      <Image
+                                        src= {essentials}
+                                        rounded={"lg"}
+                                      />
+                                      <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'   >
+                                          <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Essentials</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text color='green' fontWeight='500'  >₹9.53L*</Text>
+                                         </GridItem>
+                                      </Grid>
+                                      <Box width='100%' fontFamily='Georgia, serif'  textAlign='left' >
+                                        <Text fontFamily='Georgia, serif'  >
+                                        A range of essential home interior solutions that's perfect for all your needs.
+                                        </Text>
+                                      </Box>
+                                      <Grid   templateColumns  ='repeat(2, 1fr)'    width='100%'  rowGap='1rem'   >
+                                          <GridItem textAlign='left' >
+                                          <Text  fontFamily='Georgia, serif' >Type</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text    fontFamily='Georgia, serif' >1 BHK</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Rooms</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  fontFamily='Georgia, serif' >Living Room, Kitchen, Bedroom, Bathroom, Dining</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'   fontFamily='Georgia, serif' >Modular</Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'   fontFamily='Georgia, serif' >
+                                                  Modular Kitchen (MDF material, Matt Finish, Basic Accessories), Modular Wardrobe (2-Door Swing, MDF Material, Laminate finish, Basic Accessories), Basic Vanity Unit
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'  fontFamily='Georgia, serif' >
+                                         Furniture
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'     fontFamily='Georgia, serif' >
+                                         Basic Bed, Basic Mattress, Basic Side Table, Basic Crockery Unit, Basic Dining Table + Chairs
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'     fontFamily='Georgia, serif' >
+                                         Services
+                                        </Text>
+                                         </GridItem>
+                                         <GridItem textAlign='left' >
+                                         <Text  textAlign='left'    fontFamily='Georgia, serif' >
+                                        
+                                            Basic False Ceiling, Basic Wallpaper, Basic Curtains, Basic Painting, Basic Pooja Unit, Basic Wooden Flooring, Basic Tiling, Basic Shower Cubicle
+                                        </Text>
+                                         </GridItem>
+                                      </Grid>
+                                  </VStack>
+                               </Box>
+                               <Box mt='2rem' >
+                                 <Text fontFamily='Georgia, serif'>
+                                 *This is only an indicative price based on our clients' average spends. The final price can be higher or lower depending on factors like finish material, number of furniture, civil work required (painting, flooring, plumbing, etc.), design elements, and wood type. Don't worry, our designers can help you understand this better.
+                                 </Text>
+                               </Box>
+                   </Box>
              )}
         </Box>
 
