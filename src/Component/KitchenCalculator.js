@@ -197,6 +197,7 @@ useEffect(() => {
 
   
   const handleSubmit = async (e) => {
+    setIndex(index+1)
     e.preventDefault();
     if (formData.Name.trim() === ''   || formData.Number.trim() === '' || formData.Emailid.trim() === '' || formData.Checked === false || formData.PropertyName.trim() === ''  ) {
       // Set error states for required fields
@@ -552,6 +553,100 @@ useEffect(() => {
   })
 
   const img = painting
+
+  const avatars7= [
+    { name: 'Yes'},
+    { name: 'No'},
+  ]
+
+  const avatars8= [
+    { name: 'Yes'},
+    { name: 'No'},
+  ]
+
+  function CustomRadio7(props) {
+    const { image, named , ...radioProps } = props
+    const { state, getInputProps, getRadioProps, htmlProps, getLabelProps } =
+      useRadio(radioProps)
+
+    return (
+      <chakra.label {...htmlProps} cursor='pointer'>
+        <input {...getInputProps({})} hidden />
+        <Box
+          
+          {...getRadioProps()}
+          borderWidth='2px'
+          borderColor={state.isChecked ? '#eb595f' : 'lightgrey'}
+          p={1}
+ 
+          alignItems='flex-start'
+
+        >
+            <HStack width='100%'   >
+               <Box    borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} width='1rem' height='1rem'  borderRadius='50%'  borderWidth='.3rem'  ></Box>
+               <Text>{named}</Text>
+            </HStack>
+            
+         
+        </Box>
+      </chakra.label>
+    )
+  }
+
+  function CustomRadio8(props) {
+    const { image, named , ...radioProps } = props
+    const { state, getInputProps, getRadioProps, htmlProps, getLabelProps } =
+      useRadio(radioProps)
+
+    return (
+      <chakra.label {...htmlProps} cursor='pointer'>
+        <input {...getInputProps({})} hidden />
+        <Box
+          
+          {...getRadioProps()}
+          borderWidth='2px'
+          borderColor={state.isChecked ? '#eb595f' : 'lightgrey'}
+          p={1}
+ 
+          alignItems='flex-start'
+
+        >
+            <HStack width='100%'   >
+               <Box    borderColor={state.isChecked ? '#eb595f' : 'lightgrey'} width='1rem' height='1rem'  borderRadius='50%'  borderWidth='.3rem'  ></Box>
+               <Text>{named}</Text>
+            </HStack>
+            
+         
+        </Box>
+      </chakra.label>
+    )
+  }
+
+
+  const { value: value7, getRadioProps : getRadioProps7, getRootProps:getRootProps7 } = useRadioGroup({
+    defaultValue: 'Yes',
+    onChange: handleChanges,
+  })
+
+  const { value: value8, getRadioProps : getRadioProps8, getRootProps:getRootProps8 } = useRadioGroup({
+    defaultValue: 'Yes',
+    onChange: handleChanges,
+  })
+
+  const handleChanges7 = (value7) => {
+    toast({
+      title: `The value got changed to ${value7}!`,
+      status: 'success',
+      duration: 2000,
+    })
+  }
+  const handleChanges8 = (value7) => {
+    toast({
+      title: `The value got changed to ${value7}!`,
+      status: 'success',
+      duration: 2000,
+    })
+  }
 
 
   return (
@@ -913,55 +1008,87 @@ useEffect(() => {
                   </Box>
                   
              )}
-             {index === 5 && (
-                <Box bgColor='yellow' >
-                     <Box  width='50%'>
-                        <Text>
-                           Let's add a granite countertop (with laminated ply, without backsplash)?
-                        </Text>
-                     </Box>
-                     <Box>
-                        <RadioGroup>
-                            <Radio>
-                               Yes
-                            </Radio>
-                            <Radio>
-                               No
-                            </Radio>
-                        </RadioGroup>
-                     </Box>
-                     <Box width='100%' borderWidth='1px'  marginTop='60px'  ></Box>
+              { index=== 5 &&  ( 
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'    >
+                  <Box 
+                    padding='30px' 
+                    width= {["100%" ,  "100%", "100%" , "50%" , "50%" , "100%" ]}  
+                    display='block'  justifyContent='space-between'  mt='50px'  zIndex='1000'    borderWidth='1px'  
+                    boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" 
+                     >
+                    <SimpleGrid columns={1}justify="center" align="center"  rowGap={5}   width={["250px" , "280px" , "375px"]}  >
+  {avatars7.map((avatar, index) => {
+    if (index === 3) {
+      return (
+        <CustomRadio7
+          key={avatar.name}
+          named = {avatar.name}
+        //   gridColumn="2 / span 1" // This will position the fourth item in the center of the second column
+          {...getRadioProps7({ value: avatar.name })}
+        />
+      );
+    } else {
+      return (
+        <CustomRadio7
+          key={avatar.name}
+          named = {avatar.name}
+ 
+          {...getRadioProps({ value: avatar.name })}
+        />
+      );
+    }
+  })}
+</SimpleGrid>
+                  </Box>
+                  <Box width='100%' borderWidth='1px'  marginTop='60px'  ></Box>
                   <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='50px'   >
                       <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
                       <Button  bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonClick}>Next</Button>
                   </Box>   
-                </Box>
+                  </Box>
+                  
              )}
 
-             {index === 6 && (
-                 <Box>
-                     <Box  width='50%'>
-                        <Text>
-                        Do you want to add a loft?
-                        </Text>
-                     </Box>
-                     <Box>
-                        <RadioGroup>
-                            <Radio>
-                               Yes
-                            </Radio>
-                            <Radio>
-                               No
-                            </Radio>
-                        </RadioGroup>
-                     </Box>
-                     <Box width='100%' borderWidth='1px'  marginTop='60px'  ></Box>
+{ index=== 6 &&  ( 
+              <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'    >
+                  <Box 
+                    padding='30px' 
+                    width= {["100%" ,  "100%", "100%" , "50%" , "50%" , "100%" ]}  
+                    display='block'  justifyContent='space-between'  mt='50px'  zIndex='1000'    borderWidth='1px'  
+                    boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)" 
+                     >
+                    <SimpleGrid columns={1}justify="center" align="center"  rowGap={5}   width={["250px" , "280px" , "375px"]}  >
+  {avatars8.map((avatar, index) => {
+    if (index === 3) {
+      return (
+        <CustomRadio8
+          key={avatar.name}
+          named = {avatar.name}
+        //   gridColumn="2 / span 1" // This will position the fourth item in the center of the second column
+          {...getRadioProps7({ value: avatar.name })}
+        />
+      );
+    } else {
+      return (
+        <CustomRadio8
+          key={avatar.name}
+          named = {avatar.name}
+ 
+          {...getRadioProps8({ value: avatar.name })}
+        />
+      );
+    }
+  })}
+</SimpleGrid>
+                  </Box>
+                  <Box width='100%' borderWidth='1px'  marginTop='60px'  ></Box>
                   <Box  width='100%' display='flex' justifyContent='space-between'  marginTop='50px'   >
                       <Button   bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}  onClick={handleButtonClick} isDisabled >Back</Button>
                       <Button  bgColor=  '#eb595f'  color='white' _hover={{bgColor : '#eb595f'}}   onClick={handleButtonClick}>Next</Button>
                   </Box>   
-                 </Box>
-             ) }
+                  </Box>
+                  
+             )}
 
 { index=== 7 &&  ( 
               <Box width=  {["100%" ,  "100%", "100%" , '60%'  , '60%'  ,'75%'  ]}      marginTop='50px'   justifyContent='center'  alignItems='center'  boxShadow= "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"   >

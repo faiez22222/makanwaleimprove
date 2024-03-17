@@ -86,6 +86,7 @@ import costplusshort from './Images/costplusshort.png'
 import './SecondImageSlider.css'
 import './CardSlider.css'
 import makanwale from './Images/MakanWale.png'
+import { useNavigate } from 'react-router-dom';
 
 
 const Layout = () => {
@@ -100,6 +101,7 @@ const Layout = () => {
     const [isequal1440px] = useMediaQuery("(width: 1440px)");
     const [isequal320px] = useMediaQuery("(width: 320px)");
     const [isAbove0px] = useMediaQuery("(min-width: 0px)");
+    const navigate = useNavigate()
 
 
     const [distance, setDistance] = useState(0); // Initialize distance with a default value
@@ -281,7 +283,19 @@ const colors = [
   }
 
  
+  const handleCard1Click = () => {
+    // Navigate to the desired URL when the button is clicked
+    navigate('/home-interior-price-calculator');
+  };
+  const handleCard2Click = () => {
+    // Navigate to the desired URL when the button is clicked
+    navigate('/home-kitchen-price-calculator');
+  };
 
+  const handleCard3Click = () => {
+    // Navigate to the desired URL when the button is clicked
+    navigate('/home-wardrobe-price-calculator');
+  };
 
   return (
     <Flex  flexDirection='column'   minH='100vh'   width='100vw'   >
@@ -642,7 +656,7 @@ const colors = [
         </CardBody>
         <CardFooter>
            <Box width='100%'>
-              <Button   width='100%' bgColor='#eb595f' color='white'    >Calculate</Button>
+              <Button   width='100%' bgColor='#eb595f' color='white'  onClick={handleCard1Click}    >Calculate</Button>
            </Box>
         </CardFooter>
       </Card>
@@ -681,7 +695,7 @@ const colors = [
         </CardBody>
         <CardFooter>
         <Box width='100%'>
-              <Button   width='100%' bgColor='#eb595f' color='white'    >Calculate</Button>
+              <Button   width='100%' bgColor='#eb595f' color='white'   onClick={handleCard2Click}    >Calculate</Button>
         </Box>
         </CardFooter>
       </Card>
@@ -721,7 +735,7 @@ const colors = [
         </CardBody>
         <CardFooter>
         <Box width='100%'>
-              <Button   width='100%' bgColor='#eb595f' color='white'    >Calculate</Button>
+              <Button   width='100%' bgColor='#eb595f' color='white'   onClick={handleCard3Click}    >Calculate</Button>
            </Box>
         </CardFooter>
       </Card>

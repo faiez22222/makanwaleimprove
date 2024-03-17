@@ -205,6 +205,7 @@ useEffect(() => {
 
   
   const handleSubmit = async (e) => {
+    setIndex(index+1)
     e.preventDefault();
     if (formData.Name.trim() === ''   || formData.Number.trim() === '' || formData.Emailid.trim() === '' || formData.Checked === false || formData.PropertyName.trim() === ''  ) {
       // Set error states for required fields
