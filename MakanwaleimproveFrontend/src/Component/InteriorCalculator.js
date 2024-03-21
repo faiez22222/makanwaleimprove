@@ -157,7 +157,7 @@ useEffect(() => {
 
   
   const handleSubmit = async (e) => {
-    setIndex(index + 1);
+   
     e.preventDefault();
     if (formData.Name.trim() === ''   || formData.Number.trim() === '' || formData.Emailid.trim() === '' || formData.Checked === false || formData.PropertyName.trim() === ''  ) {
       // Set error states for required fields
@@ -169,6 +169,7 @@ useEffect(() => {
       // Set error states for other required fields if needed
       return;
     }
+    console.log(formData)
   
     try {
       const response = await fetch('http://localhost:3001/api/interior-calculator/submit-form', {
@@ -180,6 +181,7 @@ useEffect(() => {
       });
   
       if (response.ok) {
+        setIndex(index + 1);
         console.log('Form data successfully submitted to the backend');
        
       } else {
@@ -906,7 +908,7 @@ useEffect(() => {
                        isInvalid = {isNumberError}
                        onChange={handleChange}
                        />
-                      <Checkbox defaultChecked
+                      <Checkbox 
   
                           name='Checked'
                           checked={formData.Checked}
