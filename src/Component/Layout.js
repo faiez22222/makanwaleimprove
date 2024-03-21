@@ -297,6 +297,78 @@ const colors = [
     navigate('/home-wardrobe-price-calculator');
   };
 
+
+  const [isNameError, setIsNameError] = useState(false);
+  const [isEmailError, setIsEmailError] = useState(false);
+  const [isMobileError, setIsMobileError] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    mobile: '',
+    email: '',
+    state: 'Bangalore',
+    pincode : ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type , checked } = e.target;
+
+    if(name ==='name'   )
+    {
+      setIsNameError(value.trim() === '');
+    }
+    if( name === 'mobile' ){
+        setIsMobileError(value.trim() === '')
+    }
+       if( name === 'email' ){
+      setIsEmailError(value.trim() === '')
+    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.name.trim() === ''   || formData.mobile.trim() === '' || formData.email.trim() === ''  ) {
+      // Set error states for required fields
+      setIsNameError(formData.name.trim() === ''  );
+      setIsMobileError(formData.mobile.trim() === ''  );
+      setIsEmailError(formData.email.trim() === ''  );
+      // Set error states for other required fields if needed
+      return;
+    }
+  
+    try {
+      const response = await fetch('http://localhost:3001/api/contact//submit-form-below-720', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        console.log('Form data successfully submitted to the backend');
+        setIsSubmit(true)
+        // You can handle successful form submission, e.g., redirect the user or show a success message
+      } else {
+        console.error('Failed to submit form data to the backend');
+        // You can handle failed form submission, e.g., show an error message to the user
+      }
+    } catch (error) {
+      console.error('Error submitting form data:', error);
+      // You can handle other errors, e.g., show a generic error message to the user
+    }
+  };
+
+
+
+   
+
+
   return (
     <Flex  flexDirection='column'   minH='100vh'   width='100vw'   >
       
@@ -338,28 +410,59 @@ const colors = [
               <Box justify= 'center' align= 'center'  >
          <FormControl size='sm'     width='75%'   >
           <VStack spacing='10px' >
-            <Input
-                type='email'
-                placeholder="Name"
+          <Input
+           type='Name' 
+           placeholder='Name *' 
+           name='name'
+           value={formData.name}
+           onChange={handleChange}
+           isRequired={true}
+           isInvalid={isNameError}
+          />
+
+           <Input 
+           placeholder='Mobile *'  
+           name='mobile'
+           value={formData.mobile}
+           onChange={handleChange}
+           isRequired= {true}
+           isInvalid = {isMobileError}
             />
-             <Input
-                type='email'
-                placeholder="Mobile No"
-            />
-            <Input
-                type='email'
-                placeholder="Email"
-            />
-            <Select>
+
+           <Input
+           type='email'
+           name = 'email'
+           placeholder='email *' 
+           value = {formData.email} 
+           onChange={handleChange}
+           isRequired= {true}
+           isInvalid = {isEmailError}
+             />
+
+            <Select
+                name = 'state'
+                value = {formData.state}
+                onChange={handleChange}
+                isRequired= {true}
+     
+            >
               <option>Bangalore</option>
               <option>Hyderabad</option>
-              <option></option>
+              <option>Pune</option>
             </Select>
               <Input
-                type='email'
+                type='number'
+                name = "pincode"
                 placeholder="Pincode"
+                value = {formData.pincode} 
+               onChange={handleChange}
             />
-            <Button color='white' width='250px' type="Submit"  bgColor='orangered' >Submit</Button>
+            {isSubmit && (
+            <Box>
+               <Text color='green' >Query posted successfully. Our Team will get back you shortly.</Text>
+            </Box>
+         )}  
+            <Button color='white' width='250px' type="Submit"  bgColor='orangered'  onClick={handleSubmit} >Submit</Button>
           </VStack>                
                     
          </FormControl>
